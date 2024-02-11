@@ -21,6 +21,8 @@
 \usepackage{adjustbox}
 \usepackage{threeparttablex} % used to contain the long table and add suitable table notes
 \usepackage{booktabs} % required for three part table above
+\usepackage{afterpage} 
+
 \setstretch{1.5} % setting the spacing between the lines to 1.5
 
 
@@ -121,7 +123,7 @@
                 \textbf{\large{Key Areas:}}
                 \vspace{0.4cm}
 
-                Transportation, Carpooling, Ride-sharing:  Mobile App, Flutter
+                Transportation Service, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase, Java Spring Boot
 
             \end{center}
     \end{titlepage}
@@ -180,10 +182,10 @@
                 
                 \begin{table}[ht]
                     \begin{spacing}{1.2}
-                        \caption{Relevant Firebase Features \cite{firebase_detail}}
                         \label{firebase_table}
                         \begin{center}                            
                             \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{3cm} X}
+                                \hline
                                 \textbf{Real Time Updates} & Firebase uses data synchronization rather than typical HTTP requests. It allows all connected devices to receive immediate updates every time data changes.
                                 This helps with the real-time location and messaging through our app without having to dive into abstract networking.\\
                                 \hline
@@ -192,13 +194,14 @@
                                 \textbf{Ease of Access} & The Firebase Realtime Database can be accessed directly from a mobile device or web browser. There’s no need for an application server. 
                                 Moreover, it has security and data validation available through the Firebase Security Rules. \\
                                 \hline
-                                \textbf{Google Integration} & Google Analytics for Firebase will allow for tracking users’ trips through real-time and custom reporting. According to Google, "Firebase provides unlimited free reporting on up to 500 distinct events. Just like the regular Google Analytics, Google Analytics for Firebase automatically tracks certain key events and user parameters straight out of the box, and allows you to define custom events that are important to your application." -Firebase \cite{firebase_detail} \\
+                                \textbf{Google Integration} & Google Analytics for Firebase will allow for tracking users’ trips through real-time and custom reporting. According to Google, "Firebase provides unlimited free reporting on up to 500 distinct events. Just like the regular Google Analytics, Google Analytics for Firebase automatically tracks certain key events and user parameters straight out of the box, and allows you to define custom events that are important to your application." -Firebase \\
                                 \hline
                                 \textbf{Scalability} & Firebase can scale well for real-time updates, which is crucial for a carpooling app with a potentially large user base. \\
+                                \hline
                             \end{tabularx}
                         \end{center}
                     \end{spacing}
-
+                    \caption{Relevant Firebase Features \cite{firebase_detail}}
                 \end{table}
                 
                 \begin{figure}[h]
@@ -728,7 +731,7 @@
             \end{figure}
 
     \pagebreak
-    \subsection{Sequence, State, and Deployment Diagrams}
+    \subsection{Sequence, UML, State, and Deployment Diagrams}
 
         \begin{figure}[h]
             \centering
@@ -850,7 +853,9 @@
         \subsection{Conclusion}
             This project aims to develop a ridesharing app tailored to work with the roads in Palestine, where thousands of people rely on some form of transportation to commute every day. Given that conventional transportation methods suffer from problems regarding time, availability, and comfort, our app comes in to provide people to give people another option that tackles these issues. CarPal Ridesharing App allows anyone with a driver's license and a car to pick other people up along the way anywhere and at any time. It allows people to cut the costs of their trip, get there in fewer commutes, and save them a lot of waiting time, all while being affordable and easily accessible through a mobile app. The app will let people create accounts, become verified drivers who can start scheduling trips, or look for rides with others as passengers. Passengers will be able to book and pay through the app. At the end of the trip, both the passengers and the drivers can provide feedback on the trip.
         \subsection{Future Work}
-            Since the workflow of the project is incremental, we will start by working on the core features that our app depends on first. The core features of our app mostly reside in the back-end API and the database, i.e. routes and user database, the trip scheduling and booking transactions, and map services API. We will work on the UI and UX for each feature simultaneously. We will then move on to work on user accounts, profiles, social features, and payment methods. The final stage will be to test the app, add more routes, and deploy a version of the app to the public or a specific party for beta testing. See table \ref{2ndSemWorkPlanTable}
+            Since the workflow of the project is incremental, we will start by working on the core features that our app depends on first. The core features of our app mostly reside in the back-end API and the database, i.e. routes and user database, the trip scheduling and booking transactions, and map services API. We will work on the UI and UX for each feature simultaneously. We will then move on to work on user accounts, profiles, social features, and payment methods. The final stage will be to test the app, add more routes, and deploy a version of the app to the public or a specific party for beta testing. See table \ref{2ndSemWorkPlanTable}.
+
+            \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
             \begin{table}[h]
                \caption{Work plan for the tasks and the initial estimated time needed to achieve them.}
                \label{2ndSemWorkPlanTable}
@@ -871,9 +876,10 @@
                         \centering Total & 17 weeks \\
                     \end{tabular}
                 \end{center}
-            \end{table}
-
-    \clearpage 
+            \end{table}}
+    
+    \pagebreak
+    \clearpage % page break doesn't add space before the references page so this needed
     \printbibliography
 
 \end{document} % This is the end of the document
