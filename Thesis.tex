@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article} % \documentclass{} is the first command in any LaTeX code.  It is used to define what kind of document you are creating such as an article or a book, and begins the document preamble
+\documentclass[a4paper, 12pt]{report} % \documentclass{} is the first command in any LaTeX code.  It is used to define what kind of document you are creating such as an article or a book, and begins the document preamble
 
 % packages needed for this document
 \usepackage{amsmath} % \usepackage is a command that allows you to add functionality to your LaTeX code
@@ -21,7 +21,8 @@
 \usepackage{adjustbox}
 \usepackage{threeparttablex} % used to contain the long table and add suitable table notes
 \usepackage{booktabs} % required for three part table above
-\usepackage{afterpage} 
+\usepackage{afterpage}  % used to add a blank page after a figure
+\usepackage{wrapfig} % used to wrap text around figures
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
 
@@ -43,6 +44,8 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
+% remove chapter number from section number
+\renewcommand{\thesection}{\arabic{section}}
 
 % Customize page number position in the footer
 \pagestyle{fancy} % need fancy page style for this to work
@@ -140,9 +143,9 @@
     \listoftables
     \pagebreak
     \pagenumbering{arabic}
+    \counterwithin*{section}{part}
     \setcounter{page}{1}
-
-
+    \part{First Semester}
     \indent \section{Introduction } % creates a section
         \subsection{Overview}
             When it comes to commuting from one place to another in Palestine, options can be narrowed down into two options, public and private transportation services and privately owned automobiles; people relying on the latter might carry with them colleagues, family, or friends or may be traveling alone.  Here we will give an overview of the downsides involving these two norms of commute, briefly introduce the idea of our app, and how it fits among these two.
@@ -877,7 +880,169 @@
                     \end{tabular}
                 \end{center}
             \end{table}}
-    
+
+    \pagebreak
+    \part{Second Semester}
+    \section{Introduction}
+        This part of the project is the continuation of the first part, which was dedicated to the analysis and design of the project, while this part is dedicated to the implementation and testing of the project. The project is a ridesharing app that allows people signed up as drivers to pick up passengers along the way with them to a mutual destination.
+
+    \section{Work Plan}
+    We have refined the work plan found at the end of the last part in table \ref{2ndSemWorkPlanTable} to better reflect the actual work needed to be done. The new work plan clearly outlines the different stages need to be done to complete the project. Figure \ref{fig:work_plan} shows the new work plan. The new work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase. Please note we have done the first 3 stages and we are working on stage 4 and 5 concurrently.
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
+        \caption{Refined Work Plan}
+        \label{fig:work_plan}
+    \end{figure}
+
+
+    \section{Changes to Part 1 Requirements}
+    As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
+
+    \pagebreak
+    \section{Implementation}
+    This section outlines some of the work we have done across stage 1 - 5. It includes screenshot from the app running on both Android and iOS presenting the user interface and the features implemented.
+        \subsection{Firebase Setup}
+            We have set up the Firebase project and integrated it with the app. We have set up the Firebase Authentication, Storage, and FireStore Database. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled for for our and some of the documents stored in the FireStore Database.
+            \begin{figure}[!htb]
+                \centering
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{Images/firebase_auth.png}
+                    \caption{Firebase Authentication}
+                    \label{fig:firebase_auth}
+                \end{subfigure}
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{Images/firestore.png}
+                    \caption{Firebase FireStore Database}
+                    \label{fig:firebase_database}
+                \end{subfigure}
+                \caption{Firebase Console}
+                \label{fig:firebase_setup}
+            \end{figure}
+        
+        \pagebreak
+        \subsection{User Sign up and Login}
+            We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign up screen and login screens. Guest accounts, and phone sign up are not implemented yet.
+            \begin{figure}[!htb]
+                \centering
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/first_screen.png}
+                    \caption{App Start Screen}
+                    \label{fig:real_first_screen}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_login.png}
+                    \caption{Login Screen - iOS}
+                    \label{fig:real_login}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_1.png}
+                    \caption{Sign Up Screen - Android}
+                    \label{fig:real_sign_up_1}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_2.png}  
+                    \caption{Sign Up Screen with Password Validation - Android}
+                    \label{fig:real_sign_up_2}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_3.png}
+                    \caption{Cont. Sign Up Screen - Android}
+                    \label{fig:real_sign_up_3}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/password_reset.png}
+                    \caption{Password Reset - Android}
+                    \label{fig:password_reset}
+                \end{subfigure}
+                \caption{User Sign Up and Login Screens}
+                \label{fig:real_sign_up_login}
+            \end{figure}
+
+        \subsection{Driver Trip Creation}
+            Drivers can create trips by specifying the departure and destination locations, time of the trip, available seats, and the price of the trip. Further options such as trip rules and the stations to pass by are not implemented yet. Figure \ref{fig:trip_creation} shows the trip creation screens.
+            \begin{figure}[!htb]
+                \centering
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_1.png}
+                    \caption{Trip Creation - iOS}
+                    \label{fig:trip_cration_1}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_2.png}
+                    \caption{Cont. Trip Creation - iOS}
+                    \label{fig:trip_cration_2}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_3.png}  
+                    \caption{Cont. Trip Creation - iOS}
+                    \label{fig:trip_cration_3}
+                \end{subfigure}
+                \caption{Driver Trip Creation Screens}
+                \label{fig:trip_creation}
+            \end{figure}
+        
+        \pagebreak
+        \subsection{Passenger Trip Search}
+            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} is not yet implemented.
+            \begin{figure}[!htb]
+                \centering
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_1.png}
+                    \caption{Trip Search - iOS}
+                    \label{fig:trip_search_1}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_2.png}
+                    \caption{Trip Search - Android}
+                    \label{fig:trip_search_2}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_3.png}
+                    \caption{Trip Search Result - iOS}
+                    \label{fig:trip_search_3}
+                \end{subfigure}
+                \caption{Passenger Trip Search Screens}
+                \label{fig:trip_search}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_4.png}
+                    \caption{Trip Search Result - Android}
+                    \label{fig:trip_search_4}
+                \end{subfigure}
+                \caption{Passenger Trip Search Screens}
+                \label{fig:trip_search}
+            \end{figure}
+
+        \subsection{User Live Location}
+            \begin{wrapfigure}{r}{0.45\textwidth}
+                \centering
+                \includegraphics[width=0.65\linewidth]{Images/live_location.png}
+                \caption{User Live Location Demo - iOS}
+                \label{fig:live_location_demo}
+            \end{wrapfigure}
+            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a Stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in FireStore. We already used this feature to show live location of all relevant drivers to the passenger when booking a trip. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
+
+          
+
+        \pagebreak
+        \subsection{Profile Picture Picker}
+            We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture. 
+            \begin{figure}[!htb]
+                \centering
+                \begin{subfigure}{0.4\textwidth}
+                    \includegraphics[width=\linewidth]{Images/pfp_select_1.png}
+                    \caption{Profile Picture Picker - iOS}
+                    \label{fig:pfp_select_1}
+                \end{subfigure}
+                \begin{subfigure}{0.4\textwidth}
+                    \includegraphics[width=\linewidth]{Images/pfp_select_2.png}
+                    \caption{Cont. Profile Picture Picker - iOS}
+                    \label{fig:pfp_select_2}
+                \end{subfigure}
+                \caption{Profile Picture Picker Screens}
+                \label{fig:pfp_select}
+            \end{figure}
     \pagebreak
     \clearpage % page break doesn't add space before the references page so this needed
     \printbibliography
