@@ -126,14 +126,14 @@
                 \textbf{\large{Key Areas:}}
                 \vspace{0.4cm}
 
-                Transportation Service, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase, Java Spring Boot
+                Transportation Service, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase
 
             \end{center}
     \end{titlepage}
 
     \pagenumbering{roman}
     \begin{abstract}
-        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Java Spring to manage the backend, and Firebase database.
+        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and database.
     \end{abstract}
     \pagebreak
     \tableofcontents
@@ -145,7 +145,6 @@
     \pagenumbering{arabic}
     \counterwithin*{section}{part}
     \setcounter{page}{1}
-    \part{First Semester}
     \indent \section{Introduction } % creates a section
         \subsection{Overview}
             When it comes to commuting from one place to another in Palestine, options can be narrowed down into two options, public and private transportation services and privately owned automobiles; people relying on the latter might carry with them colleagues, family, or friends or may be traveling alone.  Here we will give an overview of the downsides involving these two norms of commute, briefly introduce the idea of our app, and how it fits among these two.
@@ -225,7 +224,7 @@
                 \paragraph{Why Flutter?}
                 With Flutter, we can save a lot of time and work by writing the code once knowing it will work on both of our target platforms iOS and Android. The main reason we are using Flutter over other cross-development frameworks such as React Native is due to our previous experience developing in Flutter. Flutter while it is still not as fast as native development, still outperforms React Native. Also since we are using Google Maps API for routes, and Google's Firebase as a Database, we expect Flutter will work more easily and reliably with them. 
             \pagebreak
-            \subsubsection{Java Spring Boot}
+            \subsubsection{Java Spring Boot (no longer needed)}
                 Java Spring Framework is a popular, open-source framework used for creating standalone, production-grade applications that run on Java Virtual Machine. \cite{spring_wiki}
                 \begin{figure}[h]
                     \centering
@@ -233,7 +232,19 @@
                     \caption{Spring Logo \cite{spring_logo}}
                     \label{fig:Spring Logo}
                 \end{figure}
-                \paragraph{Why Java Spring Boot} All of our team members have current and past experience working with Java and Java Spring Boot. This will make it easy for us to develop, debug, and maintain the back end of our app. Given the reliability of this framework, we can expand our app with new features and take it to new places such as the web.
+                \paragraph{Why Java Spring Boot} Java Spring Boot is a reliable and robust choice for backend development that is widely used, in addition our team members have current and past experience working with java and Spring Boot, with addition to Spring Boot capabilities, we saw it as the perfect choice for our backend development and future scalability.
+                \paragraph{Transition to Firebase} After doing further research and the following the initial development phase, we discovered that integrating Flutter with Firebase as a backend offers a more feature-rich experience.
+                Firebase provides a comprehensive suit of tools and services, which are designed to work smoothly with Flutter. This integration allowed us to take better advantage of firebase’s real-time database, authentication, Firebase storage, and other services without extensive configurations and with easier code implementation.
+
+                More over our decision to switch to Firebase was mostly driven by these factors:
+                \begin{enumerate}
+                    \item Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed are supported by google.
+                    \item Feature-Rich Environement: Firebase offers built-in features like real-time data synchronization, user authentication, and more which are essential for our application and can be used in a more efficient way when directly implemented in flutter.
+                    \item Scalability and Maintenance: Firebase’s infrastructure is managed by Google, which ensures high reliability and scalability,  which allowed us to focus on building the application itself, rather than managing backend servers.
+                \end{enumerate}
+
+                By choosing Firebase over Spring Boot, we allowed ourselves to take advantage of a modern backend-as-a-service platform (Firebase) that aligns well with the needs of our Flutter application. 
+
         This is not an inclusive list. Other technologies and APIs as well as the specific libraries that are going to be used will be mentioned here when we discuss further details.
 
     \pagebreak
@@ -418,7 +429,7 @@
 
     \section{Approach}  
         \subsection{Methodology}
-            To ensure an effective development process, we have chosen to adopt the Agile development methodology \cite{agile_method} as the software development process we will be taking throughout our journey.
+            To ensure an effective development process, we have adopted the Agile development methodology \cite{agile_method} as the software development process we will be taking throughout our journey.
             
             Where this approach is known for its success in delivering reliable software, we will go through our project using iterative cycles, allowing for flexibility during the development process.
             
@@ -458,33 +469,43 @@
         \pagebreak
 
         \subsection{Work Schedule}
-            \begin{table}[h]
-               \caption{Work plan for the left tasks and the time needed to achieve them starting from 08/11/2023}
-               \label{1stSemWorkPlanTable}
-                \begin{center}
-                    \begin{tabular}{m{10cm}|c}
-                        % \hline
-                        \centering Task & Time \\ % making header centered
-                        \hline
-                        Proposing an idea and writing an abstract & 1 week \\
-                        Writing literature review and similar projects & 1 week\\
-                        Writing Introduction and searching tools to be used & 1 week \\
-                        Finding/creating a suitable dataset for transport & 1 week \\
-                        Reading relevant articles/ papers & 1 week \\
-                        % Learning software tools and frameworks needed & 2 weeks \\
-                        Defining system requirements and use cases & 2 weeks \\ 
-                        Completing system analysis with class diagrams, sequence diagrams, and state chart diagrams  & 2 weeks \\
-                        Creating system design with system structure and deployment diagram & 1 week \\
-                        Finalizing the report & 1 week \\
-                        \hline
-                        \centering Total & 11 weeks \\
-                    \end{tabular}
-                \end{center}
-            \end{table}
+            \subsubsection{Report Work Schedule}
+                \begin{table}[h]
+                \caption{Work plan for the report tasks and the time needed to achieve them starting from 08/11/2023}
+                \label{1stSemWorkPlanTable}
+                    \begin{center}
+                        \begin{tabular}{m{10cm}|c}
+                            % \hline
+                            \centering Task & Time \\ % making header centered
+                            \hline
+                            Proposing an idea and writing an abstract & 1 week \\
+                            Writing literature review and similar projects & 1 week\\
+                            Writing Introduction and searching tools to be used & 1 week \\
+                            Finding/creating a suitable dataset for transport & 1 week \\
+                            Reading relevant articles/ papers & 1 week \\
+                            % Learning software tools and frameworks needed & 2 weeks \\
+                            Defining system requirements and use cases & 2 weeks \\ 
+                            Completing system analysis with class diagrams, sequence diagrams, and state chart diagrams  & 2 weeks \\
+                            Creating system design with system structure and deployment diagram & 1 week \\
+                            Finalizing the report & 1 week \\
+                            \hline
+                            \centering Total & 11 weeks \\
+                        \end{tabular}
+                    \end{center}
+                \end{table}
+            \subsubsection{Implementation Work Schedule}
+                The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
+                \begin{figure}[!htb]
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
+                    \caption{Implementation Work Plan}
+                    \label{fig:work_plan}
+                \end{figure}
         
     \pagebreak
     \section{System Analysis}  
         \subsection{Functional Requirements}
+            Below are the details of all the user functional requirements (UR) and system requirements (SR) accompanying them.
            \begin{itemize}
                 \item [$ $] UR1. Users shall be able to log in and log out after creating an account.
                 \begin{itemize}
@@ -851,58 +872,26 @@
         \end{figure}
         \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
 
-    \pagebreak
-    \section{Conclusion and Future Work}
-        \subsection{Conclusion}
-            This project aims to develop a ridesharing app tailored to work with the roads in Palestine, where thousands of people rely on some form of transportation to commute every day. Given that conventional transportation methods suffer from problems regarding time, availability, and comfort, our app comes in to provide people to give people another option that tackles these issues. CarPal Ridesharing App allows anyone with a driver's license and a car to pick other people up along the way anywhere and at any time. It allows people to cut the costs of their trip, get there in fewer commutes, and save them a lot of waiting time, all while being affordable and easily accessible through a mobile app. The app will let people create accounts, become verified drivers who can start scheduling trips, or look for rides with others as passengers. Passengers will be able to book and pay through the app. At the end of the trip, both the passengers and the drivers can provide feedback on the trip.
-        \subsection{Future Work}
-            Since the workflow of the project is incremental, we will start by working on the core features that our app depends on first. The core features of our app mostly reside in the back-end API and the database, i.e. routes and user database, the trip scheduling and booking transactions, and map services API. We will work on the UI and UX for each feature simultaneously. We will then move on to work on user accounts, profiles, social features, and payment methods. The final stage will be to test the app, add more routes, and deploy a version of the app to the public or a specific party for beta testing. See table \ref{2ndSemWorkPlanTable}.
+    % \section{Work Plan}
 
-            \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
-            \begin{table}[h]
-               \caption{Work plan for the tasks and the initial estimated time needed to achieve them.}
-               \label{2ndSemWorkPlanTable}
-                \begin{center}
-                    \begin{tabular}{m{10cm}|c}
-                        \centering Feature & Time \\ % making header centered
-                        \hline
-                         Identify the priority of each functional requirement and create sprints.  & 1 week \\
-                         Setting up the routes and users database with test cases for both. & 2 weeks. \\
-                         Working on the trip scheduling logic and UI (driver logic). & 2 weeks \\
-                         Working on trip booking logic and UI (passenger logic). & 2 weeks \\
-                         Integrate map and location services. & 2 weeks \\
-                         Add user profiles, user rules, trip filters, feedback, and rating features. & 4 weeks \\
-                         Set up payment environment. & 2 weeks \\
-                         Polishing and fine-tuning period. & 1 week \\
-                         Deploy the app for testing and collecting feedback. & 1 week \\
-                        \hline
-                        \centering Total & 17 weeks \\
-                    \end{tabular}
-                \end{center}
-            \end{table}}
-
-    \pagebreak
-    \part{Second Semester}
-    \section{Introduction}
-        This part of the project is the continuation of the first part, which was dedicated to the analysis and design of the project, while this part is dedicated to the implementation and testing of the project. The project is a ridesharing app that allows people signed up as drivers to pick up passengers along the way with them to a mutual destination.
-
-    \section{Work Plan}
-    We have refined the work plan found at the end of the last part in table \ref{2ndSemWorkPlanTable} to better reflect the actual work needed to be done. The new work plan clearly outlines the different stages need to be done to complete the project. Figure \ref{fig:work_plan} shows the new work plan. The new work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase. Please note we have done the first 3 stages and we are working on stage 4 and 5 concurrently.
-
-    \begin{figure}[!htb]
-        \centering
-        \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
-        \caption{Refined Work Plan}
-        \label{fig:work_plan}
-    \end{figure}
+      
 
 
-    \section{Changes to Part 1 Requirements}
-    As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
+    % \section{Changes to Part 1 Requirements}
+    % As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
 
     \pagebreak
     \section{Implementation}
-    This section outlines some of the work we have done across stage 1 - 5. It includes screenshot from the app running on both Android and iOS presenting the user interface and the features implemented.
+        \subsection{Introduction}
+            This is a continuation of the first part of the project, which was dedicated to the analysis and design of the project, while this part is dedicated to the implementation and testing of the project. The project is a ridesharing app that allows people signed up as drivers to pick up passengers along the way with them to a mutual destination. The mobile application is built with flutter, and firebase as the backend and database servers.
+
+            Since the workflow of the project is incremental, we started by working on the core features that our app depends on first. The core features of our app such as, backend building, searching for trips, booking trips logic, and account creation and authentication. Then we worked on providing map and location services to make it easier for drivers to create trips (pick stations) and for both drivers and passengers to easily find each other. In addition to that, we worked on user profiles, trip filters, and trip reviews. 
+            
+            Throughout these stages, we have worked on the UI and UX for each feature simultaneously. The final stage was to test the app. This section outlines some of the work we have done across stages 1 - 8 of implementation backlog found in Figure \ref{fig:work_plan}. It includes screenshot from the app running on both Android and iOS presenting the user interface and the features implemented.
+
+            The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services. Most screens in our application have a controller. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. We are using Riverpod state management to manage the state of the application (update widgets that rely on changed states).
+
+        \pagebreak
         \subsection{Firebase Setup}
             We have set up the Firebase project and integrated it with the app. We have set up the Firebase Authentication, Storage, and FireStore Database. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled for for our and some of the documents stored in the FireStore Database.
             \begin{figure}[!htb]
@@ -1044,6 +1033,26 @@
                 \label{fig:pfp_select}
             \end{figure}
     \pagebreak
+
+    \pagebreak
+    \section{Conclusion and Future Work}
+        \subsection{Conclusion}
+            This project has successfully developed, the Carpal Ridesharing App, tailored to the unique road conditions and transportation needs in Palestine, where thousands of people rely on various forms of transportation for their daily commutes. Recognizing the challenges with conventional transportation methods—such as issues with time, availability, and comfort—our app provides a viable alternative that addresses these problems effectively.
+
+            The CarPal Ridesharing App allows anyone with a driver's license and a car to offer rides to others, facilitating pickups along their routes at any time. This innovative solution helps reduce the costs of commuting, minimizes the number of trips required, and significantly cuts down on waiting time. It is designed to be both affordable and easily accessible through a user-friendly mobile app.
+
+            With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking and paying through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
+
+            We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
+        
+        \subsection{Future Work}
+            %TODO: add future work
+
+            % \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
+            % }
+
+    \pagebreak
+
     \clearpage % page break doesn't add space before the references page so this needed
     \printbibliography
 
