@@ -429,17 +429,23 @@
 
     \section{Approach}  
         \subsection{Methodology}
-            To ensure an effective development process, we have adopted the Agile development methodology \cite{agile_method} as the software development process we will be taking throughout our journey.
+            To ensure an effective development process, we have adopted the Agile development methodology \cite{agile_method} as the software development process throughout our journey.
             
-            Where this approach is known for its success in delivering reliable software, we will go through our project using iterative cycles, allowing for flexibility during the development process.
+            Where we went through our project using iterative cycles, which allowed for flexible development process.
+
+            Following the selection of the software development process, our intial step was conducting a survey in which we gathered data from what we believe could be potential users. This helped us understand user 
+            expectations and desires for the application. Additionally we referenced the coparative analysis of existing carpooling applications which helped us identify areas of improvement and features that would make the application stand out.
+
+            After understanding the user needs and market landscape, we dived into the system analysis phase. In this phase, we defined the system requirements and use cases, which helped us understand the system's functionality and how users will interact with it.
+            in which then we moved to technologies selection, where we chose the technologies that best fit our project requirements and our team's expertise. As in this phase we decided to migrate from using Java Spring Boot to Firebase as our backend, with Flutter being kept as our front end technology.
+
+            As we progressed, we made use of the existing system requirements both functional and non functional, in addition to referencing the diagrams, such as use case diagram. which helped us to align our development progress with a visually mapped system architecture and functionality.
+
+            During the development phase we began by establishing the database and connecting it with the flutter application, followed by implementing user interfaces with their respective backend functionalities in parallel.while ensuring a robust and scalable architecture that can be easily maintained and extended in the future.
+
+            Throughout the semester, we followed the Agile methodology, where each phase of the development was planned, implemented and tested in iterations, which allowed us to adapt to changes and feedback quickly, ensuring a robust and reliable development process.
             
-            Following the selection of the software development process, our initial step was surveying to gather data from potential users to see what people would expect and want from such an application, then we compared existing carpooling applications to see what we could improve or add to our application to make it stand out. Following that we looked into different technologies suitable for our cross-platform mobile application, ensuring they best suit our idea.
-            
-            With all that, we transitioned to the formulation of system requirements. In this phase, we gathered both functional and non-functional requirements, and then we moved to the creation of diagrams such as use cases, etc.
-            
-            Moving forward in our development road, we start working on the application development process, starting with the establishment of the database, interfaces, and backend of our application, with technologies such as Flutter for the front end and Spring Boot for the back, Firebase for the database.
-            
-            Where this methodology ensures that each phase of the development is well planned and executed, which will lead us to have a more robust and reliable development process.
+            This methodology has proven to be effective in ensuring a smooth and efficient development process, allowing us to deliver a high-quality product that meets user expectations and requirements within the specified time frame.
 
         \subsection{Resources}
             \subsubsection{West Bank Cities Roads Dataset}
@@ -456,8 +462,7 @@
                 \pagebreak
                 
             \subsubsection{Public Opinion Questionnaire}
-                A questionnaire to get public opinion on the idea. We will assess people's acceptance of the idea, whether they will partake in it as drivers or as regular users, what their concerns are, and ask them for any input or suggestions.
-
+                A questionnaire to get public opinion on the idea. We assessed people’s acceptance of the idea, and whether they will partake in it as drivers or regular users, we took a look into their concerns and asked them for inputs and suggestions, which we took into consideration throughout the development phase.
             \subsection{Considerations}
                 \subsubsection{User Privacy Consideration}
                     We will make sure the app respects user privacy. The app will be asking for user permission to access all needed device sensors and data such as camera access, location, calendar, and contacts if needed. It will not partake in collecting user data but for their necessary information such as phone number, real name, and payment method information. We will maintain the secrecy of this data and store it in a secure encrypted database. An in-app chat to allow passengers an easy channel with the driver is discussed. In case it is implemented we do not promise utilizing an end to end encrypted messaging. Lastly, users will be allowed the option to delete their accounts from our database at any time. 
@@ -841,41 +846,38 @@
         
     \pagebreak
     
-    \section{Initial Prototype}
-        % \footnote{
-        This is an initial prototype. The final app look is subject to change.
-        % }
-        \begin{figure}[h]
-            \centering
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
-                    \caption{Login Screen}
-                    \label{fig:our_login}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
-                    \caption{Passenger Search Screen}
-                    \label{fig:our_passenger}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
-                    \caption{Driver Trip Creation Screen}
-                    \label{fig:our_driver}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
-                    \caption{Passenger Search Result Screen}
-                    \label{fig:our_results}
-                \end{subfigure}
-                \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
-                \label{fig:our_gallary}
-        \end{figure}
-        \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
+    % \section{Initial Prototype}
+    %     % \footnote{
+    %     This is an initial prototype. The final app look is subject to change.
+    %     % }
+    %     \begin{figure}[h]
+    %         \centering
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
+    %                 \caption{Login Screen}
+    %                 \label{fig:our_login}
+    %             \end{subfigure}
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
+    %                 \caption{Passenger Search Screen}
+    %                 \label{fig:our_passenger}
+    %             \end{subfigure}
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
+    %                 \caption{Driver Trip Creation Screen}
+    %                 \label{fig:our_driver}
+    %             \end{subfigure}
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
+    %                 \caption{Passenger Search Result Screen}
+    %                 \label{fig:our_results}
+    %             \end{subfigure}
+    %             \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
+    %             \label{fig:our_gallary}
+    %     \end{figure}
+    %     \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
 
     % \section{Work Plan}
-
-      
-
 
     % \section{Changes to Part 1 Requirements}
     % As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
@@ -1033,6 +1035,50 @@
                 \label{fig:pfp_select}
             \end{figure}
     \pagebreak
+    \section{Evaluation and Testing}
+        During app development with each feature implementation we conducted a series of tests to ensure that the functinality is working as expected and that the app is user friendly. As for each feature, we ensured that the implemented interfaces are simple consistent, conventional and responsive, in addition to achieving their purpose while integrating with the backend of the application.
+        And after completing the application conducted system testing of the application which included:
+        \subsection{Functional Testing}
+            In this stage we tested the functinality of the mobile application, including user interactions, and transactions that may be performed on the application.
+            Where for time matter we put some scenarios that the user may perform and conducted a test on it as followed:
+            \subsection{Downloading the application Test}
+                The test was conducted by connecting actual phones instead of emulators and downloading the application directly to them, in which the application was successful downloaded on both android and Iphone mobiles, without any issues.
+            \subsection{Login and Registration test}
+                After downloading the application and running it the main page of the application should appear in which there are several scenarios that can happen:
+                A- User is already a member: user can choose to login via email and password or via phoneNo, in which on a successful login attempt he will see the home page.
+                B- New user in which he will click signup button and enter his credintials and information to create an account, on successful signup user is required to verify his email address by entering a link sent to his email, before processing to the home page.
+                C-  User is already a member but he forgot his password: in which he will enter his email or phone number, and a message to reset his password will be sent to him.
+                % TODO: a table of Login Test cases don't 
+                (Note: Tables will be added to provide a clearer overview of the test scenarios.)
+            \subsection{Search A Trip test}
+                After successful login, user can search for a trip by entering the search trip screen, entering required filed: such as starting station, end station, datetime of the trip and number of passengers.
+                then clicking the search button in which different results can appear:
+                A- finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip informations are listed.
+                B- No matching trip is found, in which the user is prompted and told that no matching trips are found.
+                C- User missed to enter a required field, in which the user is prompted to enter the missing field.
+                (Note: Tables will be added to provide a clearer overview of the test scenarios.)
+            \subsection{Book a Trip test}
+                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
+                in which different scenarios can happen:
+                A- User has a payment method, in which the user will be redirected to the home page.
+                B- User has no payment method, in which the user will be prompted to enter a payment method.
+                C- User returned to the previous page, in which the trip search screen is shown again.
+                On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
+                (Note: Tables will be added to provide a clearer overview of the test scenarios.)
+            
+            \subsection{Create a Trip for Driver test}
+                After successful login, if user is registered as driver he can create a trip by entering the create trip screen, entering required filed: such as starting station, end station, datetime of the trip, number of passengers, and price of the trip.
+                then clicking the create button in which different results can appear:
+                A- Trip is created successfully, in which the user is redirected to the trip details page.
+                B- User missed to enter a required field, in which the user is prompted to enter the missing field.
+                C- User returned to the previous page, in which the home page is shown again.
+                (Note: Tables will be added to provide a clearer overview of the test scenarios.)
+            \subsection{Live Location test}
+                As for the live location feature, the user can see the live location of the driver and the passenger, in which the user can see the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app.
+                For this feature we tested the working of the live location feature by running the application in a test screen environment, in which the live location of two users where shown on the map, and in which they were updated in real time and synchronized with the location in the database.
+                As for this feature its not specific to a certain user, but it is a general feature that can be used by all users. and we saw that an evaluation test as the one we conducted is enough to ensure the working of the feature
+
+
 
     \pagebreak
     \section{Conclusion and Future Work}
