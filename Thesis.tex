@@ -23,6 +23,8 @@
 \usepackage{booktabs} % required for three part table above
 \usepackage{afterpage}  % used to add a blank page after a figure
 \usepackage{wrapfig} % used to wrap text around figures
+\usepackage{float} % used to place figures in the exact location
+\usepackage{placeins} % used to place figures in the exact location
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
 
@@ -451,7 +453,7 @@
             \subsubsection{West Bank Cities Roads Dataset}
                 A dataset of all the roads commonly used to commute from one Palestinian town or city to another in the West Bank. This will be used to define fixed stations that allow for passengers to be picked up along the way from towns and cities that drivers normally pass by to arrive at their destination. There is no already made database that we know of as of the writing of this draft, 08/02/2024. We are to ask the responsible parties for one or start collecting it ourselves. Due to the narrow time window of the project, the scope of operational routes, or the routes the app will work on, is reduced to a smaller area to use as proof of concept and a test case for development; we chose the route of Qalqilya - Ramallah for this, see the figure \ref{fig:testcase_route} showcasing possible routes and possible stations in between. We aim to scale the app's operational scope from this to the whole of the West Bank wherever possible.
                 
-                \begin{figure}[h]
+                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.7\textwidth, keepaspectratio]{Images/Route_Text_Case.png}
                     \caption{Test Case Route\protect \footnotemark[1]}
@@ -500,7 +502,7 @@
                 \end{table}
             \subsubsection{Implementation Work Schedule}
                 The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
-                \begin{figure}[!htb]
+                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
                     \caption{Implementation Work Plan}
@@ -752,7 +754,7 @@
         \pagebreak
         \subsubsection{Use Case Diagram}
 
-            \begin{figure}[h]
+            \begin{figure}[H]
                 \centering
                 \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{Images/CarPal_Usecase.png}}
                 \caption{Use Case Diagram}
@@ -762,7 +764,7 @@
     \pagebreak
     \subsection{Sequence, UML, State, and Deployment Diagrams}
 
-        \begin{figure}[h]
+        \begin{figure}[H]
             \centering
             \rotatebox{90}{
             \includegraphics[width=1.1\textwidth]{Images/login.png}}
@@ -778,106 +780,119 @@
         %     \caption{Login Workflow}
         %     \label{fig:seq_dig_login}
         % \end{sidewaysfigure}
-
-    % \subsubsection{Accepted trips Sequence Diagram}
-        \begin{sidewaysfigure}
+    % \subsubsection{Accepted trips Sequence Diagram}       
+    
+        \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/Passenger Accepted.png}
+            \includegraphics[width=0.9\linewidth]{Images/Passenger Accepted.png}
             \caption{Showing Passenger's Accepted Trips Action}
             \label{fig:seq_dig_pass_accepted}
         \end{sidewaysfigure}
 
+        \FloatBarrier
+
 
     % \subsubsection{Reserve Seat sequence Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
             \caption{Passenger Payment Workflow}
             \label{fig:seq_dig_pass_payment}
         \end{sidewaysfigure}
 
+        \FloatBarrier
+
 
     % \subsubsection{show scheduled trips sequence Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/Driver Scheduled.png}
             \caption{Showing Driver's Scheduled Trips Action}
             \label{fig:seq_dig_driver_scheduled}
         \end{sidewaysfigure}
 
+        \FloatBarrier
+
     % \subsubsection{Driver Accepts trip Request sequence Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/Driver Request.png}
             \caption{Passenger Request Workflow}
             \label{fig:seq_dig_driver_request}
         \end{sidewaysfigure}
 
+        \FloatBarrier
 
     % \subsubsection{UML Class Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/UML Class.png}
             \caption{UML Class Diagram}
             \label{fig:class_diagram}
         \end{sidewaysfigure}
+
+        \FloatBarrier
         
     % \subsubsection{State Diagrams}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/State Diagram passenger.png}
             \caption{State Diagram for Passenger}
             \label{fig:state_passenger}
         \end{sidewaysfigure}
 
-       \begin{sidewaysfigure}
+        \FloatBarrier
+
+       \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/State Diagram Driver.png}
             \caption{State Diagram for Driver}
             \label{fig:state_driver}
         \end{sidewaysfigure}
 
-        \begin{sidewaysfigure}
+        \FloatBarrier
+
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/deployment_diagram.png}
             \caption{Deployment Diagram}
             \label{fig:dep_diagram}
         \end{sidewaysfigure}
+
+        \FloatBarrier
         
     \pagebreak
     
-    % \section{Initial Prototype}
-    %     % \footnote{
-    %     This is an initial prototype. The final app look is subject to change.
-    %     % }
-    %     \begin{figure}[h]
-    %         \centering
-    %             \begin{subfigure}{0.3\textwidth}
-    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
-    %                 \caption{Login Screen}
-    %                 \label{fig:our_login}
-    %             \end{subfigure}
-    %             \begin{subfigure}{0.3\textwidth}
-    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
-    %                 \caption{Passenger Search Screen}
-    %                 \label{fig:our_passenger}
-    %             \end{subfigure}
-    %             \begin{subfigure}{0.3\textwidth}
-    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
-    %                 \caption{Driver Trip Creation Screen}
-    %                 \label{fig:our_driver}
-    %             \end{subfigure}
-    %             \begin{subfigure}{0.3\textwidth}
-    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
-    %                 \caption{Passenger Search Result Screen}
-    %                 \label{fig:our_results}
-    %             \end{subfigure}
-    %             \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
-    %             \label{fig:our_gallary}
-    %     \end{figure}
-    %     \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
-
-    % \section{Work Plan}
+    \section{Initial Prototype}
+        % \footnote{
+        This is an initial prototype. The final app look is subject to change.
+        % }
+        \begin{figure}[H]
+            \centering
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
+                    \caption{Login Screen}
+                    \label{fig:our_login}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
+                    \caption{Passenger Search Screen}
+                    \label{fig:our_passenger}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
+                    \caption{Driver Trip Creation Screen}
+                    \label{fig:our_driver}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
+                    \caption{Passenger Search Result Screen}
+                    \label{fig:our_results}
+                \end{subfigure}
+                \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
+                \label{fig:our_gallary}
+        \end{figure}
+        \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
 
     % \section{Changes to Part 1 Requirements}
     % As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
@@ -896,7 +911,7 @@
         \pagebreak
         \subsection{Firebase Setup}
             We have set up the Firebase project and integrated it with the app. We have set up the Firebase Authentication, Storage, and FireStore Database. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled for for our and some of the documents stored in the FireStore Database.
-            \begin{figure}[!htb]
+            \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.7\textwidth}
                     \includegraphics[width=\linewidth]{Images/firebase_auth.png}
@@ -915,7 +930,7 @@
         \pagebreak
         \subsection{User Sign up and Login}
             We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign up screen and login screens. Guest accounts, and phone sign up are not implemented yet.
-            \begin{figure}[!htb]
+            \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
                     \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/first_screen.png}
@@ -953,7 +968,7 @@
 
         \subsection{Driver Trip Creation}
             Drivers can create trips by specifying the departure and destination locations, time of the trip, available seats, and the price of the trip. Further options such as trip rules and the stations to pass by are not implemented yet. Figure \ref{fig:trip_creation} shows the trip creation screens.
-            \begin{figure}[!htb]
+            \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
                     \includegraphics[width=\linewidth]{Images/trip_creation_1.png}
@@ -977,7 +992,7 @@
         \pagebreak
         \subsection{Passenger Trip Search}
             The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} is not yet implemented.
-            \begin{figure}[!htb]
+            \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
                     \includegraphics[width=\linewidth]{Images/trip_search_1.png}
@@ -1019,7 +1034,7 @@
         \pagebreak
         \subsection{Profile Picture Picker}
             We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture. 
-            \begin{figure}[!htb]
+            \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.4\textwidth}
                     \includegraphics[width=\linewidth]{Images/pfp_select_1.png}
@@ -1034,30 +1049,32 @@
                 \caption{Profile Picture Picker Screens}
                 \label{fig:pfp_select}
             \end{figure}
+
     \pagebreak
+    
     \section{Evaluation and Testing}
         During app development with each feature implementation we conducted a series of tests to ensure that the functinality is working as expected and that the app is user friendly. As for each feature, we ensured that the implemented interfaces are simple consistent, conventional and responsive, in addition to achieving their purpose while integrating with the backend of the application.
         And after completing the application conducted system testing of the application which included:
         \subsection{Functional Testing}
             In this stage we tested the functinality of the mobile application, including user interactions, and transactions that may be performed on the application.
             Where for time matter we put some scenarios that the user may perform and conducted a test on it as followed:
-            \subsection{Downloading the application Test}
+            \subsubsection{Downloading the application Test}
                 The test was conducted by connecting actual phones instead of emulators and downloading the application directly to them, in which the application was successful downloaded on both android and Iphone mobiles, without any issues.
-            \subsection{Login and Registration test}
+            \subsubsection{Login and Registration test}
                 After downloading the application and running it the main page of the application should appear in which there are several scenarios that can happen:
                 A- User is already a member: user can choose to login via email and password or via phoneNo, in which on a successful login attempt he will see the home page.
                 B- New user in which he will click signup button and enter his credintials and information to create an account, on successful signup user is required to verify his email address by entering a link sent to his email, before processing to the home page.
                 C-  User is already a member but he forgot his password: in which he will enter his email or phone number, and a message to reset his password will be sent to him.
                 % TODO: a table of Login Test cases don't 
                 (Note: Tables will be added to provide a clearer overview of the test scenarios.)
-            \subsection{Search A Trip test}
+            \subsubsection{Search A Trip test}
                 After successful login, user can search for a trip by entering the search trip screen, entering required filed: such as starting station, end station, datetime of the trip and number of passengers.
                 then clicking the search button in which different results can appear:
                 A- finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip informations are listed.
                 B- No matching trip is found, in which the user is prompted and told that no matching trips are found.
                 C- User missed to enter a required field, in which the user is prompted to enter the missing field.
                 (Note: Tables will be added to provide a clearer overview of the test scenarios.)
-            \subsection{Book a Trip test}
+            \subsubsection{Book a Trip test}
                 After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
                 in which different scenarios can happen:
                 A- User has a payment method, in which the user will be redirected to the home page.
@@ -1066,14 +1083,14 @@
                 On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
                 (Note: Tables will be added to provide a clearer overview of the test scenarios.)
             
-            \subsection{Create a Trip for Driver test}
+            \subsubsection{Create a Trip for Driver test}
                 After successful login, if user is registered as driver he can create a trip by entering the create trip screen, entering required filed: such as starting station, end station, datetime of the trip, number of passengers, and price of the trip.
                 then clicking the create button in which different results can appear:
                 A- Trip is created successfully, in which the user is redirected to the trip details page.
                 B- User missed to enter a required field, in which the user is prompted to enter the missing field.
                 C- User returned to the previous page, in which the home page is shown again.
                 (Note: Tables will be added to provide a clearer overview of the test scenarios.)
-            \subsection{Live Location test}
+            \subsubsection{Live Location test}
                 As for the live location feature, the user can see the live location of the driver and the passenger, in which the user can see the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app.
                 For this feature we tested the working of the live location feature by running the application in a test screen environment, in which the live location of two users where shown on the map, and in which they were updated in real time and synchronized with the location in the database.
                 As for this feature its not specific to a certain user, but it is a general feature that can be used by all users. and we saw that an evaluation test as the one we conducted is enough to ensure the working of the feature
