@@ -66,7 +66,7 @@
             Department of Computer Science 
             \vspace{0.8cm}
 
-            COMP 4200 - Introduction to Graduation Project
+            COMP 4300 - Graduation Project
             \vspace{0.8cm}
 
             \textbf{\large{Section - A}}
@@ -135,6 +135,7 @@
 
     \pagenumbering{roman}
     \begin{abstract}
+        % TODO: remove extra spaces
         The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and database.
     \end{abstract}
     \pagebreak
@@ -485,15 +486,13 @@
                             % \hline
                             \centering Task & Time \\ % making header centered
                             \hline
-                            Proposing an idea and writing an abstract & 1 week \\
-                            Writing literature review and similar projects & 1 week\\
-                            Writing Introduction and searching tools to be used & 1 week \\
-                            Finding/creating a suitable dataset for transport & 1 week \\
-                            Reading relevant articles/ papers & 1 week \\
+                            Setting up Firebase Database & 1 week \\
+                            Setting Up Flutter Application with end user Enrolment and Authentication & 1 week\\
+                            Trip Creation Login and Booking logic & 3 week \\
+                            Device Location and Map Service Integration & 2 week \\
+                            User Profiles and Trip Filters & 1 week \\
                             % Learning software tools and frameworks needed & 2 weeks \\
-                            Defining system requirements and use cases & 2 weeks \\ 
-                            Completing system analysis with class diagrams, sequence diagrams, and state chart diagrams  & 2 weeks \\
-                            Creating system design with system structure and deployment diagram & 1 week \\
+                            Tuning and Testing & 2 weeks \\ 
                             Finalizing the report & 1 week \\
                             \hline
                             \centering Total & 11 weeks \\
@@ -863,36 +862,36 @@
         
     \pagebreak
     
-    \section{Initial Prototype}
-        % \footnote{
-        This is an initial prototype. The final app look is subject to change.
-        % }
-        \begin{figure}[H]
-            \centering
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
-                    \caption{Login Screen}
-                    \label{fig:our_login}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
-                    \caption{Passenger Search Screen}
-                    \label{fig:our_passenger}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
-                    \caption{Driver Trip Creation Screen}
-                    \label{fig:our_driver}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
-                    \caption{Passenger Search Result Screen}
-                    \label{fig:our_results}
-                \end{subfigure}
-                \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
-                \label{fig:our_gallary}
-        \end{figure}
-        \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
+    % \section{Initial Prototype}
+    %     % \footnote{
+    %     This is an initial prototype. The final app look is subject to change.
+    %     % }
+    %     \begin{figure}[H]
+    %         \centering
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
+    %                 \caption{Login Screen}
+    %                 \label{fig:our_login}
+    %             \end{subfigure}
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
+    %                 \caption{Passenger Search Screen}
+    %                 \label{fig:our_passenger}
+    %             \end{subfigure}
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
+    %                 \caption{Driver Trip Creation Screen}
+    %                 \label{fig:our_driver}
+    %             \end{subfigure}
+    %             \begin{subfigure}{0.3\textwidth}
+    %                 \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
+    %                 \caption{Passenger Search Result Screen}
+    %                 \label{fig:our_results}
+    %             \end{subfigure}
+    %             \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
+    %             \label{fig:our_gallary}
+    %     \end{figure}
+    %     \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
 
     % \section{Changes to Part 1 Requirements}
     % As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
@@ -1019,7 +1018,7 @@
                 \caption{Passenger Trip Search Screens}
                 \label{fig:trip_search}
             \end{figure}
-
+        \pagebreak
         \subsection{User Live Location}
             \begin{wrapfigure}{r}{0.45\textwidth}
                 \centering
