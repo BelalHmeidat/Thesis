@@ -1061,41 +1061,142 @@
                 The test was conducted by connecting actual phones instead of emulators and downloading the application directly to them, in which the application was successful downloaded on both android and Iphone mobiles, without any issues.
             \subsubsection{Login and Registration test}
                 After downloading the application and running it the main page of the application should appear in which there are several scenarios that can happen:
-                A- User is already a member: user can choose to login via email and password or via phoneNo, in which on a successful login attempt he will see the home page.
-                B- New user in which he will click signup button and enter his credintials and information to create an account, on successful signup user is required to verify his email address by entering a link sent to his email, before processing to the home page.
-                C-  User is already a member but he forgot his password: in which he will enter his email or phone number, and a message to reset his password will be sent to him.
+                \begin{enumerate}
+                    \item User is already a member: user can choose to login via email and password or via phoneNo, in which on a successful login attempt he will see the home page.
+                    \item New user in which he will click signup button and enter his credintials and information to create an account, on successful signup user is required to verify his email address by entering a link sent to his email, before processing to the home page.
+                    \item User is already a member but he forgot his password: in which he will enter his email or phone number, and a message to reset his password will be sent to him.
+                    \item User is not connected to the internet: in which the user will be prompted to connect to the internet.
+                \end{enumerate}
+                \begin{table}[H]
+                    \centering
+                    \label{tab:login_test}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                        Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                        \hline
+                        Registration & User credentials(eg: email:lutfi@gmail.com, password:00123456examle@, etc..) & User is registered and awaits email verification & user is registered and awaits email verification & Pass & test successful, email verified after the process for further testing\\ 
+                        \hline
+                        Registration with missing/incorrect fields & User credentials with weak password and wrong email format & missing/incorrect fields are marked red and user is asked to correct them & Incorrect/missing fields are marked red with a prompt message & pass & \\
+                        \hline
+                        Registration with an already used email & User credentials with email in use & User email already in use message &User email already in use message& Pass & other correct user credentials are kept as they are he is only alarmed about email\\
+                        \hline
+                        Login & User email and password & User is logged in and redirected to the home page & User is logged in and redirected to the home page & Pass & \\
+                        \hline
+                        Login with wrong email or password & User email and password & User is prompted to enter correct email or password & User is prompted to enter correct email or password & Pass & \\
+                        \hline
+                        Login with forgot password & Email address & Email is sent to reset the password if account exists& Email is sent to reset the password if account exist &Pass & password is reset via the link\\
+                        \hline
+                        Login/registration without internet connection & User credentials & User is prompted to connect to the internet & User is prompted to connect to the internet & Pass & \\
+                        \hline
+                    \end{tabular}
+                    \caption{Login and Registration Test Cases}
                 % TODO: a table of Login Test cases don't 
                 (Note: Tables will be added to provide a clearer overview of the test scenarios.)
             \subsubsection{Search A Trip test}
                 After successful login, user can search for a trip by entering the search trip screen, entering required filed: such as starting station, end station, datetime of the trip and number of passengers.
                 then clicking the search button in which different results can appear:
-                A- finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip informations are listed.
-                B- No matching trip is found, in which the user is prompted and told that no matching trips are found.
-                C- User missed to enter a required field, in which the user is prompted to enter the missing field.
-                (Note: Tables will be added to provide a clearer overview of the test scenarios.)
-            \subsubsection{Book a Trip test}
+                \begin{enumerate}
+                    \item finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip informations are listed.
+                    \item No matching trip is found/all matching trips are full, in which the user is prompted and told that no matching trips are found.
+                    \item User missed to enter a required field, in which the user is prompted to enter the missing field.
+                \end{enumerate}
+                \begin{table}[H]
+                    \centering
+                    \label{tab:login_test}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                        Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                        \hline
+                        Search for a trip & User inputs (eg: start station: Ramallah, end station: Birzeit, date: 2024-6-24, passengers: 2) & User is shown a list of matching trips how are from the same date up to the next 48 hours & List of matching trips which have available seats are shown & Pass & Trips and trip drivers are shown both on map and as a list in a split screen\\
+                        \hline
+                        Search for a trip with no matching trips & User inputs (eg: start station: Ramallah, end station: Qalqilya, date: 2024-6-24, passengers: 2) & User is prompted that no matching trips are found & User is prompted that no matching trips are found & Pass & full trips are considered a non-match\\
+                        \hline
+                        Search for a trip with missing fields & User inputs (eg: start station: Ramallah, end station: Birzeit, date: 2024-6-24) & User is prompted to enter the missing field & User is prompted to enter the missing field & Pass & \\
+                        \hline
+                        Search for a trip with same start and end station & User inputs (eg: start station: Ramallah, end station: Ramallah, date: 2024-6-24, passengers: 2) & User is prompted that start and end station can't be the same & User is prompted that start and end station can't be the same & Pass & \\
+                        \hline
+                        Search for a trip with no internet connection & User inputs (eg: start station: Ramallah, end station: Birzeit, date: 2024-6-24, passengers: 2) & User is prompted to connect to the internet & User is prompted to connect to the internet & Pass & User session is locally stored, including stations and are updated when the internet connection is established\\
+                        \hline
+                    \end{tabular}
+                    \caption{Search A Trip Test Cases}
+                \subsubsection{Book a Trip test}
                 After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
                 in which different scenarios can happen:
-                A- User has a payment method, in which the user will be redirected to the home page.
-                B- User has no payment method, in which the user will be prompted to enter a payment method.
-                C- User returned to the previous page, in which the trip search screen is shown again.
+                \begin{enumerate}
+                    \item User has a payment method, in which the user will be redirected to the home page.
+                    \item User has no payment method, in which the user will be prompted to enter a payment method.
+                    \item User returned to the previous page, in which the trip search screen is shown again.
+                \end{enumerate}
+                On each stage the user has choosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
                 On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
-                (Note: Tables will be added to provide a clearer overview of the test scenarios.)
-            
+                \begin{table}[H]
+                    \centering
+                    \label{tab:login_test}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                        Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                        \hline
+                        Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
+                        \hline
+                        Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
+                        \hline
+                        Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
+                        \hline
+                    \end{tabular}
+                    \caption{Book A Trip Test Cases}
             \subsubsection{Create a Trip for Driver test}
                 After successful login, if user is registered as driver he can create a trip by entering the create trip screen, entering required filed: such as starting station, end station, datetime of the trip, number of passengers, and price of the trip.
                 then clicking the create button in which different results can appear:
-                A- Trip is created successfully, in which the user is redirected to the trip details page.
-                B- User missed to enter a required field, in which the user is prompted to enter the missing field.
-                C- User returned to the previous page, in which the home page is shown again.
+                \begin{enumerate}
+                    \item Trip is created successfully, in which the user is redirected to the trip details page.
+                    \item User missed to enter a required field, in which the user is prompted to enter the missing field.
+                    \item User returned to the previous page, in which the home page is shown again.
+                \end{enumerate}
                 (Note: Tables will be added to provide a clearer overview of the test scenarios.)
-            \subsubsection{Live Location test}
+                \begin{table}[H]
+                    \centering
+                    \label{tab:login_test}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                        Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                        \hline
+                        Create a trip & User inputs (eg: start station: Ramallah, end station: Birzeit, start-time: 2024-6-24:12:00PM, passengers: 2, price: 10) & User is redirected to the trip details page & User is redirected to the trip details page & Pass & option for the driver is to start the trip if its 30 minutes away from the start time\\
+                        \hline
+                        Create a trip with missing fields & User inputs (eg: start station: Ramallah, end station: Birzeit, start-time: 2024-6-24:12:00PM, passengers: 2) & User is prompted to enter the missing field & User is prompted to enter the missing field and field is marked red & Pass & \\
+                        \hline
+                        Create a trip with same start and end station & User inputs (eg: start station: Ramallah, end station: Ramallah, start-time: 2024-6-24:12:00PM, passengers: 2, price: 10) & User is prompted that start and end station can't be the same & User is prompted that start and end station can't be the same & Pass & \\
+                        \hline
+                        Create a trip with no internet connection & User inputs (eg: start station: Ramallah, end station: Birzeit, start-time: 2024-6-24:12:00PM, passengers: 2, price: 10) & User is prompted to connect to the internet & User is prompted to connect to the internet & Pass & User session is locally stored, including stations and are updated when the internet connection is established\\
+                        \hline
+                    \end{tabular}
+                    \caption{Create A Trip Test Cases}
+                \subsubsection{Acceptiong a Trip Request test}
+                After a passenger books a trip, the driver is notified about the booking request, and the driver can accept or decline the request. The driver can accept the request by clicking on the notification, in which the driver is redirected to the trip requests page, and then accepting/declining the request, and the passenger is notified about the driver response.
+                \begin{table}[H]
+                    \centering
+                    \label{tab:login_test}
+                    \begin{tabular}{|c|c|c|c|c|c|}
+                        \hline
+                        Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                        \hline
+                        Accept a trip request & Driver clicks on a trip request notification & Driver is redirected to the trip requests page & Driver is redirected to the trip requests page & Pass & nottification is sent to the passenger with updates info\\
+                        \hline
+                        Decline a trip request & Driver clicks on a trip request notification & Driver is redirected to the trip requests page & Driver is redirected to the trip requests page & Pass & notification is sent to the passenger with updates info\\
+                        \hline
+                    \end{tabular}
+                    \caption{Accepting A Trip Request Test Cases}
+                \subsubsection{Live Location test}
                 As for the live location feature, the user can see the live location of the driver and the passenger, in which the user can see the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app.
                 For this feature we tested the working of the live location feature by running the application in a test screen environment, in which the live location of two users where shown on the map, and in which they were updated in real time and synchronized with the location in the database.
                 As for this feature its not specific to a certain user, but it is a general feature that can be used by all users. and we saw that an evaluation test as the one we conducted is enough to ensure the working of the feature
-
-
-
+        \subsection{Performance Testing}
+            For this stage we wanted to test the performance of the application, in which we tested the application on different devices, where we found that the application worked as expected on both android and iOS devices, and that the application was responsive and fast, and that the application was able to handle the different functionalities and features that it has.
+            For the load testing we used a firebase database which is a database hosted by google, and is able to handle a large number of requests, and operations and is able to scale with the application.
+            in addition we validated the response time of the application, and asked different users to use the application and give us feedback on the application, in which we validated that the application response time was acceptable.
+            As for this seciton we assured that the application is able to perform well and it can handle the different requests and operations that it was given.
+        \subsection{Usablity Testing}
+        As for the usability testing, we conducted a series of tests to ensure that the application is user friendly, and that users can easily navigate through the application, and that the user can easily find the different features and functionalities that the application has, in which we asked the different users, who we have gaven the application to, to give us feedback on the application, and to tell us if they found the application easy to use, and if they were able to find the different features and functionalities that the application has.
+        And whether they had any problems or misconceptions while using the application. this part was done in parralel with the other testing stages, as the same users who were testing the application were asked to give us feedback on the application.
     \pagebreak
     \section{Conclusion and Future Work}
         \subsection{Conclusion}
