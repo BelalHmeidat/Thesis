@@ -134,6 +134,7 @@
     \end{titlepage}
 
     \pagenumbering{roman}
+    \vspace{-0.8cm}
     \begin{abstract}
         % TODO: remove extra spaces
         The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and database.
@@ -362,9 +363,9 @@
                             \hline
                             Passengers can filter through drivers
                             & \checkmark & & & \Large{\checkmark}\\
-                            \hline
-                            Users can set rules visible on their profile
-                            & & \checkmark & & \Large{\checkmark}\\
+                            % \hline
+                            % Users can set rules visible on their profile
+                            % & & \checkmark & & \Large{\checkmark}\\
                             \hline
                             Cancellations allowed
                             & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
@@ -990,7 +991,7 @@
         
         \pagebreak
         \subsection{Passenger Trip Search}
-            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} is not yet implemented.
+            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} will also include a map of the driver's last known location, extra information about the trip, such as passing stations, and the driver's rules if exists, and the driver's picture and rating, estimated time of arrival at each station, and total expected time of the trip. The passenger can book a trip by clicking the book button on the trip detail screen.
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
@@ -1015,6 +1016,11 @@
                     \caption{Trip Search Result - Android}
                     \label{fig:trip_search_4}
                 \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_Detail_screen.png}
+                    \caption{Trip Details Screen- Android}
+                    \label{fig:trip_details_1}
+                \end{subfigure}
                 \caption{Passenger Trip Search Screens}
                 \label{fig:trip_search}
             \end{figure}
@@ -1027,8 +1033,6 @@
                 \label{fig:live_location_demo}
             \end{wrapfigure}
             The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a Stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in FireStore. We already used this feature to show live location of all relevant drivers to the passenger when booking a trip. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
-
-          
 
         \pagebreak
         \subsection{Profile Picture Picker}
