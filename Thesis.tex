@@ -25,6 +25,8 @@
 \usepackage{wrapfig} % used to wrap text around figures
 \usepackage{float} % used to place figures in the exact location
 \usepackage{placeins} % used to place figures in the exact location
+\usepackage{tocloft} % used to add spaces before table of contents
+\usepackage{etoolbox}
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
 
@@ -55,7 +57,12 @@
 \fancyhf{} % clears existing header/footer entries (default page numbering)
 \fancyfoot[R]{\thepage} % sets page number on right side of the footer
 
+
+
 \begin{document} 
+\setlength{\cftbeforetoctitleskip}{0pt plus 1pt} % sets the space before the table of contents to match sections
+\setlength{\cftbeforeloftitleskip}{0pt plus 1pt} % sets the space before the list of figures to match sections
+\setlength{\cftbeforelottitleskip}{0pt plus 1pt} % sets the space before the list of tables to match sections
     \begin{titlepage}
         \begin{center}
             \includegraphics{Birzeit_Logo.png}
@@ -66,7 +73,7 @@
             Department of Computer Science 
             \vspace{0.8cm}
 
-            COMP 4200 - Introduction to Graduation Project
+            COMP 4300 - Graduation Project
             \vspace{0.8cm}
 
             \textbf{\large{Section - A}}
@@ -99,7 +106,6 @@
             \vspace{0.4cm}
             
             \hspace{\parindent} NAEL QARAEEN %adding hspace same length as indentiation to force indent
-
             \pagebreak
 
             \begin{center}
@@ -476,38 +482,13 @@
         \pagebreak
 
         \subsection{Work Schedule}
-            \subsubsection{Report Work Schedule}
-                \begin{table}[h]
-                \caption{Work plan for the report tasks and the time needed to achieve them starting from 08/11/2023}
-                \label{1stSemWorkPlanTable}
-                    \begin{center}
-                        \begin{tabular}{m{10cm}|c}
-                            % \hline
-                            \centering Task & Time \\ % making header centered
-                            \hline
-                            Proposing an idea and writing an abstract & 1 week \\
-                            Writing literature review and similar projects & 1 week\\
-                            Writing Introduction and searching tools to be used & 1 week \\
-                            Finding/creating a suitable dataset for transport & 1 week \\
-                            Reading relevant articles/ papers & 1 week \\
-                            % Learning software tools and frameworks needed & 2 weeks \\
-                            Defining system requirements and use cases & 2 weeks \\ 
-                            Completing system analysis with class diagrams, sequence diagrams, and state chart diagrams  & 2 weeks \\
-                            Creating system design with system structure and deployment diagram & 1 week \\
-                            Finalizing the report & 1 week \\
-                            \hline
-                            \centering Total & 11 weeks \\
-                        \end{tabular}
-                    \end{center}
-                \end{table}
-            \subsubsection{Implementation Work Schedule}
-                The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
-                    \caption{Implementation Work Plan}
-                    \label{fig:work_plan}
-                \end{figure}
+            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
+                \caption{Implementation Work Plan}
+                \label{fig:work_plan}
+            \end{figure}
         
     \pagebreak
     \section{System Analysis}  
@@ -861,38 +842,6 @@
 
         \FloatBarrier
         
-    \pagebreak
-    
-    \section{Initial Prototype}
-        % \footnote{
-        This is an initial prototype. The final app look is subject to change.
-        % }
-        \begin{figure}[H]
-            \centering
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
-                    \caption{Login Screen}
-                    \label{fig:our_login}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
-                    \caption{Passenger Search Screen}
-                    \label{fig:our_passenger}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
-                    \caption{Driver Trip Creation Screen}
-                    \label{fig:our_driver}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
-                    \caption{Passenger Search Result Screen}
-                    \label{fig:our_results}
-                \end{subfigure}
-                \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
-                \label{fig:our_gallary}
-        \end{figure}
-        \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
 
     % \section{Changes to Part 1 Requirements}
     % As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
@@ -1020,6 +969,9 @@
                 \label{fig:trip_search}
             \end{figure}
 
+
+        \pagebreak
+
         \subsection{User Live Location}
             \begin{wrapfigure}{r}{0.45\textwidth}
                 \centering
@@ -1095,28 +1047,35 @@
                 For this feature we tested the working of the live location feature by running the application in a test screen environment, in which the live location of two users where shown on the map, and in which they were updated in real time and synchronized with the location in the database.
                 As for this feature its not specific to a certain user, but it is a general feature that can be used by all users. and we saw that an evaluation test as the one we conducted is enough to ensure the working of the feature
 
-
-
     \pagebreak
-    \section{Conclusion and Future Work}
-        \subsection{Conclusion}
-            This project has successfully developed, the Carpal Ridesharing App, tailored to the unique road conditions and transportation needs in Palestine, where thousands of people rely on various forms of transportation for their daily commutes. Recognizing the challenges with conventional transportation methods—such as issues with time, availability, and comfort—our app provides a viable alternative that addresses these problems effectively.
+    \section{Conclusion}
+        This project has successfully developed, the Carpal Ridesharing App, tailored to the unique road conditions and transportation needs in Palestine, where thousands of people rely on various forms of transportation for their daily commutes. Recognizing the challenges with conventional transportation methods—such as issues with time, availability, and comfort—our app provides a viable alternative that addresses these problems effectively.
 
-            The CarPal Ridesharing App allows anyone with a driver's license and a car to offer rides to others, facilitating pickups along their routes at any time. This innovative solution helps reduce the costs of commuting, minimizes the number of trips required, and significantly cuts down on waiting time. It is designed to be both affordable and easily accessible through a user-friendly mobile app.
+        The CarPal Ridesharing App allows anyone with a driver's license and a car to offer rides to others, facilitating pickups along their routes at any time. This innovative solution helps reduce the costs of commuting, minimizes the number of trips required, and significantly cuts down on waiting time. It is designed to be both affordable and easily accessible through a user-friendly mobile app.
 
-            With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking and paying through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
+        With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking and paying through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
 
-            We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
+        We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
         
-        \subsection{Future Work}
-            %TODO: add future work
+    \section{Future Work}
+        \begin{enumerate}
+            \item adding more stations
+            \item chat
+            \item payment
+            \item Roads status Telegram channel integration
+            \item Sharing trip link
+            \item Learned trip time prediction
+            \item Settings page for font
+            \item More languages
+        \end{enumerate}
+        %TODO: add future work
 
-            % \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
-            % }
+        % \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
+        % }
 
-    \pagebreak
+    % \pagebreak
 
-    \clearpage % page break doesn't add space before the references page so this needed
+    % \clearpage % page break doesn't add space before the references page so this needed
     \printbibliography
 
 \end{document} % This is the end of the document
