@@ -80,7 +80,8 @@
             \textbf{\large{Section - A}}
             \vspace{0.8cm}
             
-            \end{center}            
+            \end{center}
+            
             \textbf{\large{Title of Project:}}
             \vspace{0.4cm}
             
@@ -125,7 +126,6 @@
                 \vspace{0.8cm}
 
                 \textbf{\large{Supervisor:}}
-        % TODO: remove extra spaces
                 \vspace{0.4cm}
             
                 NAEL QARAEEN
@@ -162,7 +162,7 @@
 
             Public transportation is very dependent on in Palestine. Thousands of people use them every day. However, it suffers from a lot of problems that vary in severity from one area to another. The service is only available up to a certain time in the day. In addition to the long time the roads take, passengers waste a lot of time waiting for cars to come by or fill up with passengers. During rush hours when there are a lot of people and not so many buses available, people have to compete to get into a car. Moreover, and while not a big deal, it can be a hustle to find where these buses are stationed in each city/ town, even costing another transportation to get to them. On the other hand, there are a lot of people who use their cars every day to get to their jobs. They can pick up a friend or relative along their way but that's not always the case as many will go empty. This method can provide individuals with flexibility and freedom, and save them the wait time. However, it can be very pricey given the road traffic situation here and the gas prices. Here we come to introduce our idea of organized yet very accessible carpooling, where anyone with a car can sign up for an account to offer to share their ride with people going to the same destination as them and split the cost of the trip together. 
 
-            The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, paying for it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept and upon getting accepted proceed to pay. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. The app will let users pay using easy digital payment methods available via local payment services e.g., PalPay. 
+            The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. 
         
             % The passenger must create an account and verify their phone number to hitch a ride with drivers otherwise they will be only able to browse trips as a guest account. The driver can be any person with a license that has been issued for a certain amount of time (to be determined later). After making a regular passenger account, the driver needs to apply to take trips through the app and complete a verification process. This will unlock driver options in the app that let them schedule a trip with beginning time, start location, destination, and number of seats available as well as luggage space. Users (drivers and passengers) can also set rules for their trip regarding matters like smoking, music, luggage space (driver only), seats available, and so on. These will be visible on their profile and available to filter through when passengers select a trip. 
             
@@ -241,18 +241,7 @@
                     \centering
                     \includegraphics[width=1\textwidth]{Spring Boot Logo.png}
                     \caption{Spring Logo \cite{spring_logo}}
-                    \label{fig:Spring Logo}fers a more feature-rich experience.
-                Firebase provides a comprehensive suit of tools and services, which are designed to work smoothly with Flutter. This integration allowed us to take better advantage of firebase’s real-time database, authentication, Firebase storage, and other services without extensive configurations and with easier code implementation.
-
-                More over our decision to switch to Firebase was mostly driven by these factors:
-                \begin{enumerate}
-                    \item Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed are supported by google.
-                    \item Feature-Rich Environement: Firebase offers built-in features like real-time data synchronization, user authentication, and more which are essential for our application and can be used in a more efficient way when directly implemented in flutter.
-                    \item Scalability and Maintenance: Firebase’s infrastructure is managed by Google, which ensures high reliability and scalability,  which allowed us to focus on building the application itself, rather than managing backend servers.
-                \end{enumerate}
-
-                By choosing Firebase over Spring Boot, we allowed ourselves to take advantage of a modern backend-as-a-service platform (Firebase) that aligns well with the needs of our Flutter application. 
-
+                    \label{fig:Spring Logo}
                 \end{figure}
                 \paragraph{Why Java Spring Boot} Java Spring Boot is a reliable and robust choice for backend development that is widely used, in addition our team members have current and past experience working with java and Spring Boot, with addition to Spring Boot capabilities, we saw it as the perfect choice for our backend development and future scalability.
                 \paragraph{Transition to Firebase} After doing further research and the following the initial development phase, we discovered that integrating Flutter with Firebase as a backend offers a more feature-rich experience.
@@ -369,9 +358,9 @@
                             \hline
                             Anyone can make a trip after verification (no contract) 
                             & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
-                            \hline
-                            Ability to pay beforehand through the app
-                            & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
+                            % \hline
+                            % Ability to pay beforehand through the app
+                            % & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
                             \hline
                             Driver can schedule trips days prior
                             & \checkmark & \checkmark & & \Large{\checkmark}\\
@@ -441,20 +430,19 @@
                 Their research splits the factors affecting carpooling into internal individual and judgemental factors and external environmental and situational factors. Like Teal (1984) \cite{carpool_who_why_how} and many other publications on the topic, this research agrees that socio-demographics don't strongly influence carpooling.  One key point drawn from their research regarding socio-demographic factors and one which agrees with Teal (1984) \cite{carpool_who_why_how} is that women carpool more than women do. We don't know if this translates well to Palestine but we aim that our app will be usable for both men and women easily by taking some measures that are friendly with the gender rules in Palestine such as giving female users the ability to filter female drivers only. In terms of situational factors, the research also confirms the previously discussed findings that carpooling favors longer distances. It also claims that the inconvenience of waiting for other carpooling members can be a major factor in pushing away people from carpooling. We see that this issue might be exacerbated in our app since we are allowing drivers to pick up people on the way. We need to bring countermeasures that will make pickup easier and faster. One such measure is limiting the number of people a person can pick up. In addition to the ability of drivers and passengers to communicate and decide on a pickup location, we also discussed utilizing the map so passengers can send their exact pickup location from the start when requesting the trip to the driver who can, in return, agree or send a new waiting location for the passenger. As for judgemental factors, the research notes that psychological factors play a major role in making carpooling decisions. More so than socio-demographic factors. People feel more comfortable carpooling with their relatives and co-workers than when they are carpooling with strangers. Commuter privacy is also a big factor as carpoolers feel a sense of giving up some privacy and personal space when carpooling. However, since public transportation is very popular in Palestine, we feel carpooling will be just as acceptable in this regard as it offers similar, if not better, privacy levels. The study also points out that a sense of control can encourage people to carpool, we believe we can achieve this in our app by offering the option to find trips that agree with the user's set rules. We expect people's willingness to carpool can be negatively affected by their inclination to socialize. We are trying to mitigate the effect of this by designating a rule for chatting and socializing. We can also benefit from the fact that our app is oriented around picking up people along the way, which in turn, encourages shy people to participate knowing that other people will be on the trip with them providing them similar environment to familiar public transportation. Pollution is also a factor that encourages people to carpool according to this research but while reducing carbon footprints is one of our goals, we don't believe it is a major incentive for carpoolers in Palestine. Nonetheless, we see that traffic plays a similar role in encouraging people but we don't know to what extent since the traffic and road situation in Palestine can be abnormal most of the time. Moreover, the research results point out the important and the not-so-significant factors that affect carpooling. It finds that transportation costs, the number of employees in the carpooler's workplace, and finding potential partners have the biggest effect. Some other less important factors include the availability of carpooling lanes, fixed working schedules, and urban areas. Factors such as age, marital status, parking costs, parking availability, and being a university student,  have negligible effects on carpooling. \cite{soton381789} Overall, we believe this research gives very good insight for us to decide on how we implement certain aspects of our app and will try to make good use of it in this project and future works to come.
 
             \subsubsection{Carpooling Challenges}
-    In their research paper on carpooling and its economic implications for drivers \cite{carpool_challenge}, Hai-Jun Huang, Hai Yang, and Michael G.H. Bell address the challenges associated with carpooling, including inconvenience for those with flexible hours, increased travel time, and concerns about privacy and independence. The study primarily focuses on the economic effects of carpooling, employing two main models: deterministic and stochas             Where deterministic mode, explores passengers’ behavior and thoughts about carpooling, and driving alone modes under various scenarios, including no-tool equilibrium and social conditions. On the other hand, the stochastic model takes the path of logit-based modeling, considering different factors such as fuel cost, assembly cost, value of time, and traffic congestion.
+                In their research paper on carpooling and its economic implications for drivers \cite{carpool_challenge}, Hai-Jun Huang, Hai Yang, and Michael G.H. Bell address the challenges associated with carpooling, including inconvenience for those with flexible hours, increased travel time, and concerns about privacy and independence. The study primarily focuses on the economic effects of carpooling, employing two main models: deterministic and stochastic.
                 
-                The research adopts three main approaches to studying carpooling which are: estimating ride-sharing potential, predicting ride-sharing demand, and considering demand and supply effects. Several numerical examples are shown in the paper that demonstrate the impact of carpooling on car trips for users, which indicates a decrease  diagram. which helped us to align the overall cost for both passengers and drivers.
-                To conclude, this research provides valuable insights into the economic aspects of carpooling, showing users’ behavior and preferences, and offering a good understandiing the challenges and benefits that this mode of transportation can bring with it. \cite{carpool_challenge}
+                Where deterministic mode, explores passengers’ behavior and thoughts about carpooling, and driving alone modes under various scenarios, including no-tool equilibrium and social conditions. On the other hand, the stochastic model takes the path of logit-based modeling, considering different factors such as fuel cost, assembly cost, value of time, and traffic congestion.
+                
+                The research adopts three main approaches to studying carpooling which are: estimating ride-sharing potential, predicting ride-sharing demand, and considering demand and supply effects. Several numerical examples are shown in the paper that demonstrate the impact of carpooling on car trips for users, which indicates a decrease in the overall cost for both passengers and drivers.
+                To conclude, this research provides valuable insights into the economic aspects of carpooling, showing users’ behavior and preferences, and offering a good understanding of the challenges and benefits that this mode of transportation can bring with it. \cite{carpool_challenge}
     \pagebreak
 
     \section{Approach}  
         \subsection{Methodology}
             To ensure an effective development process, we have adopted the Agile development methodology \cite{agile_method} as the software development process throughout our journey.
-      and connecting it with the flutter application, followed by implementing user interfaces with their respective backend functionalities in parallel.while ensuring a robust and scalable architecture that can be easily maintained and extended in the future, implemented and tested in iterations, which allowed us to adapt to changes and feedback quickly, ensuring a robust and reliable development process.
             
-            This methodology has proven to be effective in ensuring a smooth and efficient development process, allowing us to deliver a high-quality product that meets user expectations and requirements within the specified time frame.
-
-            e we went through our project using iterative cycles, which allowed for flexible development process.
+            Where we went through our project using iterative cycles, which allowed for flexible development process.
 
             Following the selection of the software development process, our intial step was conducting a survey in which we gathered data from what we believe could be potential users. This helped us understand user 
             expectations and desires for the application. Additionally we referenced the coparative analysis of existing carpooling applications which helped us identify areas of improvement and features that would make the application stand out.
@@ -462,7 +450,7 @@
             After understanding the user needs and market landscape, we dived into the system analysis phase. In this phase, we defined the system requirements and use cases, which helped us understand the system's functionality and how users will interact with it.
             in which then we moved to technologies selection, where we chose the technologies that best fit our project requirements and our team's expertise. As in this phase we decided to migrate from using Java Spring Boot to Firebase as our backend, with Flutter being kept as our front end technology.
 
-            As we progressed, we made use of the existing system requirements both functional and non functional, in addition to referencing the diagrams, such as use case diagram. which helped us to align our development progress with a visually mapped system architecture and functionality, which we took into consideration throughout the development phas.
+            As we progressed, we made use of the existing system requirements both functional and non functional, in addition to referencing the diagrams, such as use case diagram. which helped us to align our development progress with a visually mapped system architecture and functionality.
 
             During the development phase we began by establishing the database and connecting it with the flutter application, followed by implementing user interfaces with their respective backend functionalities in parallel.while ensuring a robust and scalable architecture that can be easily maintained and extended in the future.
 
@@ -474,9 +462,10 @@
             \subsubsection{West Bank Cities Roads Dataset}
                 A dataset of all the roads commonly used to commute from one Palestinian town or city to another in the West Bank. This will be used to define fixed stations that allow for passengers to be picked up along the way from towns and cities that drivers normally pass by to arrive at their destination. There is no already made database that we know of as of the writing of this draft, 08/02/2024. We are to ask the responsible parties for one or start collecting it ourselves. Due to the narrow time window of the project, the scope of operational routes, or the routes the app will work on, is reduced to a smaller area to use as proof of concept and a test case for development; we chose the route of Qalqilya - Ramallah for this, see the figure \ref{fig:testcase_route} showcasing possible routes and possible stations in between. We aim to scale the app's operational scope from this to the whole of the West Bank wherever possible.
                 
-                             \centering
+                \begin{figure}[H]
+                    \centering
                     \includegraphics[width=0.7\textwidth, keepaspectratio]{Images/Route_Text_Case.png}
-            The implementatio wn{Test Case Route\protect \footnotemark[1]}
+                    \caption{Test Case Route\protect \footnotemark[1]}
                     \label{fig:testcase_route}
                 \end{figure}
 
@@ -496,7 +485,7 @@
         \pagebreak
 
         \subsection{Work Schedule}
-            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
+            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then a polishing and fine-tuning phase.
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
@@ -567,22 +556,22 @@
                     \item [$ $] SR10.2  The system shall display relevant trip details, including driver information, route, and set rules. 
                     \item [$ $] SR10.3 The system shall notify the driver of this booking.
                     \item [$ $] SR10.4 The system should wait for the driver to accept the request before confirming the booking.
-                    \item [$ $] SR10.5 The system shall request the passenger to pay for the trip.
+                    % \item [$ $] SR10.5 The system shall request the passenger to pay for the trip.
                 \end{itemize}
-                \item [$ $] UR11. Passengers shall be able to pay for the trip.
-                \begin{itemize}
-                    \item [$ $] SR11.1 The system shall allow passengers to pay through different online payment methods.
-                    \item [$ $] SR11.2The system shall complete the payment securely.
-                    \item [$ $] SR11.3 The system shall confirm the booking for the driver/passenger.
-                    \item [$ $] SR11.4 The system shall complete the payment for the driver when trip end confirmation is done.
-                \end{itemize}
-                \item [$ $] UR12. Users shall be able to cancel trips (Both Drivers and passengers’) and get refunds.
+                % \item [$ $] UR11. Passengers shall be able to pay for the trip.
+                % \begin{itemize}
+                %     \item [$ $] SR11.1 The system shall allow passengers to pay through different online payment methods.
+                %     \item [$ $] SR11.2The system shall complete the payment securely.
+                %     \item [$ $] SR11.3 The system shall confirm the booking for the driver/passenger.
+                %     \item [$ $] SR11.4 The system shall complete the payment for the driver when trip end confirmation is done.
+                % \end{itemize}
+                \item [$ $] UR12. Users shall be able to cancel trips (Both Drivers and passengers).
                 \begin{itemize}
                     \item [$ $] SR12.1 The system shall allow users to cancel the trip.
                     \item [$ $] SR12.2 The system shall start the refund process for this trip.
                     \item [$ $] SR12.3 The system shall notify the driver/passengers when cancellation is completed.
-                    \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
-                    \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
+                    % \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
+                    % \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
                 \end{itemize}
                 \item [$ $] UR13. The passenger shall be notified sometime before the driver's scheduled/ estimated arrival time.
                 \item [$ $] UR14. Users (driver and passenger) should confirm that the trip is finished and will have the option to provide feedback when the trip is complete.
@@ -616,7 +605,7 @@
             \begin{itemize}
                 \item Notification Manager: This service handles notifying actors about events such as informing admins of a newly filed report/ complaint from users, notifying admins about new requests from users wishing to become drivers, informing drivers of new ride requests from passengers, and reminding drivers and passengers of their upcoming trips.
                 \item Map Services: This service is fired up whenever a new trip is added with its final destination located on the map, passenger checks to see a driver’s live location on the map, or when passengers choose a point on the map to be picked up from and the driver approves or sends back a different point for pick up.
-                \item Payment Services: This service is responsible for facilitating payments between passengers and drivers. It is used whenever a payment transaction is made.
+                % \item Payment Services: This service is responsible for facilitating payments between passengers and drivers. It is used whenever a payment transaction is made.
             \end{itemize}
         \subsubsection{Use Cases Description}
             This is a description of the use cases shown in \ref{fig:usecase}.
@@ -660,9 +649,9 @@
                 \item Notify Users of Approved or Decline Requests \\
                     Actors: Admin, Notification Manager \\
                     When a user’s request to become a driver is examined by admin and approved or declined, the user will get a notification back telling him about the decision and the reasons behind refusal in case of one.
-                \item Add Payment method \\
-                    Actors: Passenger, Driver \\
-                    The User can choose his preferred payment method that is presented in the application for future payments.
+                % \item Add Payment method \\
+                %     Actors: Passenger, Driver \\
+                %     The User can choose his preferred payment method that is presented in the application for future payments.
                 \item Report/ Submit Complaint \\
                     Actors: Passenger, Driver \\
                     The user can report/submit a complaint about another user if he has recently been on a trip with them.
@@ -674,7 +663,7 @@
                     Drivers and passengers can see a page with their upcoming trips sorted by the time they are scheduled to start. 
                 \item Manage Account Settings\\ 
                     Actors: Driver, passenger\\
-                    Driver and passengers can access their account settings through the app to manage settings like changing their email, password, and payment method.
+                    Driver and passengers can access their account settings through the app to manage settings like changing their email, password.
                 \item Search Trips \\
                     Actors: passenger, Driver, Guest \\
                     Drivers, passengers, and application guests can search for trips by entering the departure, destination, and time of the trip he is looking for.
@@ -711,39 +700,40 @@
                     The driver can see requests from passengers wanting to ride with them and accept or decline depending on the ratings of the passenger, and other factors such as the verified account status of the passenger and their location. 
                 \item Notify Passenger of Driver Response to Trip Request\\
                     Actors: Driver, Notification Manager\\
-                    When a driver accepts or declines a passenger’s request to be picked up, the system notifies the passenger and enables them to proceed to payment in case of approval.
-                \item Send Payment to Driver for Trip\\
-                    Actors: payment service, Admin\\
-                    At the end of trip confirmation, The system processes the payment to the driver's account.
-                \item Receive Payment\\
-                    Actors: payment Service, Admin\\
-                    When a payment is made by a passenger the payment service transfers the money into a median pocket owned by the application admins which holds the payment until trip completion.
+                    When a driver accepts or declines a passenger’s request to be picked up then the system notifies the passenger.
+                % \item Send Payment to Driver for Trip\\
+                %     Actors: payment service, Admin\\
+                %     At the end of trip confirmation, The system processes the payment to the driver's account.
+                % \item Receive Payment\\
+                %     Actors: payment Service, Admin\\
+                %     When a payment is made by a passenger the payment service transfers the money into a median pocket owned by the application admins which holds the payment until trip completion.
                 \item Confirm Trip Completion\\
                     Actors: Driver, passenger\\
                     At the end of the trip: \\
                         The driver should ask and ensure that the passenger confirms that his trip has ended. \\
-                        The driver should confirm that the trip has ended when he reaches his destinatiHon.
+                        The driver should confirm that the trip has ended when he reaches his destination.
                 \item Cancel a Reservation\\
                     Actors: passenger\\
                     passengers are allowed to cancel a trip reservation within a limited amount of time estimated xx hours, with a full refund, and a partial refund accounted for the remaining time of the trip after that.
                 \item View Accepted Trips\\
-                    Actors: Passenger\\[!htb]
+                    Actors: Passenger\\
                     Passengers can view the trips that they have been accepted to and decide which one they are going to attend.
-                \item Perform Payment \\
-                    Actors: Passenger, Payment Service \\
-                    Passenger can pay for the trip they have chosen to attend and their seat is booked on successful payment. Additionally, all previous requests sent to other drivers will be canceled.
-                \item Validate Payment \\
-                    Actors: Payment Service \\
-                    The payment service is responsible for validating the payment and transferring the money from the passenger to the admin’s account.
+                % \item Perform Payment \\
+                %     Actors: Passenger, Payment Service \\
+                %     Passenger can pay for the trip they have chosen to attend and their seat is booked on successful payment. Additionally, all previous requests sent to other drivers will be canceled.
+                % \item Validate Payment \\
+                %     Actors: Payment Service \\
+                %     The payment service is responsible for validating the payment and transferring the money from the passenger to the admin’s account.
                 \item Cancel a Reservation\\
                     Actors: Passenger \\
-                    The passenger is allowed to cancel an already booked trip or a trip request. If the trip is paid for, a refund is issued back to the passenger’s payment method. The refunded amount will be deferred depending on how late the passenger requests to cancel.
+                    The passenger is allowed to cancel an already booked trip or a trip request.
+                    % If the trip is paid for, a refund is issued back to the passenger’s payment method. The refunded amount will be deferred depending on how late the passenger requests to cancel.
                 \item Ask for Rating/ Feedback\\
                     Actors: Passenger, Driver\\
                     On the trip's end, both passengers and drivers are able to rate each other and provide feedback if they wish.
                 \item View trip history \\
                     Actors: Passenger, Driver \\
-                    Passengers and drivers can see their trip history from their profile section, and if a user is registered as a driver he can choose to display trips he made or trips he has been part of.[!htb]
+                    Passengers and drivers can see their trip history from their profile section, and if a user is registered as a driver he can choose to display trips he made or trips he has been part of.
             \end{enumerate}
         
         \pagebreak
@@ -759,9 +749,7 @@
     \pagebreak
     \subsection{Sequence, UML, State, and Deployment Diagrams}
 
-         \FloatBarrier
-
-       \begin{figure}[H][!htb]
+        \begin{figure}[H]
             \centering
             \rotatebox{90}{
             \includegraphics[width=1.1\textwidth]{Images/login.png}}
@@ -771,10 +759,8 @@
 
 
     % \subsubsection{Login Sequence Diagram}
-        % \begin{sidewaysfigure}[!htb]
-             \FloatBarrier
-
-   %     \centering
+        % \begin{sidewaysfigure}
+        %     \centering
         %     \includegraphics[width=\linewidth]{Images/login.png}
         %     \caption{Login Workflow}
         %     \label{fig:seq_dig_login}
@@ -792,14 +778,14 @@
 
 
     % \subsubsection{Reserve Seat sequence Diagram}
-        \begin{sidewaysfigure}[!htb]
-            \centering
-            \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
-            \caption{Passenger Payment Workflow}
-            \label{fig:seq_dig_pass_payment}
-        \end{sidewaysfigure}
+        % \begin{sidewaysfigure}[!htb]
+        %     \centering
+        %     \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
+        %     \caption{Passenger Payment Workflow}
+        %     \label{fig:seq_dig_pass_payment}
+        % \end{sidewaysfigure}
 
-        \FloatBarrier
+        % \FloatBarrier
 
 
     % \subsubsection{show scheduled trips sequence Diagram}
@@ -1112,34 +1098,35 @@
                 \end{spacing}
 
                 \subsubsection{Book a Trip test}
-                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
-                in which different scenarios can happen:
-                \begin{enumerate}
-                    \item User has a payment method, in which the user will be redirected to the home page.
-                    \item User has no payment method, in which the user will be prompted to enter a payment method.
-                    \item User returned to the previous page, in which the trip search screen is shown again.
-                \end{enumerate}
-                On each stage the user has choosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
+                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, 
+                % in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
+                % in which different scenarios can happen:
+                % \begin{enumerate}
+                %     \item User has a payment method, in which the user will be redirected to the home page.
+                %     \item User has no payment method, in which the user will be prompted to enter a payment method.
+                %     \item User returned to the previous page, in which the trip search screen is shown again.
+                % \end{enumerate}
+                On each stage the user has chosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
                 On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
-                \begin{spacing}{1}
-                    \begin{table}[H]
-                        \centering
-                        \label{tab:login_test}
-                        \begin{tabularx}{\textwidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
-                            \hline
-                            \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
-                            % Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
-                            \hline
-                            Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
-                            \hline
-                            Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
-                            \hline
-                            Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
-                            \hline
-                        \end{tabularx}
-                        \caption{Book A Trip Test Cases}
-                    \end{table}
-                \end{spacing}
+                % \begin{spacing}{1}
+                %     \begin{table}[H]
+                %         \centering
+                %         \label{tab:login_test}
+                %         \begin{tabularx}{\textwidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                %             \hline
+                %             \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                %             % Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                %             \hline
+                %             Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
+                %             \hline
+                %             Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
+                %             \hline
+                %             Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
+                %             \hline
+                %         \end{tabularx}
+                %         \caption{Book A Trip Test Cases}
+                %     \end{table}
+                % \end{spacing}
 
 
             \subsubsection{Create a Trip for Driver test}
@@ -1210,7 +1197,7 @@
 
         The CarPal Ridesharing App allows anyone with a driver's license and a car to offer rides to others, facilitating pickups along their routes at any time. This innovative solution helps reduce the costs of commuting, minimizes the number of trips required, and significantly cuts down on waiting time. It is designed to be both affordable and easily accessible through a user-friendly mobile app.
 
-        With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking and paying through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
+        With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
 
         We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
         
