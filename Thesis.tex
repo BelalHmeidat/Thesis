@@ -26,7 +26,6 @@
 \usepackage{float} % used to place figures in the exact location
 \usepackage{placeins} % used to place figures in the exact location
 \usepackage{tocloft} % used to add spaces before table of contents
-% \usepackage{etoolbox} 
 \usepackage{seqsplit} % used to split long words in the table of contents
 
 
@@ -163,7 +162,7 @@
 
             Public transportation is very dependent on in Palestine. Thousands of people use them every day. However, it suffers from a lot of problems that vary in severity from one area to another. The service is only available up to a certain time in the day. In addition to the long time the roads take, passengers waste a lot of time waiting for cars to come by or fill up with passengers. During rush hours when there are a lot of people and not so many buses available, people have to compete to get into a car. Moreover, and while not a big deal, it can be a hustle to find where these buses are stationed in each city/ town, even costing another transportation to get to them. On the other hand, there are a lot of people who use their cars every day to get to their jobs. They can pick up a friend or relative along their way but that's not always the case as many will go empty. This method can provide individuals with flexibility and freedom, and save them the wait time. However, it can be very pricey given the road traffic situation here and the gas prices. Here we come to introduce our idea of organized yet very accessible carpooling, where anyone with a car can sign up for an account to offer to share their ride with people going to the same destination as them and split the cost of the trip together. 
 
-            The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, paying for it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept and upon getting accepted proceed to pay. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. The app will let users pay using easy digital payment methods available via local payment services e.g., PalPay. 
+            The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. 
         
             % The passenger must create an account and verify their phone number to hitch a ride with drivers otherwise they will be only able to browse trips as a guest account. The driver can be any person with a license that has been issued for a certain amount of time (to be determined later). After making a regular passenger account, the driver needs to apply to take trips through the app and complete a verification process. This will unlock driver options in the app that let them schedule a trip with beginning time, start location, destination, and number of seats available as well as luggage space. Users (drivers and passengers) can also set rules for their trip regarding matters like smoking, music, luggage space (driver only), seats available, and so on. These will be visible on their profile and available to filter through when passengers select a trip. 
             
@@ -359,9 +358,9 @@
                             \hline
                             Anyone can make a trip after verification (no contract) 
                             & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
-                            \hline
-                            Ability to pay beforehand through the app
-                            & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
+                            % \hline
+                            % Ability to pay beforehand through the app
+                            % & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
                             \hline
                             Driver can schedule trips days prior
                             & \checkmark & \checkmark & & \Large{\checkmark}\\
@@ -486,7 +485,7 @@
         \pagebreak
 
         \subsection{Work Schedule}
-            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
+            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then a polishing and fine-tuning phase.
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
@@ -557,22 +556,22 @@
                     \item [$ $] SR10.2  The system shall display relevant trip details, including driver information, route, and set rules. 
                     \item [$ $] SR10.3 The system shall notify the driver of this booking.
                     \item [$ $] SR10.4 The system should wait for the driver to accept the request before confirming the booking.
-                    \item [$ $] SR10.5 The system shall request the passenger to pay for the trip.
+                    % \item [$ $] SR10.5 The system shall request the passenger to pay for the trip.
                 \end{itemize}
-                \item [$ $] UR11. Passengers shall be able to pay for the trip.
-                \begin{itemize}
-                    \item [$ $] SR11.1 The system shall allow passengers to pay through different online payment methods.
-                    \item [$ $] SR11.2The system shall complete the payment securely.
-                    \item [$ $] SR11.3 The system shall confirm the booking for the driver/passenger.
-                    \item [$ $] SR11.4 The system shall complete the payment for the driver when trip end confirmation is done.
-                \end{itemize}
-                \item [$ $] UR12. Users shall be able to cancel trips (Both Drivers and passengers’) and get refunds.
+                % \item [$ $] UR11. Passengers shall be able to pay for the trip.
+                % \begin{itemize}
+                %     \item [$ $] SR11.1 The system shall allow passengers to pay through different online payment methods.
+                %     \item [$ $] SR11.2The system shall complete the payment securely.
+                %     \item [$ $] SR11.3 The system shall confirm the booking for the driver/passenger.
+                %     \item [$ $] SR11.4 The system shall complete the payment for the driver when trip end confirmation is done.
+                % \end{itemize}
+                \item [$ $] UR12. Users shall be able to cancel trips (Both Drivers and passengers).
                 \begin{itemize}
                     \item [$ $] SR12.1 The system shall allow users to cancel the trip.
                     \item [$ $] SR12.2 The system shall start the refund process for this trip.
                     \item [$ $] SR12.3 The system shall notify the driver/passengers when cancellation is completed.
-                    \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
-                    \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
+                    % \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
+                    % \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
                 \end{itemize}
                 \item [$ $] UR13. The passenger shall be notified sometime before the driver's scheduled/ estimated arrival time.
                 \item [$ $] UR14. Users (driver and passenger) should confirm that the trip is finished and will have the option to provide feedback when the trip is complete.
@@ -606,7 +605,7 @@
             \begin{itemize}
                 \item Notification Manager: This service handles notifying actors about events such as informing admins of a newly filed report/ complaint from users, notifying admins about new requests from users wishing to become drivers, informing drivers of new ride requests from passengers, and reminding drivers and passengers of their upcoming trips.
                 \item Map Services: This service is fired up whenever a new trip is added with its final destination located on the map, passenger checks to see a driver’s live location on the map, or when passengers choose a point on the map to be picked up from and the driver approves or sends back a different point for pick up.
-                \item Payment Services: This service is responsible for facilitating payments between passengers and drivers. It is used whenever a payment transaction is made.
+                % \item Payment Services: This service is responsible for facilitating payments between passengers and drivers. It is used whenever a payment transaction is made.
             \end{itemize}
         \subsubsection{Use Cases Description}
             This is a description of the use cases shown in \ref{fig:usecase}.
@@ -650,9 +649,9 @@
                 \item Notify Users of Approved or Decline Requests \\
                     Actors: Admin, Notification Manager \\
                     When a user’s request to become a driver is examined by admin and approved or declined, the user will get a notification back telling him about the decision and the reasons behind refusal in case of one.
-                \item Add Payment method \\
-                    Actors: Passenger, Driver \\
-                    The User can choose his preferred payment method that is presented in the application for future payments.
+                % \item Add Payment method \\
+                %     Actors: Passenger, Driver \\
+                %     The User can choose his preferred payment method that is presented in the application for future payments.
                 \item Report/ Submit Complaint \\
                     Actors: Passenger, Driver \\
                     The user can report/submit a complaint about another user if he has recently been on a trip with them.
@@ -664,7 +663,7 @@
                     Drivers and passengers can see a page with their upcoming trips sorted by the time they are scheduled to start. 
                 \item Manage Account Settings\\ 
                     Actors: Driver, passenger\\
-                    Driver and passengers can access their account settings through the app to manage settings like changing their email, password, and payment method.
+                    Driver and passengers can access their account settings through the app to manage settings like changing their email, password.
                 \item Search Trips \\
                     Actors: passenger, Driver, Guest \\
                     Drivers, passengers, and application guests can search for trips by entering the departure, destination, and time of the trip he is looking for.
@@ -701,13 +700,13 @@
                     The driver can see requests from passengers wanting to ride with them and accept or decline depending on the ratings of the passenger, and other factors such as the verified account status of the passenger and their location. 
                 \item Notify Passenger of Driver Response to Trip Request\\
                     Actors: Driver, Notification Manager\\
-                    When a driver accepts or declines a passenger’s request to be picked up, the system notifies the passenger and enables them to proceed to payment in case of approval.
-                \item Send Payment to Driver for Trip\\
-                    Actors: payment service, Admin\\
-                    At the end of trip confirmation, The system processes the payment to the driver's account.
-                \item Receive Payment\\
-                    Actors: payment Service, Admin\\
-                    When a payment is made by a passenger the payment service transfers the money into a median pocket owned by the application admins which holds the payment until trip completion.
+                    When a driver accepts or declines a passenger’s request to be picked up then the system notifies the passenger.
+                % \item Send Payment to Driver for Trip\\
+                %     Actors: payment service, Admin\\
+                %     At the end of trip confirmation, The system processes the payment to the driver's account.
+                % \item Receive Payment\\
+                %     Actors: payment Service, Admin\\
+                %     When a payment is made by a passenger the payment service transfers the money into a median pocket owned by the application admins which holds the payment until trip completion.
                 \item Confirm Trip Completion\\
                     Actors: Driver, passenger\\
                     At the end of the trip: \\
@@ -719,15 +718,16 @@
                 \item View Accepted Trips\\
                     Actors: Passenger\\
                     Passengers can view the trips that they have been accepted to and decide which one they are going to attend.
-                \item Perform Payment \\
-                    Actors: Passenger, Payment Service \\
-                    Passenger can pay for the trip they have chosen to attend and their seat is booked on successful payment. Additionally, all previous requests sent to other drivers will be canceled.
-                \item Validate Payment \\
-                    Actors: Payment Service \\
-                    The payment service is responsible for validating the payment and transferring the money from the passenger to the admin’s account.
+                % \item Perform Payment \\
+                %     Actors: Passenger, Payment Service \\
+                %     Passenger can pay for the trip they have chosen to attend and their seat is booked on successful payment. Additionally, all previous requests sent to other drivers will be canceled.
+                % \item Validate Payment \\
+                %     Actors: Payment Service \\
+                %     The payment service is responsible for validating the payment and transferring the money from the passenger to the admin’s account.
                 \item Cancel a Reservation\\
                     Actors: Passenger \\
-                    The passenger is allowed to cancel an already booked trip or a trip request. If the trip is paid for, a refund is issued back to the passenger’s payment method. The refunded amount will be deferred depending on how late the passenger requests to cancel.
+                    The passenger is allowed to cancel an already booked trip or a trip request.
+                    % If the trip is paid for, a refund is issued back to the passenger’s payment method. The refunded amount will be deferred depending on how late the passenger requests to cancel.
                 \item Ask for Rating/ Feedback\\
                     Actors: Passenger, Driver\\
                     On the trip's end, both passengers and drivers are able to rate each other and provide feedback if they wish.
@@ -778,14 +778,14 @@
 
 
     % \subsubsection{Reserve Seat sequence Diagram}
-        \begin{sidewaysfigure}[!htb]
-            \centering
-            \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
-            \caption{Passenger Payment Workflow}
-            \label{fig:seq_dig_pass_payment}
-        \end{sidewaysfigure}
+        % \begin{sidewaysfigure}[!htb]
+        %     \centering
+        %     \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
+        %     \caption{Passenger Payment Workflow}
+        %     \label{fig:seq_dig_pass_payment}
+        % \end{sidewaysfigure}
 
-        \FloatBarrier
+        % \FloatBarrier
 
 
     % \subsubsection{show scheduled trips sequence Diagram}
@@ -1098,34 +1098,35 @@
                 \end{spacing}
 
                 \subsubsection{Book a Trip test}
-                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
-                in which different scenarios can happen:
-                \begin{enumerate}
-                    \item User has a payment method, in which the user will be redirected to the home page.
-                    \item User has no payment method, in which the user will be prompted to enter a payment method.
-                    \item User returned to the previous page, in which the trip search screen is shown again.
-                \end{enumerate}
-                On each stage the user has choosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
+                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, 
+                % in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
+                % in which different scenarios can happen:
+                % \begin{enumerate}
+                %     \item User has a payment method, in which the user will be redirected to the home page.
+                %     \item User has no payment method, in which the user will be prompted to enter a payment method.
+                %     \item User returned to the previous page, in which the trip search screen is shown again.
+                % \end{enumerate}
+                On each stage the user has chosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
                 On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
-                \begin{spacing}{1}
-                    \begin{table}[H]
-                        \centering
-                        \label{tab:login_test}
-                        \begin{tabularx}{\textwidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
-                            \hline
-                            \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
-                            % Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
-                            \hline
-                            Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
-                            \hline
-                            Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
-                            \hline
-                            Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
-                            \hline
-                        \end{tabularx}
-                        \caption{Book A Trip Test Cases}
-                    \end{table}
-                \end{spacing}
+                % \begin{spacing}{1}
+                %     \begin{table}[H]
+                %         \centering
+                %         \label{tab:login_test}
+                %         \begin{tabularx}{\textwidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                %             \hline
+                %             \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                %             % Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                %             \hline
+                %             Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
+                %             \hline
+                %             Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
+                %             \hline
+                %             Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
+                %             \hline
+                %         \end{tabularx}
+                %         \caption{Book A Trip Test Cases}
+                %     \end{table}
+                % \end{spacing}
 
 
             \subsubsection{Create a Trip for Driver test}
@@ -1196,7 +1197,7 @@
 
         The CarPal Ridesharing App allows anyone with a driver's license and a car to offer rides to others, facilitating pickups along their routes at any time. This innovative solution helps reduce the costs of commuting, minimizes the number of trips required, and significantly cuts down on waiting time. It is designed to be both affordable and easily accessible through a user-friendly mobile app.
 
-        With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking and paying through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
+        With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
 
         We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
         
