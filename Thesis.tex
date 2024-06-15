@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article} % \documentclass{} is the first command in any LaTeX code.  It is used to define what kind of document you are creating such as an article or a book, and begins the document preamble
+\documentclass[a4paper, 12pt]{report} % \documentclass{} is the first command in any LaTeX code.  It is used to define what kind of document you are creating such as an article or a book, and begins the document preamble
 
 % packages needed for this document
 \usepackage{amsmath} % \usepackage is a command that allows you to add functionality to your LaTeX code
@@ -21,7 +21,14 @@
 \usepackage{adjustbox}
 \usepackage{threeparttablex} % used to contain the long table and add suitable table notes
 \usepackage{booktabs} % required for three part table above
-\usepackage{afterpage} 
+\usepackage{afterpage}  % used to add a blank page after a figure
+\usepackage{wrapfig} % used to wrap text around figures
+\usepackage{float} % used to place figures in the exact location
+\usepackage{placeins} % used to place figures in the exact location
+\usepackage{tocloft} % used to add spaces before table of contents
+% \usepackage{etoolbox} 
+\usepackage{seqsplit} % used to split long words in the table of contents
+
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
 
@@ -43,6 +50,8 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
+% remove chapter number from section number
+\renewcommand{\thesection}{\arabic{section}}
 
 % Customize page number position in the footer
 \pagestyle{fancy} % need fancy page style for this to work
@@ -50,7 +59,12 @@
 \fancyhf{} % clears existing header/footer entries (default page numbering)
 \fancyfoot[R]{\thepage} % sets page number on right side of the footer
 
+
+
 \begin{document} 
+\setlength{\cftbeforetoctitleskip}{0pt plus 1pt} % sets the space before the table of contents to match sections
+\setlength{\cftbeforeloftitleskip}{0pt plus 1pt} % sets the space before the list of figures to match sections
+\setlength{\cftbeforelottitleskip}{0pt plus 1pt} % sets the space before the list of tables to match sections
     \begin{titlepage}
         \begin{center}
             \includegraphics{Birzeit_Logo.png}
@@ -61,7 +75,7 @@
             Department of Computer Science 
             \vspace{0.8cm}
 
-            COMP 4200 - Introduction to Graduation Project
+            COMP 4300 - Graduation Project
             \vspace{0.8cm}
 
             \textbf{\large{Section - A}}
@@ -94,7 +108,6 @@
             \vspace{0.4cm}
             
             \hspace{\parindent} NAEL QARAEEN %adding hspace same length as indentiation to force indent
-
             \pagebreak
 
             \begin{center}
@@ -123,14 +136,16 @@
                 \textbf{\large{Key Areas:}}
                 \vspace{0.4cm}
 
-                Transportation Service, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase, Java Spring Boot
+                Transportation Service, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase
 
             \end{center}
     \end{titlepage}
 
     \pagenumbering{roman}
+    \vspace{-0.8cm}
     \begin{abstract}
-        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Java Spring to manage the backend, and Firebase database.
+        % TODO: remove extra spaces
+        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and database.
     \end{abstract}
     \pagebreak
     \tableofcontents
@@ -140,9 +155,8 @@
     \listoftables
     \pagebreak
     \pagenumbering{arabic}
+    \counterwithin*{section}{part}
     \setcounter{page}{1}
-
-
     \indent \section{Introduction } % creates a section
         \subsection{Overview}
             When it comes to commuting from one place to another in Palestine, options can be narrowed down into two options, public and private transportation services and privately owned automobiles; people relying on the latter might carry with them colleagues, family, or friends or may be traveling alone.  Here we will give an overview of the downsides involving these two norms of commute, briefly introduce the idea of our app, and how it fits among these two.
@@ -222,7 +236,7 @@
                 \paragraph{Why Flutter?}
                 With Flutter, we can save a lot of time and work by writing the code once knowing it will work on both of our target platforms iOS and Android. The main reason we are using Flutter over other cross-development frameworks such as React Native is due to our previous experience developing in Flutter. Flutter while it is still not as fast as native development, still outperforms React Native. Also since we are using Google Maps API for routes, and Google's Firebase as a Database, we expect Flutter will work more easily and reliably with them. 
             \pagebreak
-            \subsubsection{Java Spring Boot}
+            \subsubsection{Java Spring Boot (no longer needed)}
                 Java Spring Framework is a popular, open-source framework used for creating standalone, production-grade applications that run on Java Virtual Machine. \cite{spring_wiki}
                 \begin{figure}[h]
                     \centering
@@ -230,7 +244,19 @@
                     \caption{Spring Logo \cite{spring_logo}}
                     \label{fig:Spring Logo}
                 \end{figure}
-                \paragraph{Why Java Spring Boot} All of our team members have current and past experience working with Java and Java Spring Boot. This will make it easy for us to develop, debug, and maintain the back end of our app. Given the reliability of this framework, we can expand our app with new features and take it to new places such as the web.
+                \paragraph{Why Java Spring Boot} Java Spring Boot is a reliable and robust choice for backend development that is widely used, in addition our team members have current and past experience working with java and Spring Boot, with addition to Spring Boot capabilities, we saw it as the perfect choice for our backend development and future scalability.
+                \paragraph{Transition to Firebase} After doing further research and the following the initial development phase, we discovered that integrating Flutter with Firebase as a backend offers a more feature-rich experience.
+                Firebase provides a comprehensive suit of tools and services, which are designed to work smoothly with Flutter. This integration allowed us to take better advantage of firebase’s real-time database, authentication, Firebase storage, and other services without extensive configurations and with easier code implementation.
+
+                More over our decision to switch to Firebase was mostly driven by these factors:
+                \begin{enumerate}
+                    \item Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed are supported by google.
+                    \item Feature-Rich Environement: Firebase offers built-in features like real-time data synchronization, user authentication, and more which are essential for our application and can be used in a more efficient way when directly implemented in flutter.
+                    \item Scalability and Maintenance: Firebase’s infrastructure is managed by Google, which ensures high reliability and scalability,  which allowed us to focus on building the application itself, rather than managing backend servers.
+                \end{enumerate}
+
+                By choosing Firebase over Spring Boot, we allowed ourselves to take advantage of a modern backend-as-a-service platform (Firebase) that aligns well with the needs of our Flutter application. 
+
         This is not an inclusive list. Other technologies and APIs as well as the specific libraries that are going to be used will be mentioned here when we discuss further details.
 
     \pagebreak
@@ -345,9 +371,9 @@
                             \hline
                             Passengers can filter through drivers
                             & \checkmark & & & \Large{\checkmark}\\
-                            \hline
-                            Users can set rules visible on their profile
-                            & & \checkmark & & \Large{\checkmark}\\
+                            % \hline
+                            % Users can set rules visible on their profile
+                            % & & \checkmark & & \Large{\checkmark}\\
                             \hline
                             Cancellations allowed
                             & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
@@ -415,23 +441,29 @@
 
     \section{Approach}  
         \subsection{Methodology}
-            To ensure an effective development process, we have chosen to adopt the Agile development methodology \cite{agile_method} as the software development process we will be taking throughout our journey.
+            To ensure an effective development process, we have adopted the Agile development methodology \cite{agile_method} as the software development process throughout our journey.
             
-            Where this approach is known for its success in delivering reliable software, we will go through our project using iterative cycles, allowing for flexibility during the development process.
+            Where we went through our project using iterative cycles, which allowed for flexible development process.
+
+            Following the selection of the software development process, our intial step was conducting a survey in which we gathered data from what we believe could be potential users. This helped us understand user 
+            expectations and desires for the application. Additionally we referenced the coparative analysis of existing carpooling applications which helped us identify areas of improvement and features that would make the application stand out.
+
+            After understanding the user needs and market landscape, we dived into the system analysis phase. In this phase, we defined the system requirements and use cases, which helped us understand the system's functionality and how users will interact with it.
+            in which then we moved to technologies selection, where we chose the technologies that best fit our project requirements and our team's expertise. As in this phase we decided to migrate from using Java Spring Boot to Firebase as our backend, with Flutter being kept as our front end technology.
+
+            As we progressed, we made use of the existing system requirements both functional and non functional, in addition to referencing the diagrams, such as use case diagram. which helped us to align our development progress with a visually mapped system architecture and functionality.
+
+            During the development phase we began by establishing the database and connecting it with the flutter application, followed by implementing user interfaces with their respective backend functionalities in parallel.while ensuring a robust and scalable architecture that can be easily maintained and extended in the future.
+
+            Throughout the semester, we followed the Agile methodology, where each phase of the development was planned, implemented and tested in iterations, which allowed us to adapt to changes and feedback quickly, ensuring a robust and reliable development process.
             
-            Following the selection of the software development process, our initial step was surveying to gather data from potential users to see what people would expect and want from such an application, then we compared existing carpooling applications to see what we could improve or add to our application to make it stand out. Following that we looked into different technologies suitable for our cross-platform mobile application, ensuring they best suit our idea.
-            
-            With all that, we transitioned to the formulation of system requirements. In this phase, we gathered both functional and non-functional requirements, and then we moved to the creation of diagrams such as use cases, etc.
-            
-            Moving forward in our development road, we start working on the application development process, starting with the establishment of the database, interfaces, and backend of our application, with technologies such as Flutter for the front end and Spring Boot for the back, Firebase for the database.
-            
-            Where this methodology ensures that each phase of the development is well planned and executed, which will lead us to have a more robust and reliable development process.
+            This methodology has proven to be effective in ensuring a smooth and efficient development process, allowing us to deliver a high-quality product that meets user expectations and requirements within the specified time frame.
 
         \subsection{Resources}
             \subsubsection{West Bank Cities Roads Dataset}
                 A dataset of all the roads commonly used to commute from one Palestinian town or city to another in the West Bank. This will be used to define fixed stations that allow for passengers to be picked up along the way from towns and cities that drivers normally pass by to arrive at their destination. There is no already made database that we know of as of the writing of this draft, 08/02/2024. We are to ask the responsible parties for one or start collecting it ourselves. Due to the narrow time window of the project, the scope of operational routes, or the routes the app will work on, is reduced to a smaller area to use as proof of concept and a test case for development; we chose the route of Qalqilya - Ramallah for this, see the figure \ref{fig:testcase_route} showcasing possible routes and possible stations in between. We aim to scale the app's operational scope from this to the whole of the West Bank wherever possible.
                 
-                \begin{figure}[h]
+                \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.7\textwidth, keepaspectratio]{Images/Route_Text_Case.png}
                     \caption{Test Case Route\protect \footnotemark[1]}
@@ -442,8 +474,7 @@
                 \pagebreak
                 
             \subsubsection{Public Opinion Questionnaire}
-                A questionnaire to get public opinion on the idea. We will assess people's acceptance of the idea, whether they will partake in it as drivers or as regular users, what their concerns are, and ask them for any input or suggestions.
-
+                A questionnaire to get public opinion on the idea. We assessed people’s acceptance of the idea, and whether they will partake in it as drivers or regular users, we took a look into their concerns and asked them for inputs and suggestions, which we took into consideration throughout the development phase.
             \subsection{Considerations}
                 \subsubsection{User Privacy Consideration}
                     We will make sure the app respects user privacy. The app will be asking for user permission to access all needed device sensors and data such as camera access, location, calendar, and contacts if needed. It will not partake in collecting user data but for their necessary information such as phone number, real name, and payment method information. We will maintain the secrecy of this data and store it in a secure encrypted database. An in-app chat to allow passengers an easy channel with the driver is discussed. In case it is implemented we do not promise utilizing an end to end encrypted messaging. Lastly, users will be allowed the option to delete their accounts from our database at any time. 
@@ -455,33 +486,18 @@
         \pagebreak
 
         \subsection{Work Schedule}
-            \begin{table}[h]
-               \caption{Work plan for the left tasks and the time needed to achieve them starting from 08/11/2023}
-               \label{1stSemWorkPlanTable}
-                \begin{center}
-                    \begin{tabular}{m{10cm}|c}
-                        % \hline
-                        \centering Task & Time \\ % making header centered
-                        \hline
-                        Proposing an idea and writing an abstract & 1 week \\
-                        Writing literature review and similar projects & 1 week\\
-                        Writing Introduction and searching tools to be used & 1 week \\
-                        Finding/creating a suitable dataset for transport & 1 week \\
-                        Reading relevant articles/ papers & 1 week \\
-                        % Learning software tools and frameworks needed & 2 weeks \\
-                        Defining system requirements and use cases & 2 weeks \\ 
-                        Completing system analysis with class diagrams, sequence diagrams, and state chart diagrams  & 2 weeks \\
-                        Creating system design with system structure and deployment diagram & 1 week \\
-                        Finalizing the report & 1 week \\
-                        \hline
-                        \centering Total & 11 weeks \\
-                    \end{tabular}
-                \end{center}
-            \end{table}
+            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then setting up the payment environment, then a polishing and fine-tuning phase.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
+                \caption{Implementation Work Plan}
+                \label{fig:work_plan}
+            \end{figure}
         
     \pagebreak
     \section{System Analysis}  
         \subsection{Functional Requirements}
+            Below are the details of all the user functional requirements (UR) and system requirements (SR) accompanying them.
            \begin{itemize}
                 \item [$ $] UR1. Users shall be able to log in and log out after creating an account.
                 \begin{itemize}
@@ -723,7 +739,7 @@
         \pagebreak
         \subsubsection{Use Case Diagram}
 
-            \begin{figure}[h]
+            \begin{figure}[H]
                 \centering
                 \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{Images/CarPal_Usecase.png}}
                 \caption{Use Case Diagram}
@@ -733,7 +749,7 @@
     \pagebreak
     \subsection{Sequence, UML, State, and Deployment Diagrams}
 
-        \begin{figure}[h]
+        \begin{figure}[H]
             \centering
             \rotatebox{90}{
             \includegraphics[width=1.1\textwidth]{Images/login.png}}
@@ -749,137 +765,460 @@
         %     \caption{Login Workflow}
         %     \label{fig:seq_dig_login}
         % \end{sidewaysfigure}
-
-    % \subsubsection{Accepted trips Sequence Diagram}
-        \begin{sidewaysfigure}
+    % \subsubsection{Accepted trips Sequence Diagram}       
+    
+        \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/Passenger Accepted.png}
+            \includegraphics[width=0.9\linewidth]{Images/Passenger Accepted.png}
             \caption{Showing Passenger's Accepted Trips Action}
             \label{fig:seq_dig_pass_accepted}
         \end{sidewaysfigure}
 
+        \FloatBarrier
+
 
     % \subsubsection{Reserve Seat sequence Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
             \caption{Passenger Payment Workflow}
             \label{fig:seq_dig_pass_payment}
         \end{sidewaysfigure}
 
+        \FloatBarrier
+
 
     % \subsubsection{show scheduled trips sequence Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/Driver Scheduled.png}
             \caption{Showing Driver's Scheduled Trips Action}
             \label{fig:seq_dig_driver_scheduled}
         \end{sidewaysfigure}
 
+        \FloatBarrier
+
     % \subsubsection{Driver Accepts trip Request sequence Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/Driver Request.png}
             \caption{Passenger Request Workflow}
             \label{fig:seq_dig_driver_request}
         \end{sidewaysfigure}
 
+        \FloatBarrier
 
     % \subsubsection{UML Class Diagram}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/UML Class.png}
             \caption{UML Class Diagram}
             \label{fig:class_diagram}
         \end{sidewaysfigure}
+
+        \FloatBarrier
         
     % \subsubsection{State Diagrams}
-        \begin{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/State Diagram passenger.png}
             \caption{State Diagram for Passenger}
             \label{fig:state_passenger}
         \end{sidewaysfigure}
 
-       \begin{sidewaysfigure}
+        \FloatBarrier
+
+       \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/State Diagram Driver.png}
             \caption{State Diagram for Driver}
             \label{fig:state_driver}
         \end{sidewaysfigure}
 
-        \begin{sidewaysfigure}
+        \FloatBarrier
+
+        \begin{sidewaysfigure}[!htb]
             \centering
             \includegraphics[width=\linewidth]{Images/deployment_diagram.png}
             \caption{Deployment Diagram}
             \label{fig:dep_diagram}
         \end{sidewaysfigure}
+
+        \FloatBarrier
         
+
+    % \section{Changes to Part 1 Requirements}
+    % As we started working on the application, we found that Firebase has a lot of features that cover the functionalities of a designated backend. Therefore, for the time being, there is no need to create a Spring Boot API for our application. Firebase has a built in authentication system with password reset and email and phone verification. The database has filtering queries backend that enables us to send specialized requests to get, update, or create specific data. There are no other changes are currently for the rest of the requirements in part 1.
+
+    \pagebreak
+    \section{Implementation}
+        \subsection{Introduction}
+            This is a continuation of the first part of the project, which was dedicated to the analysis and design of the project, while this part is dedicated to the implementation and testing of the project. The project is a ridesharing app that allows people signed up as drivers to pick up passengers along the way with them to a mutual destination. The mobile application is built with flutter, and firebase as the backend and database servers.
+
+            Since the workflow of the project is incremental, we started by working on the core features that our app depends on first. The core features of our app such as, backend building, searching for trips, booking trips logic, and account creation and authentication. Then we worked on providing map and location services to make it easier for drivers to create trips (pick stations) and for both drivers and passengers to easily find each other. In addition to that, we worked on user profiles, trip filters, and trip reviews. 
+            
+            Throughout these stages, we have worked on the UI and UX for each feature simultaneously. The final stage was to test the app. This section outlines some of the work we have done across stages 1 - 8 of implementation backlog found in Figure \ref{fig:work_plan}. It includes screenshot from the app running on both Android and iOS presenting the user interface and the features implemented.
+
+            The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services. Most screens in our application have a controller. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. We are using Riverpod state management to manage the state of the application (update widgets that rely on changed states).
+
+        \pagebreak
+        \subsection{Firebase Setup}
+            We have set up the Firebase project and integrated it with the app. We have set up the Firebase Authentication, Storage, and FireStore Database. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled for for our and some of the documents stored in the FireStore Database.
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{Images/firebase_auth.png}
+                    \caption{Firebase Authentication}
+                    \label{fig:firebase_auth}
+                \end{subfigure}
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{Images/firestore.png}
+                    \caption{Firebase FireStore Database}
+                    \label{fig:firebase_database}
+                \end{subfigure}
+                \caption{Firebase Console}
+                \label{fig:firebase_setup}
+            \end{figure}
+        
+        \pagebreak
+        \subsection{User Sign up and Login}
+            We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign up screen and login screens. Guest accounts, and phone sign up are not implemented yet.
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/first_screen.png}
+                    \caption{App Start Screen}
+                    \label{fig:real_first_screen}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_login.png}
+                    \caption{Login Screen - iOS}
+                    \label{fig:real_login}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_1.png}
+                    \caption{Sign Up Screen - Android}
+                    \label{fig:real_sign_up_1}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_2.png}  
+                    \caption{Sign Up Screen with Password Validation - Android}
+                    \label{fig:real_sign_up_2}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_3.png}
+                    \caption{Cont. Sign Up Screen - Android}
+                    \label{fig:real_sign_up_3}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/password_reset.png}
+                    \caption{Password Reset - Android}
+                    \label{fig:password_reset}
+                \end{subfigure}
+                \caption{User Sign Up and Login Screens}
+                \label{fig:real_sign_up_login}
+            \end{figure}
+
+        \subsection{Driver Trip Creation}
+            Drivers can create trips by specifying the departure and destination locations, time of the trip, available seats, and the price of the trip. Further options such as trip rules and the stations to pass by are not implemented yet. Figure \ref{fig:trip_creation} shows the trip creation screens.
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_1.png}
+                    \caption{Trip Creation - iOS}
+                    \label{fig:trip_cration_1}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_2.png}
+                    \caption{Cont. Trip Creation - iOS}
+                    \label{fig:trip_cration_2}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_3.png}  
+                    \caption{Cont. Trip Creation - iOS}
+                    \label{fig:trip_cration_3}
+                \end{subfigure}
+                \caption{Driver Trip Creation Screens}
+                \label{fig:trip_creation}
+            \end{figure}
+        
+        \pagebreak
+        \subsection{Passenger Trip Search}
+            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} will also include a map of the driver's last known location, extra information about the trip, such as passing stations, and the driver's rules if exists, and the driver's picture and rating, estimated time of arrival at each station, and total expected time of the trip. The passenger can book a trip by clicking the book button on the trip detail screen.
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_1.png}
+                    \caption{Trip Search - iOS}
+                    \label{fig:trip_search_1}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_2.png}
+                    \caption{Trip Search - Android}
+                    \label{fig:trip_search_2}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_3.png}
+                    \caption{Trip Search Result - iOS}
+                    \label{fig:trip_search_3}
+                \end{subfigure}
+                % \label{fig:trip_search}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_search_4.png}
+                    \caption{Trip Search Result - Android}
+                    \label{fig:trip_search_4}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_Detail_screen.png}
+                    \caption{Trip Details Screen- Android}
+                    \label{fig:trip_details_1}
+                \end{subfigure}
+                % \caption{Trip Detail Screen}
+                \caption{Passenger Trip Search Screens}
+                \label{fig:trip_search}
+            \end{figure}
+        \pagebreak
+        \subsection{User Live Location}
+            \begin{wrapfigure}{r}{0.45\textwidth}
+                \centering
+                \includegraphics[width=0.65\linewidth]{Images/live_location.png}
+                \caption{User Live Location Demo - iOS}
+                \label{fig:live_location_demo}
+            \end{wrapfigure}
+            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a Stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in FireStore. We already used this feature to show live location of all relevant drivers to the passenger when booking a trip. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
+
+        \pagebreak
+        \subsection{Profile Picture Picker}
+            We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture. 
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.4\textwidth}
+                    \includegraphics[width=\linewidth]{Images/pfp_select_1.png}
+                    \caption{Profile Picture Picker - iOS}
+                    \label{fig:pfp_select_1}
+                \end{subfigure}
+                \begin{subfigure}{0.4\textwidth}
+                    \includegraphics[width=\linewidth]{Images/pfp_select_2.png}
+                    \caption{Cont. Profile Picture Picker - iOS}
+                    \label{fig:pfp_select_2}
+                \end{subfigure}
+                \caption{Profile Picture Picker Screens}
+                \label{fig:pfp_select}
+            \end{figure}
+
     \pagebreak
     
-    \section{Initial Prototype}
-        % \footnote{
-        This is an initial prototype. The final app look is subject to change.
+    \section{Evaluation and Testing}
+        During app development with each feature implementation we conducted a series of tests to ensure that the functinality is working as expected and that the app is user friendly. As for each feature, we ensured that the implemented interfaces are simple consistent, conventional and responsive, in addition to achieving their purpose while integrating with the backend of the application.
+        And after completing the application conducted system testing of the application which included:
+        \subsection{Functional Testing}
+            In this stage we tested the functinality of the mobile application, including user interactions, and transactions that may be performed on the application.
+            Where for time matter we put some scenarios that the user may perform and conducted a test on it as followed:
+            \subsubsection{Downloading the application Test}
+                The test was conducted by connecting actual phones instead of emulators and downloading the application directly to them, in which the application was successful downloaded on both android and Iphone mobiles, without any issues.
+            \subsubsection{Login and Registration test}
+                After downloading the application and running it the main page of the application should appear in which there are several scenarios that can happen:
+                \begin{enumerate}
+                    \item User is already a member: user can choose to login via email and password or via phoneNo, in which on a successful login attempt he will see the home page.
+                    \item New user in which he will click signup button and enter his credintials and information to create an account, on successful signup user is required to verify his email address by entering a link sent to his email, before processing to the home page.
+                    \item User is already a member but he forgot his password: in which he will enter his email or phone number, and a message to reset his password will be sent to him.
+                    \item User is not connected to the internet: in which the user will be prompted to connect to the internet.
+                \end{enumerate}
+
+                \newcolumntype{R}[1]{>{\raggedright\arraybackslash}p{#1}}
+                \begin{spacing}{1}
+                    \begin{longtable}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                        \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                        \endfirsthead
+                        
+                        % \toprule
+                        \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                        % \midrule
+                        \endhead
+                        \caption{Login and Registration Test Cases \label{tab:login_test}}\\
+                        
+                        \endfoot
+                        \caption*{Login and Registration Test Cases (continued)}\\
+                        % \bottomrule
+                        % \insertTableNotes 
+                        \endlastfoot
+                        \hline
+                        Registration & User credentials: email: lutfi@gmail.com, password: 00456eX@23, etc.. & User is registered and awaits email verification & user is registered and awaits email verification & Pass & Test successful, email verified after the process for further testing\\ 
+                        \hline
+                        Registration with missing/ incorrect fields & User credentials with weak password and wrong email format & missing/ incorrect fields are marked red and user is asked to correct them & Incorrect/ missing fields are marked red with a prompt message & pass & \\
+                        \hline
+                        Registration with an already used email & User credentials with email in use & \raggedright{User email already in use message} & User email already in use message& Pass & other correct user credentials are kept as they are he is only alarmed about email\\
+                        \hline
+                        Login & User email and password & User is logged in and redirected to the home page & User is logged in and redirected to the home page & Pass & \\
+                        \hline
+                        Login with wrong email or password & User email and password & User is prompted to enter correct email or password & User is prompted to enter correct email or password & Pass & \\
+                        \hline
+                        Login with forgot password & Email address & Email is sent to reset the password if account exists& Email is sent to reset the password if account exist &Pass & password is reset via the link\\
+                        \hline
+                        Login/ registration without internet connection & User credentials & User is prompted to connect to the internet & User is prompted to connect to the internet & Pass & \\
+                        \hline
+                    \end{longtable}
+                \end{spacing}
+                
+                % TODO: a table of Login Test cases don't 
+            \subsubsection{Search A Trip test}
+                After successful login, user can search for a trip by entering the search trip screen, entering required filed: such as starting station, end station, datetime of the trip and number of passengers.
+                then clicking the search button in which different results can appear:
+                \begin{enumerate}
+                    \item finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip informations are listed.
+                    \item No matching trip is found/ all matching trips are full, in which the user is prompted and told that no matching trips are found.
+                    \item User missed to enter a required field, in which the user is prompted to enter the missing field.
+                \end{enumerate}
+
+                \pagebreak
+
+                \begin{spacing}{1}               
+                    \begin{longtable}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                        \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                        
+                        \endfirsthead
+                        \endhead
+                
+                        \endfoot
+                        \endlastfoot
+                        \hline
+                        Search for a trip & User inputs (eg: start station: Ramallah, end station: Birzeit, date: 2024-6-24, passengers: 2) & User is shown a list of matching trips how are from the same date up to the next 48 hours & List of matching trips which have available seats are shown & Pass & Trips and trip drivers are shown both on map and as a list in a split screen\\
+                        \hline
+                        Search for a trip with no matching trips & User inputs (eg: start station: Ramallah, end station: Qalqilya, date: 2024-6-24, passengers: 2) & User is prompted that no matching trips are found & User is prompted that no matching trips are found & Pass & full trips are considered a non-match\\
+                        \hline
+                        Search for a trip with missing fields & User inputs (eg: start station: Ramallah, end station: Birzeit, date: 2024-6-24) & User is prompted to enter the missing field & User is prompted to enter the missing field & Pass & \\
+                        \hline
+                        Search for a trip with same start and end station & User inputs (eg: start station: Ramallah, end station: Ramallah, date: 2024-6-24, passengers: 2) & User is prompted that start and end station can't be the same & User is prompted that start and end station can't be the same & Pass & \\
+                        \hline
+                        Search for a trip with no internet connection & User inputs (eg: start station: Ramallah, end station: Birzeit, date: 2024-6-24, passengers: 2) & User is prompted to connect to the internet & User is prompted to connect to the internet & Pass & User session is locally stored, including stations and are updated when the internet connection is established\\
+                        \hline
+                        \caption{Search A Trip Test Cases \label{tab:search_trip_test}}\\
+
+                    \end{longtable}
+                \end{spacing}
+
+                \subsubsection{Book a Trip test}
+                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
+                in which different scenarios can happen:
+                \begin{enumerate}
+                    \item User has a payment method, in which the user will be redirected to the home page.
+                    \item User has no payment method, in which the user will be prompted to enter a payment method.
+                    \item User returned to the previous page, in which the trip search screen is shown again.
+                \end{enumerate}
+                On each stage the user has choosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
+                On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
+                \begin{spacing}{1}
+                    \begin{table}[H]
+                        \centering
+                        \label{tab:login_test}
+                        \begin{tabularx}{\textwidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                            \hline
+                            \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                            % Test Case & inputs & Expected Result & Actual Result & Pass/Fail & Comments \\
+                            \hline
+                            Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
+                            \hline
+                            Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
+                            \hline
+                            Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
+                            \hline
+                        \end{tabularx}
+                        \caption{Book A Trip Test Cases}
+                    \end{table}
+                \end{spacing}
+
+
+            \subsubsection{Create a Trip for Driver test}
+                After successful login, if user is registered as driver he can create a trip by entering the create trip screen, entering required filed: such as starting station, end station, datetime of the trip, number of passengers, and price of the trip.
+                then clicking the create button in which different results can appear:
+                \begin{enumerate}
+                    \item Trip is created successfully, in which the user is redirected to the trip details page.
+                    \item User missed to enter a required field, in which the user is prompted to enter the missing field.
+                    \item User returned to the previous page, in which the home page is shown again.
+                \end{enumerate}
+
+                \begin{spacing}{1}
+                    \begin{table}[H]
+                        \centering
+                        \label{tab:login_test}
+                        \begin{tabularx}{\linewidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                            \hline
+                            \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                            \hline
+                            Create a trip & User inputs (eg: start station: Ramallah, end station: Birzeit, start-time: 2024-6-24:12:00PM, passengers: 2, price: 10) & User is redirected to the trip details page & User is redirected to the trip details page & Pass & option for the driver is to start the trip if its 30 minutes away from the start time\\
+                            \hline
+                            Create a trip with missing fields & User inputs (eg: start station: Ramallah, end station: Birzeit, start-time: 2024-6-24:12:00PM, passengers: 2) & User is prompted to enter the missing field & User is prompted to enter the missing field and field is marked red & Pass & \\
+                            \hline
+                            Create a trip with same start and end station & User inputs (eg: start station: Ramallah, end station: Ramallah, start-time: 2024-6-24:12:00PM, passengers: 2, price: 10) & User is prompted that start and end station can't be the same & User is prompted that start and end station can't be the same & Pass & \\
+                            \hline
+                            Create a trip with no internet connection & User inputs (eg: start station: Ramallah, end station: Birzeit, start-time: 2024-6-24:12:00PM, passengers: 2, price: 10) & User is prompted to connect to the internet & User is prompted to connect to the internet & Pass & User session is locally stored, including stations and are updated when the internet connection is established\\
+                            \hline
+                        \end{tabularx}
+                        \caption{Create A Trip Test Cases}
+                    \end{table}
+                \end{spacing}
+
+            \subsubsection{Accepting a Trip Request test}
+                After a passenger books a trip, the driver is notified about the booking request, and the driver can accept or decline the request. The driver can accept the request by clicking on the notification, in which the driver is redirected to the trip requests page, and then accepting/declining the request, and the passenger is notified about the driver response.
+
+                \begin{spacing}{1}
+                    \begin{table}[H]
+                        \centering
+                        \label{tab:login_test}
+                        \begin{tabularx}{\linewidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+                            \hline
+                            \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+                            \hline
+                            Accept a trip request & Driver clicks on a trip request notification & Driver is redirected to the trip requests page & Driver is redirected to the trip requests page & Pass & nottification is sent to the passenger with updates info\\
+                            \hline
+                            Decline a trip request & Driver clicks on a trip request notification & Driver is redirected to the trip requests page & Driver is redirected to the trip requests page & Pass & notification is sent to the passenger with updates info\\
+                            \hline
+                        \end{tabularx}
+                        \caption{Accepting A Trip Request Test Cases}
+                    \end{table}
+                \end{spacing}
+
+        \subsubsection{Live Location test}
+            As for the live location feature, the user can see the live location of the driver and the passenger, in which the user can see the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app.
+            For this feature we tested the working of the live location feature by running the application in a test screen environment, in which the live location of two users where shown on the map, and in which they were updated in real time and synchronized with the location in the database.
+            As for this feature its not specific to a certain user, but it is a general feature that can be used by all users. and we saw that an evaluation test as the one we conducted is enough to ensure the working of the feature
+        \subsection{Performance Testing}
+            For this stage we wanted to test the performance of the application, in which we tested the application on different devices, where we found that the application worked as expected on both android and iOS devices, and that the application was responsive and fast, and that the application was able to handle the different functionalities and features that it has.
+            For the load testing we used a firebase database which is a database hosted by google, and is able to handle a large number of requests, and operations and is able to scale with the application.
+            in addition we validated the response time of the application, and asked different users to use the application and give us feedback on the application, in which we validated that the application response time was acceptable.
+            As for this seciton we assured that the application is able to perform well and it can handle the different requests and operations that it was given.
+        \subsection{Usablity Testing}
+        As for the usability testing, we conducted a series of tests to ensure that the application is user friendly, and that users can easily navigate through the application, and that the user can easily find the different features and functionalities that the application has, in which we asked the different users, who we have gaven the application to, to give us feedback on the application, and to tell us if they found the application easy to use, and if they were able to find the different features and functionalities that the application has.
+        And whether they had any problems or misconceptions while using the application. this part was done in parralel with the other testing stages, as the same users who were testing the application were asked to give us feedback on the application.
+    \pagebreak
+    \section{Conclusion}
+        This project has successfully developed, the Carpal Ridesharing App, tailored to the unique road conditions and transportation needs in Palestine, where thousands of people rely on various forms of transportation for their daily commutes. Recognizing the challenges with conventional transportation methods—such as issues with time, availability, and comfort—our app provides a viable alternative that addresses these problems effectively.
+
+        The CarPal Ridesharing App allows anyone with a driver's license and a car to offer rides to others, facilitating pickups along their routes at any time. This innovative solution helps reduce the costs of commuting, minimizes the number of trips required, and significantly cuts down on waiting time. It is designed to be both affordable and easily accessible through a user-friendly mobile app.
+
+        With our app, users can create accounts and become verified drivers, enabling them to schedule trips, or they can search for rides as passengers. Passengers have the convenience of booking and paying through the app. At the conclusion of each trip, both passengers and drivers can provide feedback, fostering a community of trust and reliability.
+
+        We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
+        
+    \section{Future Work}
+        % \begin{enumerate}
+        %     \item adding more stations
+        %     \item chat
+        %     \item payment
+        %     \item Roads status Telegram channel integration
+        %     \item Sharing trip link
+        %     \item Learned trip time prediction
+        %     \item Settings page for font
+        %     \item More languages
+        % \end{enumerate}
+        %TODO: add future work
+
+        % \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
         % }
-        \begin{figure}[h]
-            \centering
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Login.png}
-                    \caption{Login Screen}
-                    \label{fig:our_login}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Home.png}
-                    \caption{Passenger Search Screen}
-                    \label{fig:our_passenger}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Driver.png}  
-                    \caption{Driver Trip Creation Screen}
-                    \label{fig:our_driver}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/App_Desgin_Trip_List.png}
-                    \caption{Passenger Search Result Screen}
-                    \label{fig:our_results}
-                \end{subfigure}
-                \caption{CarPal App Initial Prototype\protect \footnotemark[1]}
-                \label{fig:our_gallary}
-        \end{figure}
-        \footnotetext[1]{Made using figma.com. Icons credit: flaticon.com}
 
-    \pagebreak
-    \section{Conclusion and Future Work}
-        \subsection{Conclusion}
-            This project aims to develop a ridesharing app tailored to work with the roads in Palestine, where thousands of people rely on some form of transportation to commute every day. Given that conventional transportation methods suffer from problems regarding time, availability, and comfort, our app comes in to provide people to give people another option that tackles these issues. CarPal Ridesharing App allows anyone with a driver's license and a car to pick other people up along the way anywhere and at any time. It allows people to cut the costs of their trip, get there in fewer commutes, and save them a lot of waiting time, all while being affordable and easily accessible through a mobile app. The app will let people create accounts, become verified drivers who can start scheduling trips, or look for rides with others as passengers. Passengers will be able to book and pay through the app. At the end of the trip, both the passengers and the drivers can provide feedback on the trip.
-        \subsection{Future Work}
-            Since the workflow of the project is incremental, we will start by working on the core features that our app depends on first. The core features of our app mostly reside in the back-end API and the database, i.e. routes and user database, the trip scheduling and booking transactions, and map services API. We will work on the UI and UX for each feature simultaneously. We will then move on to work on user accounts, profiles, social features, and payment methods. The final stage will be to test the app, add more routes, and deploy a version of the app to the public or a specific party for beta testing. See table \ref{2ndSemWorkPlanTable}.
+    % \pagebreak
 
-            \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
-            \begin{table}[h]
-               \caption{Work plan for the tasks and the initial estimated time needed to achieve them.}
-               \label{2ndSemWorkPlanTable}
-                \begin{center}
-                    \begin{tabular}{m{10cm}|c}
-                        \centering Feature & Time \\ % making header centered
-                        \hline
-                         Identify the priority of each functional requirement and create sprints.  & 1 week \\
-                         Setting up the routes and users database with test cases for both. & 2 weeks. \\
-                         Working on the trip scheduling logic and UI (driver logic). & 2 weeks \\
-                         Working on trip booking logic and UI (passenger logic). & 2 weeks \\
-                         Integrate map and location services. & 2 weeks \\
-                         Add user profiles, user rules, trip filters, feedback, and rating features. & 4 weeks \\
-                         Set up payment environment. & 2 weeks \\
-                         Polishing and fine-tuning period. & 1 week \\
-                         Deploy the app for testing and collecting feedback. & 1 week \\
-                        \hline
-                        \centering Total & 17 weeks \\
-                    \end{tabular}
-                \end{center}
-            \end{table}}
-    
-    \pagebreak
-    \clearpage % page break doesn't add space before the references page so this needed
+    % \clearpage % page break doesn't add space before the references page so this needed
     \printbibliography
 
 \end{document} % This is the end of the document
