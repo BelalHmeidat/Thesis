@@ -144,7 +144,7 @@
     \vspace{-0.8cm}
     \begin{abstract}
         % TODO: remove extra spaces
-        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and database.
+        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they can split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is unavailable. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will support both Android and iOS as we will be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backend and database.
     \end{abstract}
     \pagebreak
     \tableofcontents
@@ -158,9 +158,9 @@
     \setcounter{page}{1}
     \indent \section{Introduction } % creates a section
         \subsection{Overview}
-            When it comes to commuting from one place to another in Palestine, options can be narrowed down into two options, public and private transportation services and privately owned automobiles; people relying on the latter might carry with them colleagues, family, or friends or may be traveling alone.  Here we will give an overview of the downsides involving these two norms of commute, briefly introduce the idea of our app, and how it fits among these two.
+            When it comes to commuting from one place to another in Palestine, options can be narrowed down into two options, public and private transportation services, and privately owned automobiles; people relying on the latter might carry with them colleagues, family, or friends or may be traveling alone.  Here we will give an overview of the downsides involving these two norms of commute, briefly introduce the idea of our app, and how it fits among these two.
 
-            Public transportation is very dependent on in Palestine. Thousands of people use them every day. However, it suffers from a lot of problems that vary in severity from one area to another. The service is only available up to a certain time in the day. In addition to the long time the roads take, passengers waste a lot of time waiting for cars to come by or fill up with passengers. During rush hours when there are a lot of people and not so many buses available, people have to compete to get into a car. Moreover, and while not a big deal, it can be a hustle to find where these buses are stationed in each city/ town, even costing another transportation to get to them. On the other hand, there are a lot of people who use their cars every day to get to their jobs. They can pick up a friend or relative along their way but that's not always the case as many will go empty. This method can provide individuals with flexibility and freedom, and save them the wait time. However, it can be very pricey given the road traffic situation here and the gas prices. Here we come to introduce our idea of organized yet very accessible carpooling, where anyone with a car can sign up for an account to offer to share their ride with people going to the same destination as them and split the cost of the trip together. 
+            Public transportation is very dependent on Palestine. Thousands of people use them every day. However, it suffers from a lot of problems that vary in severity from one area to another. The service is only available up to a certain time of the day. In addition to the long time the roads take, passengers waste a lot of time waiting for cars to come by or fill up with passengers. During rush hours when there are a lot of people and not so many buses available, people have to compete to get into a car. Moreover, and while not a big deal, it can be a hustle to find where these buses are stationed in each city/ town, even costing another transportation to get to them. On the other hand, there are a lot of people who use their cars every day to get to their jobs. They can pick up a friend or relative along their way but that's not always the case as many will go empty. This method can provide individuals with flexibility and freedom, and save them the wait time. However, it can be very pricey given the road traffic situation here and the gas prices. Here we come to introduce our idea of organized yet very accessible carpooling, where anyone with a car can sign up for an account to offer to share their ride with people going to the same destination as them and split the cost of the trip together. 
 
             The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. 
         
@@ -191,7 +191,7 @@
                 
                 \paragraph{Why Firebase?} 
                 
-                Our app needs to have a real-time connection and the ability to synchronize data throughout different devices, in addition to having the Google Analytics support just by activating Firebase on the application, which will help with tracking customers events and get feedback on the application which will help us with scaling our project in the future, and by that we would be having a  huge benefit especially when using something like Firebase which is developed and supported by Google. Here are some benefits of using Firebase:
+                Our app needs to have a real-time connection and the ability to synchronize data throughout different devices, in addition to having the Google Analytics support just by activating Firebase on the application, which will help with tracking customers events and get feedback on the application which will help us with scaling our project in the future, and by that we would be having a huge benefit especially when using something like Firebase which is developed and supported by Google. Here are some benefits of using Firebase:
                 
                 \begin{table}[ht]
                     \begin{spacing}{1.2}
@@ -243,14 +243,14 @@
                     \caption{Spring Logo \cite{spring_logo}}
                     \label{fig:Spring Logo}
                 \end{figure}
-                \paragraph{Why Java Spring Boot} Java Spring Boot is a reliable and robust choice for backend development that is widely used, in addition our team members have current and past experience working with java and Spring Boot, with addition to Spring Boot capabilities, we saw it as the perfect choice for our backend development and future scalability.
-                \paragraph{Transition to Firebase} After doing further research and the following the initial development phase, we discovered that integrating Flutter with Firebase as a backend offers a more feature-rich experience.
-                Firebase provides a comprehensive suit of tools and services, which are designed to work smoothly with Flutter. This integration allowed us to take better advantage of firebase’s real-time database, authentication, Firebase storage, and other services without extensive configurations and with easier code implementation.
+                \paragraph{Why Java Spring Boot} Java Spring Boot is a reliable and robust choice for backend development that is widely used, in addition, our team members have current and past experience working with Java and Spring Boot, in addition to Spring Boot capabilities, we saw it as the perfect choice for our backend development and future scalability.
+                \paragraph{Transition to Firebase} After doing further research and following the initial development phase, we discovered that integrating Flutter with Firebase as a backend offers a more feature-rich experience.
+                Firebase provides a comprehensive suite of tools and services, which are designed to work smoothly with Flutter. This integration allowed us to take better advantage of Firebase’s real-time database, authentication, Firebase storage, and other services without extensive configurations and with easier code implementation.
 
-                More over our decision to switch to Firebase was mostly driven by these factors:
+                Moreover our decision to switch to Firebase was mostly driven by these factors:
                 \begin{enumerate}
-                    \item Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed are supported by google.
-                    \item Feature-Rich Environement: Firebase offers built-in features like real-time data synchronization, user authentication, and more which are essential for our application and can be used in a more efficient way when directly implemented in flutter.
+                    \item Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed and are supported by Google.
+                    \item Feature-Rich Environment: Firebase offers built-in features like real-time data synchronization, user authentication, and more which are essential for our application and can be used more efficiently when directly implemented in Flutter.
                     \item Scalability and Maintenance: Firebase’s infrastructure is managed by Google, which ensures high reliability and scalability,  which allowed us to focus on building the application itself, rather than managing backend servers.
                 \end{enumerate}
 
@@ -266,7 +266,7 @@
             Here is how our app will compare to other similar projects. We have selected these projects each for a different reason. BlaBlaCar is the most similar app as it is mainly a carpooling app for all the people to share a trip and split the cost. Gett is a carpooling app that is widely known as it's active in our target area while inDrive is a very feature-rich carpooling app.
             \subsubsection{BlaBlaCar}
                 French carpooling company that lets everyone make trips and share the expenses with those who are going to the same destination.
-                BlaBlaCar is available in 21 countries and has an easy setup and booking process. The app has a clean and easy-to-navigate interface that lets passengers and drivers book and schedule trips easily. It offers a unique aspect built solely around organized social ride-sharing to reduce trip costs. It doesn't contract drivers working for it which allows everyone to become a verified driver just by uploading some papers. The app makes it clear that its purpose is ride-sharing to reduce costs; it prohibits the use of its service as a means of bringing income to the driver. The company also offers its bus services from within the same app. Since their app is operational in European countries where hitchhiking and expense-sharing trips are widely accepted, the app has few restrictions and requirements for its users. \cite{blablacar_wiki} BlaBlaCar app is the closest to our idea and is its primary source of inspiration; therefore, our app shares many features and implementations with it such as checking the profile of other users to get to know who you will be riding with and setting specific rules for the trip. Additionally, our app will offer new features like on-the-way pickup, live map location services, Arabic language support, and a localized framework that fits into the roads situation in the West Bank.
+                BlaBlaCar is available in 21 countries and has an easy setup and booking process. The app has a clean and easy-to-navigate interface that lets passengers and drivers book and schedule trips easily. It offers a unique aspect built solely around organized social ride-sharing to reduce trip costs. It doesn't contract drivers working for it which allows everyone to become a verified driver just by uploading some papers. The app makes it clear that its purpose is ride-sharing to reduce costs; it prohibits the use of its service as a means of bringing income to the driver. The company also offers its bus services from within the same app. Since their app is operational in European countries where hitchhiking and expense-sharing trips are widely accepted, the app has few restrictions and requirements for its users. \cite{blablacar_wiki} BlaBlaCar app is the closest to our idea and is its primary source of inspiration; therefore, our app shares many features and implementations with it such as checking the profile of other users to get to know who you will be riding with and setting specific rules for the trip. Additionally, our app will offer new features like on-the-way pickup, live map location services, Arabic language support, and a localized framework that fits into the road situation in the West Bank.
                 \begin{figure}
                     \centering
                     \begin{subfigure}{0.3\textwidth}
@@ -356,7 +356,7 @@
                             \insertTableNotes 
                             \endlastfoot
                             \hline
-                            Anyone can make a trip after verification (no contract) 
+                            Anyone can make a trip after verification (no-contract) 
                             & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
                             % \hline
                             % Ability to pay beforehand through the app
@@ -420,7 +420,7 @@
 
                 \end{spacing}
 
-
+        \pagebreak
         \subsection{Relevant Research}
             \subsubsection{Carpooling, Who, Why, and How}
                 In his article about who and why people do carpooling, ROGER F. TEAL \cite{carpool_who_why_how} outlines some of the factors that make carpooling appealing to people or not. He mentions numerous statistics and research done combined with comprehensive analysis on the topic. While the article is based on the U.S. environment, there are general conclusions that can be drawn from the paper that serve as useful indicators to guide us in how we approach our app. One of which is his conclusion that socio-economic factors have little effect on one's propensity to carpool. This conclusion has been echoed multiple times by other researches he mentioned in his paper and ones that we came across in our further readings as well. That being said, he later states that people of lower income are more willing to carpool. The paper also suggests that women are more likely to carpool than men. He also brings up the agreement among researchers he mentions in his paper that carpoolers travel much bigger distances to work than people who commute alone. This might be the case for Palestine as well since examples of people carpooling with others going to their work in further cities are fairly common. This information is helpful since our app relies on stations of pickup. The range these stations cover should be larger if people are more inclined to carpool to far places. This will streamline the station selection to fewer stations that people can use reliably instead of creating many other substations that people would more likely use other traditional transport methods to get to. He also finds that the percentage of unrelated people who carpool together is larger than those who are related. This is to be expected as the chance of family members working in the same place or at the same time is unlikely. However, in Palestine, families are fairly larger than American families; so the difference between these two percentages might be smaller. There is still a sizeable percentage of people who carpool with unrelated people and could benefit from our app to find them. Moreover, Dr. Teal finds that the number of unrelated people carpooling is higher than that of internal carpooling, where people carpool with their relatives, by 2.25 to 2.63 people respectively. He finds that internal carpooling is incentivized by vehicle shortage whereas external ones are motivated primarily by cost burden.\cite{carpool_who_why_how} Since our app is mainly focused on external - non-related - carpooling, we will have to focus on ways to make the app cost-cutting, maybe by limiting the price people set or suggest a recommended price tag that is proportional to the travel cost.
@@ -882,7 +882,7 @@
         
         \pagebreak
         \subsection{User Sign up and Login}
-            We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign up screen and login screens. Guest accounts, and phone sign up are not implemented yet.
+            We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign-up screen and the login screen. Guest accounts and phone sign-ups have not been implemented yet.
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
@@ -944,7 +944,7 @@
         
         \pagebreak
         \subsection{Passenger Trip Search}
-            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} will also include a map of the driver's last known location, extra information about the trip, such as passing stations, and the driver's rules if exists, and the driver's picture and rating, estimated time of arrival at each station, and total expected time of the trip. The passenger can book a trip by clicking the book button on the trip detail screen.
+            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by the user) such as time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} will also include a map of the driver's last known location, extra information about the trip, such as passing stations, and the driver's rules if exist, and the driver's picture and rating, estimated time of arrival at each station, and total expected time of the trip. The passenger can book a trip by clicking the book button on the trip detail screen.
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
@@ -985,11 +985,11 @@
                 \caption{User Live Location Demo - iOS}
                 \label{fig:live_location_demo}
             \end{wrapfigure}
-            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a Stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in FireStore. We already used this feature to show live location of all relevant drivers to the passenger when booking a trip. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
+            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a Stream of real-time locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in FireStore. We already used this feature to show the live location of all relevant drivers to the passenger when booking a trip. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
 
         \pagebreak
         \subsection{Profile Picture Picker}
-            We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture. 
+            We have added functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture. 
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.4\textwidth}
@@ -1097,8 +1097,8 @@
                     \end{longtable}
                 \end{spacing}
 
-                \subsubsection{Book a Trip test}
-                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, 
+                % \subsubsection{Book a Trip test}
+                % After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, 
                 % in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
                 % in which different scenarios can happen:
                 % \begin{enumerate}
@@ -1106,8 +1106,8 @@
                 %     \item User has no payment method, in which the user will be prompted to enter a payment method.
                 %     \item User returned to the previous page, in which the trip search screen is shown again.
                 % \end{enumerate}
-                On each stage the user has chosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
-                On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
+                % At each stage, the user has chosen a certain trip and is shown the trip details screen, in which the user can see the driver information, trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
+                % In the successful stage, the driver is notified about the booking request, and the passenger is notified about the driver's response when it happens.
                 % \begin{spacing}{1}
                 %     \begin{table}[H]
                 %         \centering
@@ -1127,7 +1127,36 @@
                 %         \caption{Book A Trip Test Cases}
                 %     \end{table}
                 % \end{spacing}
+\subsubsection{Book a Trip test}
+After finding a matching trip, the user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, 
+% in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
+% in which different scenarios can happen:
+% \begin{enumerate}
+%     \item User has a payment method, in which the user will be redirected to the home page.
+%     \item User has no payment method, in which the user will be prompted to enter a payment method.
+%     \item User returned to the previous page, in which the trip search screen is shown again.
+% \end{enumerate}
+On each stage the user has chosen a certain trip, and is shown the trip details screen, in which the user can see the driver information, and trip rules, estimated time for the trip, the full path of the trip (trip stations), price, and trip state(started, pending)
+On successful stage the driver is notified about the booking request, and the passenger is notified about the driver response when it happens.
 
+\begin{spacing}{1}
+    \begin{table}[H]
+        \centering
+        \label{tab:book_trip_test}
+        \begin{tabularx}{\linewidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
+            \hline
+            \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
+            \hline
+            Book a trip & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & on successful payment user request is sent to the driver and driver is notified\\
+            \hline
+            Book a trip with no payment method & User clicks on a trip card & User is prompted to enter payment method & User is prompted to enter payment method & Pass & \\
+            \hline
+            Cancel booking page & User clicks on a trip card & User is redirected to the trip details page & User is redirected to the trip details page & Pass & \\
+            \hline
+        \end{tabularx}
+        \caption{Book A Trip Test Cases}
+    \end{table}
+\end{spacing}
 
             \subsubsection{Create a Trip for Driver test}
                 After successful login, if user is registered as driver he can create a trip by entering the create trip screen, entering required filed: such as starting station, end station, datetime of the trip, number of passengers, and price of the trip.
