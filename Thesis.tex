@@ -27,6 +27,8 @@
 \usepackage{placeins} % used to place figures in the exact location
 \usepackage{tocloft} % used to add spaces before table of contents
 \usepackage{seqsplit} % used to split long words in the table of contents
+\usepackage{picinpar} % used to place figures inside paragraphs
+
 
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
@@ -135,7 +137,7 @@
                 \textbf{\large{Key Areas:}}
                 \vspace{0.4cm}
 
-                Transportation Service, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase
+                Transportation, Carpooling, Ride-sharing, Mobile App, Flutter, Firebase
 
             \end{center}
     \end{titlepage}
@@ -144,7 +146,7 @@
     \vspace{-0.8cm}
     \begin{abstract}
         % TODO: remove extra spaces
-        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses and improve access to rides in areas with limited public transportation. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and database.
+        The project aims to develop a carpool mobile app that facilitates sharing rides between people going to the same destination. There are two parties involved, drivers and passengers, and the app will facilitate their ride transactions so they split the travel costs. The app will benefit both drivers and passengers, as drivers can cover gas fees for their trip or even make a small profit while the passengers get to their destination faster, in one commute, and when public transportation is not available. The project's goal is to reduce travel expenses, improve access to rides in areas with limited public transportation, and further grow hitchhiking community in Palestine. The application will be supporting both Android and iOS as we are going to be mainly using cross-platform technologies such as Flutter coupled with Firebase to manage the backed and the database.
     \end{abstract}
     \pagebreak
     \tableofcontents
@@ -169,7 +171,7 @@
             % The passenger can select the destination of their trip and the location they want to start from as well as the date of the trip. They will also specify how many people are going with them if any. This will fetch a list of available drivers making the same trip or passing by along with the time of the start of the trip. Moreover, the passenger can also interact with a map screen showing the live location of all drivers near them who are heading to that destination or passing by. The map will mainly reflect the drivers shown to the passengers in the search result list. From there, the passenger can select a driver from the list or the map and see their profile and the trip information. The app will be connected to a database storing all common routes used to transport in the West Bank. The route will have fixed locations along the way called stations where passengers along the way can go to be picked up by drivers passing by. In case a single trip from the passenger location to the destination is not available, the app can suggest other trips going from the nearby station to the destination or suggest the nearest public transportation stations to complete the trip. There will also be the option to get alerted whenever a direct trip becomes available. External APIs will be used to estimate travel time. The passenger will have the option to filter through the list depending on various factors like profile rating from previous trips, driver’s commitment statistics, driver set price, vehicle information, and driver’s rules. When the passenger selects a trip, they can send a request to the driver of the trip which the driver can accept, and the passenger can proceed to pay for the trip. The driver confirms the start of the trip as well as when every passenger is picked up through the app. When the trip is finished for a passenger, both the driver and that passenger confirm that through the app, and the payment gets processed to the driver’s account. When the trip is finished both the passenger and the driver can rate each other and write a review. Additionally, they can report any issues they have faced.
         
             % Furthermore, there will be an in-app chat functionality for the passengers and driver to communicate through after the trip is booked and before it is started. Users of the app have the option to share trips with other users. A non-binding backup trip can be reserved if passengers fear a trip gets canceled (to be further discussed). Lastly, there will be restrictions in place to reduce cancellations and spam, like a time window for cancellation, partial refunds, a time window between booked trips, and limited bookings and cancellations per day.
-        
+            % //TODO: add develop hitchhiking community
             We believe this project will help people with travel expenses, especially those who have to travel to work/ study frequently and would like to make up for travel expenses without sacrificing much of the freedom and independence of owning a private car. Similarly, people who rely on public transportation to commute regularly can avoid the waiting times and inconveniences of public transportation services while still paying the same affordable fee. This app will also greatly help people find a ride at times when public transportation services are lacking. 
             
         \subsection{Aims and Objectives}
@@ -178,7 +180,7 @@
                 
             \subsubsection{Objectives}
                 \begin{itemize}
-                    \item [$ $] To develop a carpooling community in Palestine through the application.
+                    \item [$ $] To further develop carpooling and hitchhiking community in Palestine.
                      \item [$ $] To develop an application that is easily accessible to a wide range of users.
                      \item [$ $] To achieve a safe carpooling community that is supported by people.
                      \item [$ $] To improve the traveling experience and choices for users both passengers and drivers.
@@ -191,7 +193,7 @@
                 
                 \paragraph{Why Firebase?} 
                 
-                Our app needs to have a real-time connection and the ability to synchronize data throughout different devices, in addition to having the Google Analytics support just by activating Firebase on the application, which will help with tracking customers events and get feedback on the application which will help us with scaling our project in the future, and by that we would be having a  huge benefit especially when using something like Firebase which is developed and supported by Google. Here are some benefits of using Firebase:
+                Our app needs to have a real-time connection and the ability to synchronize data throughout different devices. Firebase enables this in addition to a place to store our users and trips' data and authenticate accounts using Firebase Firestore, Firestorage, and Firebase authentication services. in addition to having the Google Analytics support just by activating Firebase on the application, which will help with tracking customers events and get feedback on the application which will help us with scaling our project in the future, and by that we would be having a huge benefit especially when Firebase is developed and supported by Google. Here are some benefits of using Firebase:
                 
                 \begin{table}[ht]
                     \begin{spacing}{1.2}
@@ -249,14 +251,17 @@
 
                 More over our decision to switch to Firebase was mostly driven by these factors:
                 \begin{enumerate}
-                    \item Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed are supported by google.
+                    \item \raggedright Ease of Integration: Firebase’s integration with Flutter is straightforward and well-supported, reducing complexity and development time for the backend, as both were developed are supported by google.
                     \item Feature-Rich Environement: Firebase offers built-in features like real-time data synchronization, user authentication, and more which are essential for our application and can be used in a more efficient way when directly implemented in flutter.
                     \item Scalability and Maintenance: Firebase’s infrastructure is managed by Google, which ensures high reliability and scalability,  which allowed us to focus on building the application itself, rather than managing backend servers.
                 \end{enumerate}
 
                 By choosing Firebase over Spring Boot, we allowed ourselves to take advantage of a modern backend-as-a-service platform (Firebase) that aligns well with the needs of our Flutter application. 
 
-        This is not an inclusive list. Other technologies and APIs as well as the specific libraries that are going to be used will be mentioned here when we discuss further details.
+        \subsubsection{Google Maps}
+        % /TODO: add google maps
+
+        % This is not an inclusive list. Other technologies and APIs as well as the specific libraries that are going to be used will be mentioned here when we discuss further details.
 
     \pagebreak
     
@@ -336,7 +341,7 @@
                         \footnotesize
                         \item [*] Feature is not of high priority. We will try to implement this feature if time allows but don't promise to.
                         \item [1] The passengers can see a list of drivers heading to their destination sorted by certain criteria as well as a map showing nearby locations of drivers in the list.
-                        \item [2] location snapshots if live location feature is found not viable.
+                        \item [2] Only if driver enabled location sharing. Location 
                         \item [3] Users can see the name and rating of a passenger who is on the same trip when browsing trips. They can visit their profiles after booking the trip.
                         \end{TableNotes}
                         \begin{longtable}{| >{\centering\arraybackslash}m{4cm} |c|c|c|s|}
@@ -370,6 +375,7 @@
                             \hline
                             Passengers can filter through drivers
                             & \checkmark & & & \Large{\checkmark}\\
+                            % TODO: add back
                             % \hline
                             % Users can set rules visible on their profile
                             % & & \checkmark & & \Large{\checkmark}\\
@@ -382,7 +388,7 @@
                             Pickup on the way
                             & & & & \Large{\checkmark} (from stations) \\
                             \hline
-                            List and map of trips from nearby locations\tnote{1}
+                            List and map of trips to destination\tnote{1}
                             & & & & \Large{\checkmark}\\
                             \hline
                             \rowcolor{lightgray} \multicolumn{5}{|c|}{Alternative routes} \\
@@ -406,12 +412,12 @@
                             User profile with rules, cars, trip counting, and ratings
                             & \checkmark & \checkmark & & \Large{\checkmark}\\
                             \hline
-                            Users can see other passengers' profiles in the same trip\tnote{3}
-                            & & \checkmark & & \Large{\checkmark}\\
-                            \hline
-                            In-app chat for passengers and driver\tnote{*}
-                            & \checkmark & \checkmark & & \Large{\checkmark}\\
-                            \hline
+                            Users can see driver's rating and other passengers' rating in trip\tnote{3}
+                            % & & \checkmark & & \Large{\checkmark}\\
+                            % \hline
+                            % In-app chat for passengers and driver\tnote{*}
+                            % & \checkmark & \checkmark & & \Large{\checkmark}\\
+                            % \hline
                             Rating and feedback for both passengers and drivers
                             & & \checkmark & &\Large{\checkmark}\\
                             \hline
@@ -473,10 +479,10 @@
                 \pagebreak
                 
             \subsubsection{Public Opinion Questionnaire}
-                A questionnaire to get public opinion on the idea. We assessed people’s acceptance of the idea, and whether they will partake in it as drivers or regular users, we took a look into their concerns and asked them for inputs and suggestions, which we took into consideration throughout the development phase.
+                A questionnaire to get public opinion on the idea. We assessed people’s acceptance of the idea, and whether they will partake in it, we took a look into their concerns and asked them for inputs and suggestions, which we took into consideration throughout development.
             \subsection{Considerations}
                 \subsubsection{User Privacy Consideration}
-                    We will make sure the app respects user privacy. The app will be asking for user permission to access all needed device sensors and data such as camera access, location, calendar, and contacts if needed. It will not partake in collecting user data but for their necessary information such as phone number, real name, and payment method information. We will maintain the secrecy of this data and store it in a secure encrypted database. An in-app chat to allow passengers an easy channel with the driver is discussed. In case it is implemented we do not promise utilizing an end to end encrypted messaging. Lastly, users will be allowed the option to delete their accounts from our database at any time. 
+                    We will make sure the app respects user privacy. The app will be asking for user permission to access all needed device sensors and data such as camera access, location, calendar, and contacts if needed. It will not partake in collecting user data except for their necessary information such as phone number, real name, and driver information necessary to make our app function optimally. We will maintain the secrecy of this data and store it in a secure encrypted database. An in-app chat to allow passengers an easy channel with the driver is discussed. In case it is implemented we do not promise utilizing an end to end encrypted messaging. Lastly, users will be allowed the option to delete their accounts from our database at any time. 
                 \subsubsection{Effect on Public Transportation Sector Consideration}
                     Our app is not meant to replace the public transportation sector and is not intended to be used as a main source of income for drivers. We have taken into consideration measures to combat that such as suspending accounts that do partake in that.
                 \subsubsection{Legal Consideration}
@@ -485,7 +491,7 @@
         \pagebreak
 
         \subsection{Work Schedule}
-            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then a polishing and fine-tuning phase.
+            The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then a polishing and fine-tuning phase. Going by the times we designated for each stage, we expect to finish all stages in 15 weeks from 01/03/2024 to 15/06/2024. 
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
@@ -501,7 +507,7 @@
                 \item [$ $] UR1. Users shall be able to log in and log out after creating an account.
                 \begin{itemize}
                     \item [$ $]SR1.1 The system shall allow users to sign up for the same type of account through the same page and app.
-                    \item [$ $]SR1.2 The system shall enable both drivers and passengers to log in, with the ability to stay logged in till logout is requested.
+                    \item [$ $]SR1.2 The system shall enable both drivers and passengers to log in, with the ability to stay logged in till logout is requested or session is expired.
                 \end{itemize}
                 \item [$ $] UR2. User shall have a profile where they can edit personal information, and add a set of rules for their trips.
                 \begin{itemize}
@@ -573,7 +579,7 @@
                     % \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
                     % \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
                 \end{itemize}
-                \item [$ $] UR13. The passenger shall be notified sometime before the driver's scheduled/ estimated arrival time.
+                \item [$ $] UR13. The passenger shall be notified sometime when the driver starts the trip.
                 \item [$ $] UR14. Users (driver and passenger) should confirm that the trip is finished and will have the option to provide feedback when the trip is complete.
                 \begin{itemize}
                     \item [$ $] SR14.1 The system should receive confirmation from both the driver and passenger at the end of the trip. 
@@ -755,17 +761,7 @@
             \includegraphics[width=1.1\textwidth]{Images/login.png}}
             \caption{Login Workflow}
             \label{fig:seq_dig_login}
-        \end{figure}
-
-
-    % \subsubsection{Login Sequence Diagram}
-        % \begin{sidewaysfigure}
-        %     \centering
-        %     \includegraphics[width=\linewidth]{Images/login.png}
-        %     \caption{Login Workflow}
-        %     \label{fig:seq_dig_login}
-        % \end{sidewaysfigure}
-    % \subsubsection{Accepted trips Sequence Diagram}       
+        \end{figure} 
     
         \begin{sidewaysfigure}[!htb]
             \centering
@@ -859,11 +855,33 @@
             
             Throughout these stages, we have worked on the UI and UX for each feature simultaneously. The final stage was to test the app. This section outlines some of the work we have done across stages 1 - 8 of implementation backlog found in Figure \ref{fig:work_plan}. It includes screenshot from the app running on both Android and iOS presenting the user interface and the features implemented.
 
-            The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services. Most screens in our application have a controller. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. We are using Riverpod state management to manage the state of the application (update widgets that rely on changed states).
+            \subsection{Application Architecture}
+                The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes, constants, enums, and extensions. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services, and update the state of the widget to match new data. Most screens in our application have a controller. We use Riverpod State Management solution to manage the state of the widgets. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. Constants hold values that are used across the app such as the location sensor precision level, passenger limit, and others. Extensions can be for built-in classes or custom classes to add more functionalities such a different fromJson method for a model. See Figure \ref{fig:app_architecture}
+
+        \begin{sidewaysfigure}[!htb]
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{Images/app_arch.png}
+                    \caption{Application Architecture}
+                    \label{fig:app_architecture}
+        \end{sidewaysfigure}
+
+        \FloatBarrier
+
+        \subsection*{State Management Workflow}
+        Most of the screens in the app rely on a controller to mange their state. The controller communicates with the service fetches the data for the screen widget. The screen widget watching the controller using Riverpod Provider wrapper updates whenever the controller data changes to reflect new state. 
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{Images/state_management.png}
+            \caption{Application State Management Overview}
+            \label{fig:state_management}
+        \end{figure}
+
 
         \pagebreak
         \subsection{Firebase Setup}
-            We have set up the Firebase project and integrated it with the app. We have set up the Firebase Authentication, Storage, and FireStore Database. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled for for our and some of the documents stored in the FireStore Database.
+            We have created a Firebase project and connected it to the app. We have set up the Firebase Authentication, Firestorage, and Firestore services. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled and some of the documents stored in the Firestore Database. Firebase Authentication is one of the first services running once the app is started. When the app starts, it goes to a router page called AuthGate. There it checks if there is a saved session and lets the user in if that's the case or reroutes them to the sign in and sign up screen. Figure \ref{fig:auth_flow} shows the process of starting and authenticating.
+
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.7\textwidth}
@@ -873,16 +891,25 @@
                 \end{subfigure}
                 \begin{subfigure}{0.7\textwidth}
                     \includegraphics[width=\linewidth]{Images/firestore.png}
-                    \caption{Firebase FireStore Database}
+                    \caption{Firebase Firestore Database}
                     \label{fig:firebase_database}
                 \end{subfigure}
                 \caption{Firebase Console}
                 \label{fig:firebase_setup}
             \end{figure}
+
+            \begin{sidewaysfigure}[!htb]
+                \centering
+                \includegraphics[width=0.9\textwidth]{Images/auth_flow.png}
+                \caption{Booting App Flow}
+                \label{fig:auth_flow}
+             \end{sidewaysfigure}
+
+    \FloatBarrier
         
         \pagebreak
         \subsection{User Sign up and Login}
-            We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign up screen and login screens. Guest accounts, and phone sign up are not implemented yet.
+            We have implemented the user sign up and login functionalities using Firebase Authentication. The user can currently sign up using their email. They will need to verify their email to be able to login. Email verification as well as password reset are implemented. Figure \ref{fig:real_sign_up_login} shows the start screen the user sign up screen and login screens. Guest accounts are not implemented yet. 
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
@@ -920,7 +947,7 @@
             \end{figure}
 
         \subsection{Driver Trip Creation}
-            Drivers can create trips by specifying the departure and destination locations, time of the trip, available seats, and the price of the trip. Further options such as trip rules and the stations to pass by are not implemented yet. Figure \ref{fig:trip_creation} shows the trip creation screens.
+            Drivers can create trips by specifying the departure and destination locations, time of the trip, available seats, and the price of the trip. The driver also has the option to decide on the stations he will pass through. They can do so via an easy to interact with map screen. Further options such as specifying trip rules are not implemented yet. Figure \ref{fig:trip_creation} shows the trip creation screens.
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
@@ -944,7 +971,7 @@
         
         \pagebreak
         \subsection{Passenger Trip Search}
-            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated When a search query is submitted, the app will open a new screen where the passenger can see the trips available and a map of the last location the driver was seen in. The passenger can pull down to refresh the page and update the trip list. In addition to the information visible in the trip list which can be seen in Figure \ref{fig:trip_search}, the trip list will also include information about the current driver location such the last time the location was updated. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. The click action will open a new screen with more details about the trip, driver, and booked passengers if any. The \textit{Trip Detail Screen} will also include a map of the driver's last known location, extra information about the trip, such as passing stations, and the driver's rules if exists, and the driver's picture and rating, estimated time of arrival at each station, and total expected time of the trip. The passenger can book a trip by clicking the book button on the trip detail screen.
+            The passengers can search for a trip using the \textit{Trip Search Screen}. Similar to the \textit{Trip Creation Screen} in UI and parameters, the passenger can search for the trip by entering the departure and destination locations, date of the trip, and the number of passengers that need to be accommodated. When a search query is submitted, the app will transition to a new screen where the passenger can see the trips available and if there are already started trip, there will be a map of the last location the drivers of available trips were seen in. See Figure \ref{fig:trip_search}. The passenger can pull down to refresh the page and update the trip list and the drivers' locations. The trip list includes information such as the driver's rating, trip, status, and price. The trip list should also be sorted by different parameters (chosen by user) such time, price, distance, filters, and ratings. Each item in the trip list is clickable. Clicking an already started trip will pan the map to the clicked driver's location while clicking it again will open the \textit{Trip Detail Screen} \ref{fig:trip_details_1}. 
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
@@ -978,18 +1005,53 @@
                 \label{fig:trip_search}
             \end{figure}
         \pagebreak
+        \subsection{Trip Detail Screen}
+            The \textit{Trip Detail Screen} has information about the trip. In addition to where and from the trip started, and trip date and time, it will have information such as the estimated finish time as well as the passing stations selected by the driver on creation with the estimated time between each station and the next. The stations will be displayed in a scrollable timeline widget that can update to reflect the driver's current station have they started the trip and were sharing their location; in this case, the trip will also have a map of the driver's live location. Moreover, there is a timer that can count up the time elapsed since the start of the trip to give passengers better sense of the driver's progress. The driver name, profile picture, rating, and car information will be visible in the screen and the passenger can visit the driver's profile from there. The passenger can request to book a seat, cancel a request or booking, drop off when they are dropped off and report the trip to us for any complaints. The driver can start the trip\footnote{To be able to start a trip, the trip scheduled time needs to be due or that it's within an hour from current time}, end it, cancel it if it's not started, hide the trip so that it doesn't get seen by any more passengers. Both the driver and passengers can rate one another at the end. See Figure \ref{fig:trip_details_1}. The trip detail screen can be static that doesn't update unless the user does, or dynamic that updates in real-time to reflect trip status and thus available actions, driver location, and the station reached. The status of the trip clicked determines which detail screen is going to be routed in view; a trip that is cancelled or ended or is far from starting will have a static detail screen, while a trip that is ongoing or locked because it's full or about to start will be watching for any updates in the trip status and in the case of an ongoing trip, the driver's location.
+
+            \begin{sidewaysfigure}[!htb]
+                \centering
+                \includegraphics[width=0.9\textwidth]{Images/trip_detail_screen_variations.png}
+                \caption{Trip Detail Screen Router}
+                \label{fig:trip_detail_screen_variations}
+            \end{sidewaysfigure}
+
+            \FloatBarrier
+
         \subsection{User Live Location}
+
             \begin{wrapfigure}{r}{0.45\textwidth}
                 \centering
                 \includegraphics[width=0.65\linewidth]{Images/live_location.png}
                 \caption{User Live Location Demo - iOS}
                 \label{fig:live_location_demo}
             \end{wrapfigure}
-            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a Stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in FireStore. We already used this feature to show live location of all relevant drivers to the passenger when booking a trip. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
+            
+            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in Firestore. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
 
+        
         \pagebreak
+
+        
+        \subsection{User Profile}
+            The user profile screen shows a user detail, Figure \ref{fig:profile_screen}. The app profile page shows this screen with the option to edit personal details and profile picture. A user can apply to become driver this screen as well. Moreover, phone and email are urls that can be clicked to call or send an email to the profile owner in case the user's are ride sharing. 
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_1.png}
+                    \caption{Profile Screen - iOS}
+                    \label{fig:profile_screen_1}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_2.png}
+                    \caption{Profile Screen Phone No. URL - iOS}
+                    \label{fig:profile_screen_2}
+                \end{subfigure}
+                \caption{Passenger Trip Search Screens}
+                \label{fig:profile_screen}
+            \end{figure}
+
         \subsection{Profile Picture Picker}
-            We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture. 
+            We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture.
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.4\textwidth}
@@ -1002,6 +1064,7 @@
                     \caption{Cont. Profile Picture Picker - iOS}
                     \label{fig:pfp_select_2}
                 \end{subfigure}
+                % TODO: add Android edit screenshot
                 \caption{Profile Picture Picker Screens}
                 \label{fig:pfp_select}
             \end{figure}
@@ -1009,10 +1072,10 @@
     \pagebreak
     
     \section{Evaluation and Testing}
-        During app development with each feature implementation we conducted a series of tests to ensure that the functinality is working as expected and that the app is user friendly. As for each feature, we ensured that the implemented interfaces are simple consistent, conventional and responsive, in addition to achieving their purpose while integrating with the backend of the application.
+        During app development with each feature implementation we conducted a series of tests to ensure that the functionality is working as expected and that the app is user friendly. As for each feature, we ensured that the implemented interfaces are simple consistent, conventional and responsive, in addition to achieving their purpose while integrating with the backend of the application.
         And after completing the application conducted system testing of the application which included:
         \subsection{Functional Testing}
-            In this stage we tested the functinality of the mobile application, including user interactions, and transactions that may be performed on the application.
+            In this stage we tested the functionality of the mobile application, including user interactions, and transactions that may be performed on the application.
             Where for time matter we put some scenarios that the user may perform and conducted a test on it as followed:
             \subsubsection{Downloading the application Test}
                 The test was conducted by connecting actual phones instead of emulators and downloading the application directly to them, in which the application was successful downloaded on both android and Iphone mobiles, without any issues.
@@ -1183,14 +1246,57 @@
             As for the live location feature, the user can see the live location of the driver and the passenger, in which the user can see the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app.
             For this feature we tested the working of the live location feature by running the application in a test screen environment, in which the live location of two users where shown on the map, and in which they were updated in real time and synchronized with the location in the database.
             As for this feature its not specific to a certain user, but it is a general feature that can be used by all users. and we saw that an evaluation test as the one we conducted is enough to ensure the working of the feature
-        \subsection{Performance Testing}
+        \subsubsection{Performance Testing}
             For this stage we wanted to test the performance of the application, in which we tested the application on different devices, where we found that the application worked as expected on both android and iOS devices, and that the application was responsive and fast, and that the application was able to handle the different functionalities and features that it has.
             For the load testing we used a firebase database which is a database hosted by google, and is able to handle a large number of requests, and operations and is able to scale with the application.
             in addition we validated the response time of the application, and asked different users to use the application and give us feedback on the application, in which we validated that the application response time was acceptable.
             As for this seciton we assured that the application is able to perform well and it can handle the different requests and operations that it was given.
-        \subsection{Usablity Testing}
-        As for the usability testing, we conducted a series of tests to ensure that the application is user friendly, and that users can easily navigate through the application, and that the user can easily find the different features and functionalities that the application has, in which we asked the different users, who we have gaven the application to, to give us feedback on the application, and to tell us if they found the application easy to use, and if they were able to find the different features and functionalities that the application has.
-        And whether they had any problems or misconceptions while using the application. this part was done in parralel with the other testing stages, as the same users who were testing the application were asked to give us feedback on the application.
+
+            \subsubsection{Usablity Testing}
+                As for the usability testing, we have conducted a survey where we asked a total of 15 different random people aged 18 - 26 from both genders and from different fields to evaluate the app. The test was to assess how easy people can navigate through the app, how long does it take them to get hang of it, how they find the app experience, design, idea, and features. We asked them to rate each aspect from 1 to 5 where 1 is lowest and 5 is highest. We also asked them if they would use the app or not, and to give us feedback if any. 
+                Figures \ref{fig:survey_gender} to \ref{fig:will_you_use} show the survey results.
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=\linewidth]{Images/survey_gender.png}
+                    \caption{Gender distribution of surveyed people}
+                    \label{fig:survey_gender}
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=\linewidth]{Images/survey_fields.png}
+                    \caption{Majors distribution of surveyed people}
+                    \label{fig:survey_fields}
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=\linewidth]{Images/survey_2.png}
+                    \caption{Survey Answers - Part I}
+                    \label{fig:survey_1}
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=\linewidth]{Images/survey_1.png}
+                    \caption{Survey Answers - Part II}
+                    \label{fig:survey_2}
+                \end{figure}
+
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=\linewidth]{Images/will_you_use.png}
+                    \caption{Whether surveyed people would use the app or not}
+                    \label{fig:will_you_use}
+                \end{figure}
+
+                % in which we asked the different users, who we have given the application to, to give us feedback on the application, and to tell us if they found the application easy to use, and if they were able to find the different features and functionalities that the application has.
+                % And whether they had any problems or misconceptions while using the application. this part was done in parralel with the other testing stages, as the same users who were testing the application were asked to give us feedback on the application.
+
+                Overall the results were positive, with most of the people surveyed finding the app easy to use not taking long to learn, and good UI/UX design. They also gave positive rating for the features they saw and found the idea of the app useful. The vast majority of the surveyed people said they would use the app. We got multiple feedbacks regarding adding more cities, a feedback to ensure safety, and a feedback to improve the UI.
+
+
     \pagebreak
     \section{Conclusion}
         This project has successfully developed, the Carpal Ridesharing App, tailored to the unique road conditions and transportation needs in Palestine, where thousands of people rely on various forms of transportation for their daily commutes. Recognizing the challenges with conventional transportation methods—such as issues with time, availability, and comfort—our app provides a viable alternative that addresses these problems effectively.
