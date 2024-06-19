@@ -329,6 +329,8 @@
                     \caption{Pictures from withing Gett Taxi App \cite{gett_gallary}}
                     \label{fig:gett_gallary}
                 \end{figure}
+
+            \pagebreak
             \subsubsection{inDrive}
                 International ride-hailing service and one of the most popular carpooling apps in the world. It sits as the second most downloaded ride-sharing and taxi app. \cite{indrive_wiki} In addition to being a taxi alternative, inDrive is used for many services such as courier delivery, freight transport, and professional services such as home repairs and tutoring. inDrive appeals to its user base by allowing them to negotiate a price with different drivers and thus helping them find the price they're looking for. The app itself allows users to select a service and select locations on the map. It also shows nearby drivers on the map. It also gives users access to message or start a call with the driver from within the app.\cite{indrive_itunes} Despite being very popular, inDrive is not available in Palestine. The business operates differently from BlaBlaCar and our app as it falls in line with the workflow of other famous carpooling apps such as Uber which is primarily a carpooling app that drivers rely on for bringing in income rather than merely sharing a ride. It also offers more general use cases such as professional maintenance services.
                 \begin{figure}[h]
@@ -862,6 +864,7 @@
             
             Throughout these stages, we have worked on the UI and UX for each feature simultaneously. The final stage was to test the app. This section outlines some of the work we have done across stages 1 - 8 of implementation backlog found in Figure \ref{fig:work_plan}. It includes screenshot from the app running on both Android and iOS presenting the user interface and the features implemented.
 
+            \pagebreak
             \subsection{Application Architecture}
                 The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes, constants, enums, and extensions. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services, and update the state of the widget to match new data. Most screens in our application have a controller. We use Riverpod State Management solution to manage the state of the widgets. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. Constants hold values that are used across the app such as the location sensor precision level, passenger limit, and others. Extensions can be for built-in classes or custom classes to add more functionalities such a different fromJson method for a model. See Figure \ref{fig:app_architecture}
 
@@ -1034,11 +1037,7 @@
             \end{wrapfigure}
             
             The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in Firestore. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
-
-        
-        \pagebreak
-
-        
+       
         \subsection{User Profile}
             The user profile screen shows a user detail, Figure \ref{fig:profile_screen}. The app profile page shows this screen with the option to edit personal details and profile picture. A user can apply to become driver this screen as well. Moreover, phone and email are urls that can be clicked to call or send an email to the profile owner in case the user's are ride sharing. 
             \begin{figure}[H]
@@ -1053,10 +1052,21 @@
                     \caption{Profile Screen Phone No. URL - iOS}
                     \label{fig:profile_screen_2}
                 \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_3.jpg}
+                    \caption{Profile Screen Edit - Android}
+                    \label{fig:profile_screen_3}
+                \end{subfigure}
+                \begin{subfigure}{0.31\textwidth}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_4.jpg}
+                    \caption{Profile Screen Edit Confirm - Android}
+                    \label{fig:profile_screen_4}
+                \end{subfigure}
                 \caption{Passenger Trip Search Screens}
                 \label{fig:profile_screen}
             \end{figure}
 
+        \pagebreak
         \subsection{Profile Picture Picker}
             We have added a functionality for users to add profile pictures using their camera or photo gallery using the Flutter library HL Image Picker \cite{image_picker_lib}. After getting relevant permissions, it allows the user to take/pick photos, crop them, and then set them as their profile picture.
             \begin{figure}[H]
