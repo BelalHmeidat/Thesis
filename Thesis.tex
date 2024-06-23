@@ -1,7 +1,7 @@
 \documentclass[a4paper, 12pt]{report} % \documentclass{} is the first command in any LaTeX code.  It is used to define what kind of document you are creating such as an article or a book, and begins the document preamble
 
 % packages needed for this document
-\usepackage{amsmath} % \usepackage is a command that allows you to add functionality to your LaTeX code
+\usepackage{amsmath} % package used to write mathematical equations
 \usepackage{lipsum} % package used to generate dummy text
 \usepackage{graphicx} % package used to add images to the document
 \usepackage{fancyhdr} % package used to customize headers and footers
@@ -12,13 +12,13 @@
 \usepackage[table]{xcolor} % package used to color table rows and columns
 % \usepackage{scrextend} % package used to reference two locations to the same footnote
 \usepackage{fontspec} % package used to change the font of the document
-\usepackage[margin=1in]{geometry} % package used to hcange the margins
+\usepackage[margin=1in]{geometry} % package used to change the margins
 \usepackage{setspace} %package used to set the spacing between the lines.
 \usepackage{tabularx} %package used to create tables that can fill the entire width of page
 \usepackage{subcaption} %package used to create a figure of subfigures
 \usepackage[hidelinks]{hyperref} %package used to hide links of the table of content
 \usepackage{rotating} % package used to rotate figures 
-\usepackage{adjustbox}
+\usepackage{adjustbox} % package used to adjust the size of the table
 \usepackage{threeparttablex} % used to contain the long table and add suitable table notes
 \usepackage{booktabs} % required for three part table above
 \usepackage{afterpage}  % used to add a blank page after a figure
@@ -164,7 +164,7 @@
 
             Public transportation is very dependent on in Palestine. Thousands of people use them every day. However, it suffers from a lot of problems that vary in severity from one area to another. The service is only available up to a certain time in the day. In addition to the long time the roads take, passengers waste a lot of time waiting for cars to come by or fill up with passengers. During rush hours when there are a lot of people and not so many buses available, people have to compete to get into a car. Moreover, and while not a big deal, it can be a hustle to find where these buses are stationed in each city/ town, even costing another transportation to get to them. On the other hand, there are a lot of people who use their cars every day to get to their jobs. They can pick up a friend or relative along their way but that's not always the case as many will go empty. This method can provide individuals with flexibility and freedom, and save them the wait time. However, it can be very pricey given the road traffic situation here and the gas prices. Here we come to introduce our idea of organized yet very accessible carpooling, where anyone with a car can sign up for an account to offer to share their ride with people going to the same destination as them and split the cost of the trip together. 
 
-            The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. 
+            The implementation of this project revolves around a mobile app that allows people to book trips with other people driving to the same destination. The two parties interacting with the app are the passengers and the drivers. The app will facilitate scheduling a trip, booking it, paying for it, and rating it at the end of each trip. The app will feature an easy setup process for both the passengers and drivers to get started using it quickly. The app will let all users create an account while users who want to become drivers will need to undergo a verification process. After signing up, drivers can schedule trips whilst passengers can request trips for passing by drivers to accept and upon getting accepted, proceed to pay. The app will have intuitive features involving suggesting matching trips, displaying live driver location on the map, tracking trip progress, user profiles, and the ability to provide ratings and feedback from both sides. The app will let users pay using easy digital payment methods available via local payment services e.g., PalPay. 
         
             % The passenger must create an account and verify their phone number to hitch a ride with drivers otherwise they will be only able to browse trips as a guest account. The driver can be any person with a license that has been issued for a certain amount of time (to be determined later). After making a regular passenger account, the driver needs to apply to take trips through the app and complete a verification process. This will unlock driver options in the app that let them schedule a trip with beginning time, start location, destination, and number of seats available as well as luggage space. Users (drivers and passengers) can also set rules for their trip regarding matters like smoking, music, luggage space (driver only), seats available, and so on. These will be visible on their profile and available to filter through when passengers select a trip. 
             
@@ -349,8 +349,8 @@
                         \begin{TableNotes}
                         \footnotesize
                         \item [*] Feature is not of high priority. We will try to implement this feature if time allows but don't promise to.
-                        \item [1] The passengers can see a list of drivers heading to their destination sorted by certain criteria as well as a map showing nearby locations of drivers in the list.
-                        \item [2] Only if driver enabled location sharing. Location 
+                        \item [1] The passengers can see a list of drivers heading to their destination sorted by certain criteria as well as a map showing the location of drivers in the list whose trips are ongoing. 
+                        \item [2] Shows live location of the driver when the trip is started. This only works if driver enabled location sharing and location time is up to date (not older than a certain duration).
                         \item [3] Users can see the name and rating of a passenger who is on the same trip when browsing trips. They can visit their profiles after booking the trip.
                         \end{TableNotes}
                         \begin{longtable}{| >{\centering\arraybackslash}m{4cm} |c|c|c|s|}
@@ -384,10 +384,9 @@
                             \hline
                             Passengers can filter through drivers
                             & \checkmark & & & \Large{\checkmark}\\
-                            % TODO: add back
-                            % \hline
-                            % Users can set rules visible on their profile
-                            % & & \checkmark & & \Large{\checkmark}\\
+                            \hline
+                            Users can set rules visible on their profile
+                            & & \checkmark & & \Large{\checkmark}\\
                             \hline
                             Cancellations allowed
                             & \checkmark & \checkmark & \checkmark & \Large{\checkmark}\\
@@ -413,7 +412,7 @@
                             Trip route on the map
                             & & \checkmark & \checkmark & \Large{\checkmark} (limited)\\
                             \hline
-                            Live location of drivers\tnote{2}
+                            Live location of driver\tnote{2}
                             & \checkmark & & \checkmark & \Large{\checkmark}\\
                             \hline
                             \rowcolor{lightgray} \multicolumn{5}{|c|}{Comunication and Trip Sharing} \\
@@ -491,7 +490,7 @@
                 A questionnaire to get public opinion on the idea. We assessed people’s acceptance of the idea, and whether they will partake in it, we took a look into their concerns and asked them for inputs and suggestions, which we took into consideration throughout development.
             \subsection{Considerations}
                 \subsubsection{User Privacy Consideration}
-                    We will make sure the app respects user privacy. The app will be asking for user permission to access all needed device sensors and data such as camera access, location, calendar, and contacts if needed. It will not partake in collecting user data except for their necessary information such as phone number, real name, and driver information necessary to make our app function optimally. We will maintain the secrecy of this data and store it in a secure encrypted database. An in-app chat to allow passengers an easy channel with the driver is discussed. In case it is implemented we do not promise utilizing an end to end encrypted messaging. Lastly, users will be allowed the option to delete their accounts from our database at any time. 
+                    We will make sure the app respects user privacy. The app will be asking for user permission to access all needed device sensors and data such as camera access, location, calendar, and contacts if needed. It will not partake in collecting user data except for their necessary information such as phone number, real name, and payment method information as well as driver information that are necessary to make our app function optimally. We will maintain the secrecy of this data and store it in a secure encrypted database. An in-app chat to allow passengers an easy channel with the driver is discussed. In case it is implemented we do not promise utilizing an end to end encrypted messaging. Lastly, users will be allowed the option to delete their accounts from our database at any time. 
                 \subsubsection{Effect on Public Transportation Sector Consideration}
                     Our app is not meant to replace the public transportation sector and is not intended to be used as a main source of income for drivers. We have taken into consideration measures to combat that such as suspending accounts that do partake in that.
                 \subsubsection{Legal Consideration}
@@ -518,7 +517,7 @@
                     \item [$ $]SR1.1 The system shall allow users to sign up for the same type of account through the same page and app.
                     \item [$ $]SR1.2 The system shall enable both drivers and passengers to log in, with the ability to stay logged in till logout is requested or session is expired.
                 \end{itemize}
-                \item [$ $] UR2. User shall have a profile where they can edit personal information, and add a set of rules for their trips.
+                \item [$ $] UR2. User shall have a profile where they can edit personal information, add a set of rules for their trips, and edit driver details if applicable for them.
                 \begin{itemize}
                     \item [$ $] SR2.1 The system should allow the user to add/edit their personal information.
                     \item [$ $] SR2.2 The system should allow users to choose from a variety of rules to add to their trip preferences, such as smoking, music, etc.
@@ -571,22 +570,22 @@
                     \item [$ $] SR10.2  The system shall display relevant trip details, including driver information, route, and set rules. 
                     \item [$ $] SR10.3 The system shall notify the driver of this booking.
                     \item [$ $] SR10.4 The system should wait for the driver to accept the request before confirming the booking.
-                    % \item [$ $] SR10.5 The system shall request the passenger to pay for the trip.
+                    \item [$ $] SR10.5 The system shall request the passenger to pay for the trip.
                 \end{itemize}
-                % \item [$ $] UR11. Passengers shall be able to pay for the trip.
-                % \begin{itemize}
-                %     \item [$ $] SR11.1 The system shall allow passengers to pay through different online payment methods.
-                %     \item [$ $] SR11.2The system shall complete the payment securely.
-                %     \item [$ $] SR11.3 The system shall confirm the booking for the driver/passenger.
-                %     \item [$ $] SR11.4 The system shall complete the payment for the driver when trip end confirmation is done.
-                % \end{itemize}
+                \item [$ $] UR11. Passengers shall be able to pay for the trip.
+                \begin{itemize}
+                    \item [$ $] SR11.1 The system shall allow passengers to pay through different online payment methods.
+                    \item [$ $] SR11.2The system shall complete the payment securely.
+                    \item [$ $] SR11.3 The system shall confirm the booking for the driver/passenger.
+                    \item [$ $] SR11.4 The system shall complete the payment for the driver when trip end confirmation is done.
+                \end{itemize}
                 \item [$ $] UR12. Users shall be able to cancel trips (Both Drivers and passengers).
                 \begin{itemize}
                     \item [$ $] SR12.1 The system shall allow users to cancel the trip.
                     \item [$ $] SR12.2 The system shall start the refund process for this trip.
                     \item [$ $] SR12.3 The system shall notify the driver/passengers when cancellation is completed.
-                    % \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
-                    % \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
+                    \item [$ $] SR12.4 The system shall calculate the refund based on the time of the cancellation.
+                    \item [$ $] SR12.5 The system should allow for a full refund if the driver is too late from his planned arrival time.
                 \end{itemize}
                 \item [$ $] UR13. The passenger shall be notified sometime when the driver starts the trip.
                 \item [$ $] UR14. Users (driver and passenger) should confirm that the trip is finished and will have the option to provide feedback when the trip is complete.
@@ -620,7 +619,7 @@
             \begin{itemize}
                 \item Notification Manager: This service handles notifying actors about events such as informing admins of a newly filed report/ complaint from users, notifying admins about new requests from users wishing to become drivers, informing drivers of new ride requests from passengers, and reminding drivers and passengers of their upcoming trips.
                 \item Map Services: This service is fired up whenever a new trip is added with its final destination located on the map, passenger checks to see a driver’s live location on the map, or when passengers choose a point on the map to be picked up from and the driver approves or sends back a different point for pick up.
-                % \item Payment Services: This service is responsible for facilitating payments between passengers and drivers. It is used whenever a payment transaction is made.
+                \item Payment Services: This service is responsible for facilitating payments between passengers and drivers. It is used whenever a payment transaction is made.
             \end{itemize}
         \subsubsection{Use Cases Description}
             This is a description of the use cases shown in \ref{fig:usecase}.
@@ -645,7 +644,7 @@
                     Users can choose to upload a picture of their ID card to earn a verified account badge. This serves as a measure to increase other user's trust in them. 
                 \item Show/Edit Profile \\
                     Actors: Driver, passenger \\
-                    A user can see his profile details, and edit them from adding preferences to his trips to updating their name and profile picture. They can also view their trip history from their profile or apply to become drivers. 
+                    A user can see his profile details, and edit them from adding preferences to his trips to updating their name and profile picture. From here they can also apply to become drivers. 
                 \item Apply to Become Driver \\
                     Actors: passenger \\
                     A passenger can apply to become a registered driver by uploading their car registration, and their driving license, which then is revised by the admins.
@@ -664,9 +663,9 @@
                 \item Notify Users of Approved or Decline Requests \\
                     Actors: Admin, Notification Manager \\
                     When a user’s request to become a driver is examined by admin and approved or declined, the user will get a notification back telling him about the decision and the reasons behind refusal in case of one.
-                % \item Add Payment method \\
-                %     Actors: Passenger, Driver \\
-                %     The User can choose his preferred payment method that is presented in the application for future payments.
+                \item Add Payment method \\
+                    Actors: Passenger, Driver \\
+                    The User can choose his preferred payment method that is presented in the application for future payments.
                 \item Report/ Submit Complaint \\
                     Actors: Passenger, Driver \\
                     The user can report/submit a complaint about another user if he has recently been on a trip with them.
@@ -675,7 +674,7 @@
                     The notification manager is responsible for reminding a passenger/driver about their upcoming trips before a reasonable amount of time.
                 \item Show Scheduled Trips \\
                     Actors: Driver, passenger \\
-                    Drivers and passengers can see a page with their upcoming trips sorted by the time they are scheduled to start. 
+                    Drivers and passengers can see a page with their upcoming trips  sorted by the time they are scheduled to start. They can also see their previous trips history.
                 \item Manage Account Settings\\ 
                     Actors: Driver, passenger\\
                     Driver and passengers can access their account settings through the app to manage settings like changing their email, password.
@@ -700,7 +699,6 @@
                 \item Suggest New Stations \\
                     Actors: Driver, Map Service \\
                     The driver can suggest a new station to be added to the set of stations throughout a certain route.
-                    
                 \item Validate Trip \\
                     Actors: Driver \\
                     The system checks if the scheduled trip by the driver doesn't conflict with other trips they already set up. 
@@ -716,12 +714,12 @@
                 \item Notify Passenger of Driver Response to Trip Request\\
                     Actors: Driver, Notification Manager\\
                     When a driver accepts or declines a passenger’s request to be picked up then the system notifies the passenger.
-                % \item Send Payment to Driver for Trip\\
-                %     Actors: payment service, Admin\\
-                %     At the end of trip confirmation, The system processes the payment to the driver's account.
-                % \item Receive Payment\\
-                %     Actors: payment Service, Admin\\
-                %     When a payment is made by a passenger the payment service transfers the money into a median pocket owned by the application admins which holds the payment until trip completion.
+                \item Send Payment to Driver for Trip\\
+                    Actors: payment service, Admin\\
+                    At the end of trip confirmation, The system processes the payment to the driver's account.
+                \item Receive Payment\\
+                    Actors: payment Service, Admin\\
+                    When a payment is made by a passenger the payment service transfers the money into a median pocket owned by the application admins which holds the payment until trip completion.
                 \item Confirm Trip Completion\\
                     Actors: Driver, passenger\\
                     At the end of the trip: \\
@@ -733,16 +731,16 @@
                 \item View Accepted Trips\\
                     Actors: Passenger\\
                     Passengers can view the trips that they have been accepted to and decide which one they are going to attend.
-                % \item Perform Payment \\
-                %     Actors: Passenger, Payment Service \\
-                %     Passenger can pay for the trip they have chosen to attend and their seat is booked on successful payment. Additionally, all previous requests sent to other drivers will be canceled.
-                % \item Validate Payment \\
-                %     Actors: Payment Service \\
-                %     The payment service is responsible for validating the payment and transferring the money from the passenger to the admin’s account.
+                \item Perform Payment \\
+                    Actors: Passenger, Payment Service \\
+                    Passenger can pay for the trip they have chosen to attend and their seat is booked on successful payment. Additionally, all previous requests sent to other drivers will be canceled.
+                \item Validate Payment \\
+                    Actors: Payment Service \\
+                    The payment service is responsible for validating the payment and transferring the money from the passenger to the admin’s account.
                 \item Cancel a Reservation\\
                     Actors: Passenger \\
                     The passenger is allowed to cancel an already booked trip or a trip request.
-                    % If the trip is paid for, a refund is issued back to the passenger’s payment method. The refunded amount will be deferred depending on how late the passenger requests to cancel.
+                    If the trip is paid for, a refund is issued back to the passenger’s payment method. The refunded amount will be deferred depending on how late the passenger requests to cancel.
                 \item Ask for Rating/ Feedback\\
                     Actors: Passenger, Driver\\
                     On the trip's end, both passengers and drivers are able to rate each other and provide feedback if they wish.
@@ -783,14 +781,14 @@
 
 
     % \subsubsection{Reserve Seat sequence Diagram}
-        % \begin{sidewaysfigure}[!htb]
-        %     \centering
-        %     \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
-        %     \caption{Passenger Payment Workflow}
-        %     \label{fig:seq_dig_pass_payment}
-        % \end{sidewaysfigure}
+        \begin{sidewaysfigure}[!htb]
+            \centering
+            \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
+            \caption{Passenger Payment Workflow}
+            \label{fig:seq_dig_pass_payment}
+        \end{sidewaysfigure}
 
-        % \FloatBarrier
+        \FloatBarrier
 
 
     % \subsubsection{show scheduled trips sequence Diagram}
@@ -888,12 +886,16 @@
         \end{figure}
 
 
-        \pagebreak
         \subsection{Firebase Setup}
             We have created a Firebase project and connected it to the app. We have set up the Firebase Authentication, Firestorage, and Firestore services. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled and some of the documents stored in the Firestore Database. Firebase Authentication is one of the first services running once the app is started. When the app starts, it goes to a router page called AuthGate. There it checks if there is a saved session and lets the user in if that's the case or reroutes them to the sign in and sign up screen. Figure \ref{fig:auth_flow} shows the process of starting and authenticating.
 
             \begin{figure}[H]
                 \centering
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{Images/firebase_dashboard.png}
+                    \caption{Firebase Dashboard}
+                    \label{fig:firebase_dashboard}
+                \end{subfigure}
                 \begin{subfigure}{0.7\textwidth}
                     \includegraphics[width=\linewidth]{Images/firebase_auth.png}
                     \caption{Firebase Authentication}
@@ -955,6 +957,17 @@
                 \caption{User Sign Up and Login Screens}
                 \label{fig:real_sign_up_login}
             \end{figure}
+        
+        \pagebreak
+        \subsection{Trips List Screen}
+            \begin{wrapfigure}{r}{0.25\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{Images/trip_list_screen.png}
+                \caption{Trip List Screen - iOS}
+                \label{fig:trip_list_screen}
+            \end{wrapfigure}
+            The app has a screen for the user to see their scheduled trips and any ongoing trips if they are on trips that are already started. The passenger sees all the trips they requested or registered, whereas the driver sees the list of trips they have created. There is also a button to access a list of past trips that they already finished or canceled. This allows for users to go back and rate they haven't already rated or just review them. This also allows for users to report trips they might have forgotten to report. 
+            % \clearpage
 
         \subsection{Driver Trip Creation}
             Drivers can create trips by specifying the departure and destination locations, time of the trip, available seats, and the price of the trip. The driver also has the option to decide on the stations he will pass through. They can do so via an easy to interact with map screen. Further options such as specifying trip rules are not implemented yet. Figure \ref{fig:trip_creation} shows the trip creation screens.
@@ -962,20 +975,25 @@
                 \centering
                 \begin{subfigure}{0.3\textwidth}
                     \includegraphics[width=\linewidth]{Images/trip_creation_1.png}
-                    \caption{Trip Creation - iOS}
+                    \caption{Station Selection Sheet - iOS}
                     \label{fig:trip_cration_1}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
                     \includegraphics[width=\linewidth]{Images/trip_creation_2.png}
-                    \caption{Cont. Trip Creation - iOS}
+                    \caption{Trip Date and Time Picker - iOS}
                     \label{fig:trip_cration_2}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
                     \includegraphics[width=\linewidth]{Images/trip_creation_3.png}  
-                    \caption{Cont. Trip Creation - iOS}
+                    \caption{Trip Route Station Selection - iOS}
                     \label{fig:trip_cration_3}
                 \end{subfigure}
-                \caption{Driver Trip Creation Screens}
+                \begin{subfigure}{0.3\textwidth}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_4.png}  
+                    \caption{Trip Creation Confirmation - iOS}
+                    \label{fig:trip_cration_4}
+                \end{subfigure}
+                \caption{Driver Trip Creation Screens - iOS}
                 \label{fig:trip_creation}
             \end{figure}
         
@@ -985,23 +1003,22 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_1.png}
-                    \caption{Trip Search - iOS}
+                    \includegraphics[width=\linewidth]{Images/trip_search_1.jpg}
+                    \caption{Station Sheet - Android}
                     \label{fig:trip_search_1}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_2.png}
-                    \caption{Trip Search - Android}
+                    \includegraphics[width=\linewidth]{Images/trip_search_2.jpg}
+                    \caption{Trip Search Screen - Android}
                     \label{fig:trip_search_2}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
                     \includegraphics[width=\linewidth]{Images/trip_search_3.png}
-                    \caption{Trip Search Result - iOS}
+                    \caption{Search Date Picker - Android}
                     \label{fig:trip_search_3}
                 \end{subfigure}
-                % \label{fig:trip_search}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_4.png}
+                    \includegraphics[width=\linewidth]{Images/trip_search_4.jpg}
                     \caption{Trip Search Result - Android}
                     \label{fig:trip_search_4}
                 \end{subfigure}
@@ -1016,7 +1033,7 @@
             \end{figure}
         \pagebreak
         \subsection{Trip Detail Screen}
-            The \textit{Trip Detail Screen} has information about the trip. In addition to where and from the trip started, and trip date and time, it will have information such as the estimated finish time as well as the passing stations selected by the driver on creation with the estimated time between each station and the next. The stations will be displayed in a scrollable timeline widget that can update to reflect the driver's current station have they started the trip and were sharing their location; in this case, the trip will also have a map of the driver's live location. Moreover, there is a timer that can count up the time elapsed since the start of the trip to give passengers better sense of the driver's progress. The driver name, profile picture, rating, and car information will be visible in the screen and the passenger can visit the driver's profile from there. The passenger can request to book a seat, cancel a request or booking, drop off when they are dropped off and report the trip to us for any complaints. The driver can start the trip\footnote{To be able to start a trip, the trip scheduled time needs to be due or that it's within an hour from current time}, end it, cancel it if it's not started, hide the trip so that it doesn't get seen by any more passengers. Both the driver and passengers can rate one another at the end. See Figure \ref{fig:trip_details_1}. The trip detail screen can be static that doesn't update unless the user does, or dynamic that updates in real-time to reflect trip status and thus available actions, driver location, and the station reached. The status of the trip clicked determines which detail screen is going to be routed in view; a trip that is cancelled or ended or is far from starting will have a static detail screen, while a trip that is ongoing or locked because it's full or about to start will be watching for any updates in the trip status and in the case of an ongoing trip, the driver's location.
+            The \textit{Trip Detail Screen} has information about the trip. In addition to where and from the trip started, and trip date and time, it will have information such as the estimated finish time as well as the passing stations selected by the driver on creation with the estimated time between each station and the next. The stations will be displayed in a scrollable timeline widget that can update to reflect the driver's current station have they started the trip and were sharing their location; in this case, the trip will also have a map of the driver's live location. Moreover, there is a timer that can count up the time elapsed since the start of the trip to give passengers better sense of the driver's progress. The driver name, profile picture, rating, and car information will be visible in the screen and the passenger can visit the driver's profile from there. The passenger can request to book a seat, cancel a request or booking, drop off when they are dropped off and report the trip to us for any complaints. The driver can start the trip\footnote{To be able to start a trip, the trip scheduled time needs to be due or that it's within an hour from current time}, end it, cancel it if it's not started, hide the trip so that it doesn't get seen by any more passengers. He will also see a map showing the passengers' location. Moreover, there will be a list of the passengers registered on the trip showing their names, and rating. When clicked, it will redirect to the passenger's profile. Both the driver and passengers can rate one another at the end. See Figure \ref{fig:trip_details_1}. The trip detail screen can be static that doesn't update unless the user does, or dynamic that updates in real-time to reflect trip status and thus available actions, driver location, and the station reached. The status of the trip clicked determines which detail screen is going to be routed in view; a trip that is cancelled or ended or is far from starting will have a static detail screen, while a trip that is ongoing or locked because it's full or about to start will be watching for any updates in the trip status and in the case of an ongoing trip, the driver's location.
 
             \begin{sidewaysfigure}[!htb]
                 \centering
@@ -1036,7 +1053,7 @@
                 \label{fig:live_location_demo}
             \end{wrapfigure}
             
-            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a stream of realtime locations of a group of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in Firestore. We will use this feature for the passenger to track the driver's location and for the driver to see the passenger's location after booking a trip.
+            The app provides features to see the live location of the driver and the passenger. We have configured the app so that it asks for device location permissions on both Android and iOS. We are using Google Maps API to show the live location of the driver and the passenger on an instance of an intractable Google Maps Widget built into the app. We have established a stream of realtime locations of users stored in FireStore. \ref{fig:live_location_demo} shows the live location feature in action, streaming the location data of users stored in Firestore. We have used this feature for the passenger to track the driver's location and for the driver to see the passenger's location when a trip is ongoing.
        
         \subsection{User Profile}
             The user profile screen shows a user detail, Figure \ref{fig:profile_screen}. The app profile page shows this screen with the option to edit personal details and profile picture. A user can apply to become driver this screen as well. Moreover, phone and email are urls that can be clicked to call or send an email to the profile owner in case the user's are ride sharing. 
@@ -1142,10 +1159,10 @@
                 
                 % TODO: a table of Login Test cases don't 
             \subsubsection{Search A Trip test}
-                After successful login, user can search for a trip by entering the search trip screen, entering required filed: such as starting station, end station, datetime of the trip and number of passengers.
+                After successful login, user can search for a trip by entering the search trip screen, entering required filed: such as starting station, end station, date and time of the trip and number of passengers.
                 then clicking the search button in which different results can appear:
                 \begin{enumerate}
-                    \item finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip informations are listed.
+                    \item finding matching trips, in which a split screen is shown with the map and driver last seen locations on it, and a card list in which trip information are listed.
                     \item No matching trip is found/ all matching trips are full, in which the user is prompted and told that no matching trips are found.
                     \item User missed to enter a required field, in which the user is prompted to enter the missing field.
                 \end{enumerate}
@@ -1178,7 +1195,7 @@
                 \end{spacing}
 
                 \subsubsection{Book a Trip test}
-                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button, 
+                After finding a matching trip, user can book a trip by clicking on the trip card, in which the trip details are shown, and the user can click on the book button.
                 % in which the user will be prompted to enter his payment method, and after successful payment the user will be redirected to the home page.
                 % in which different scenarios can happen:
                 % \begin{enumerate}
@@ -1221,7 +1238,7 @@
                 \begin{spacing}{1}
                     \begin{table}[H]
                         \centering
-                        \label{tab:login_test}
+                        \label{tab:create_trip_test}
                         \begin{tabularx}{\linewidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
                             \hline
                             \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
@@ -1245,7 +1262,7 @@
                 \begin{spacing}{1}
                     \begin{table}[H]
                         \centering
-                        \label{tab:login_test}
+                        \label{tab:accept_trip_test}
                         \begin{tabularx}{\linewidth}{| R{2cm}|R{3cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|R{2cm}|}
                             \hline
                             \rowcolor{gray} \textbf{Test Case} & \textbf{Inputs} & \textbf{Expected Result} & \textbf{Actual Result} & \textbf{Pass/ Fail} & \textbf{Comments} \\
@@ -1324,6 +1341,7 @@
 
         We believe that Carpal will significantly improve the daily commute for many people and hope it will soon become an integral part of Palestine's transportation ecosystem.
         
+    \pagebreak
     \section{Future Work}
         % \begin{enumerate}
         %     \item adding more stations
