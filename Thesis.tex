@@ -28,12 +28,14 @@
 \usepackage{tocloft} % used to add spaces before table of contents
 \usepackage{seqsplit} % used to split long words in the table of contents
 \usepackage{picinpar} % used to place figures inside paragraphs
-
+\usepackage{titlesec}
 
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
-
-
+\titlespacing{\chapter}{0pt}{-4.5ex}{*3.5}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge} % removes persistent space before Bibliography and Appendix
+ 
 \setmainfont{Times New Roman} % Set Times New Roman as the main font
 
 % adding bibliographies here
@@ -268,7 +270,7 @@
                     \label{fig:google_maps_logo}
                 \end{figure}
 
-        % This is not an inclusive list. Other technologies and APIs as well as the specific libraries that are going to be used will be mentioned here when we discuss further details.
+        This is not an inclusive list. For all the libraries and plugins we used in developing the app, see appendix \ref{appendix:libraries}.
 
     \pagebreak
     
@@ -864,7 +866,7 @@
 
             \pagebreak
             \subsection{Application Architecture}
-                The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes, constants, enums, and extensions. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services, and update the state of the widget to match new data. Most screens in our application have a controller. We use Riverpod State Management solution to manage the state of the widgets. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. Constants hold values that are used across the app such as the location sensor precision level, passenger limit, and others. Extensions can be for built-in classes or custom classes to add more functionalities such a different fromJson method for a model. See Figure \ref{fig:app_architecture}
+                The application architecture consists of presentation, models, controllers, services, repositories, and others like assets and utility classes, constants, enums, and extensions. Presentations are flutter stateless and stateful widgets which can be whole screens or building blocks used in the various screens of the application. Models represent the entity classes in the application like: stations, users, trips and others. Services and repositories following the Layered Architecture. Controllers are there to handle data being sent to the screens from one or more services, and update the state of the widget to match new data. Most screens in our application have a controller. We use Riverpod State Management solution to manage the state of the widgets, see appendix \ref{appendix:state_management}. The assets consist of the in-memory images used in the application like the logo and default images. Utils and utility classes consists of different utility classes and functionalities that are shared across the application, for example logic to calculate distances between different points, shared providers like current user provider. Constants hold values that are used across the app such as the location sensor precision level, passenger limit, and others. Extensions can be for built-in classes or custom classes to add more functionalities such a different fromJson method for a model. See Figure \ref{fig:app_architecture}
 
         \begin{sidewaysfigure}[!htb]
                     \centering
@@ -875,19 +877,8 @@
 
         \FloatBarrier
 
-        \subsection*{State Management Workflow}
-        Most of the screens in the app rely on a controller to mange their state. The controller communicates with the service fetches the data for the screen widget. The screen widget watching the controller using Riverpod Provider wrapper updates whenever the controller data changes to reflect new state. 
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{Images/state_management.png}
-            \caption{Application State Management Overview}
-            \label{fig:state_management}
-        \end{figure}
-
-
         \subsection{Firebase Setup}
-            We have created a Firebase project and connected it to the app. We have set up the Firebase Authentication, Firestorage, and Firestore services. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled and some of the documents stored in the Firestore Database. Firebase Authentication is one of the first services running once the app is started. When the app starts, it goes to a router page called AuthGate. There it checks if there is a saved session and lets the user in if that's the case or reroutes them to the sign in and sign up screen. Figure \ref{fig:auth_flow} shows the process of starting and authenticating.
+            We have created a Firebase project and connected it to the app. We have set up the Firebase Authentication, Firestorage, and Firestore services. Figure \ref{fig:firebase_setup} shows the Firebase console with the Authentication methods enabled and some of the documents stored in the Firestore Database. Firebase Authentication is one of the first services running once the app is started. When the app starts, it goes to a router page called AuthGate. There it checks if there is a saved session and lets the user in if that's the case or reroutes them to the sign in and sign up screen. Appendix \ref{appendix:post_launch} shows the process of starting the app and authenticating using Firebase Authentication.
 
             \begin{figure}[H]
                 \centering
@@ -910,14 +901,7 @@
                 \label{fig:firebase_setup}
             \end{figure}
 
-            \begin{sidewaysfigure}[!htb]
-                \centering
-                \includegraphics[width=0.9\textwidth]{Images/auth_flow.png}
-                \caption{Booting App Flow}
-                \label{fig:auth_flow}
-             \end{sidewaysfigure}
 
-    \FloatBarrier
         
         \pagebreak
         \subsection{User Sign up and Login}
@@ -1033,16 +1017,7 @@
             \end{figure}
         \pagebreak
         \subsection{Trip Detail Screen}
-            The \textit{Trip Detail Screen} has information about the trip. In addition to where and from the trip started, and trip date and time, it will have information such as the estimated finish time as well as the passing stations selected by the driver on creation with the estimated time between each station and the next. The stations will be displayed in a scrollable timeline widget that can update to reflect the driver's current station have they started the trip and were sharing their location; in this case, the trip will also have a map of the driver's live location. Moreover, there is a timer that can count up the time elapsed since the start of the trip to give passengers better sense of the driver's progress. The driver name, profile picture, rating, and car information will be visible in the screen and the passenger can visit the driver's profile from there. The passenger can request to book a seat, cancel a request or booking, drop off when they are dropped off and report the trip to us for any complaints. The driver can start the trip\footnote{To be able to start a trip, the trip scheduled time needs to be due or that it's within an hour from current time}, end it, cancel it if it's not started, hide the trip so that it doesn't get seen by any more passengers. He will also see a map showing the passengers' location. Moreover, there will be a list of the passengers registered on the trip showing their names, and rating. When clicked, it will redirect to the passenger's profile. Both the driver and passengers can rate one another at the end. See Figure \ref{fig:trip_details_1}. The trip detail screen can be static that doesn't update unless the user does, or dynamic that updates in real-time to reflect trip status and thus available actions, driver location, and the station reached. The status of the trip clicked determines which detail screen is going to be routed in view; a trip that is cancelled or ended or is far from starting will have a static detail screen, while a trip that is ongoing or locked because it's full or about to start will be watching for any updates in the trip status and in the case of an ongoing trip, the driver's location.
-
-            \begin{sidewaysfigure}[!htb]
-                \centering
-                \includegraphics[width=0.9\textwidth]{Images/trip_detail_screen_variations.png}
-                \caption{Trip Detail Screen Router}
-                \label{fig:trip_detail_screen_variations}
-            \end{sidewaysfigure}
-
-            \FloatBarrier
+            The \textit{Trip Detail Screen} has information about the trip. In addition to where and from the trip started, and trip date and time, it will have information such as the estimated finish time as well as the passing stations selected by the driver on creation with the estimated time between each station and the next. The stations will be displayed in a scrollable timeline widget that can update to reflect the driver's current station have they started the trip and were sharing their location; in this case, the trip will also have a map of the driver's live location. Moreover, there is a timer that can count up the time elapsed since the start of the trip to give passengers better sense of the driver's progress. The driver name, profile picture, rating, and car information will be visible in the screen and the passenger can visit the driver's profile from there. The passenger can request to book a seat, cancel a request or booking, drop off when they are dropped off and report the trip to us for any complaints. The driver can start the trip\footnote{To be able to start a trip, the trip scheduled time needs to be due or that it's within an hour from current time}, end it, cancel it if it's not started, hide the trip so that it doesn't get seen by any more passengers. He will also see a map showing the passengers' location. Moreover, there will be a list of the passengers registered on the trip showing their names, and rating. When clicked, it will redirect to the passenger's profile. Both the driver and passengers can rate one another at the end. See Figure \ref{fig:trip_details_1}. For more on the life cycle of the \textit{Trip Detail Screen} see appendix \ref{appendix:trip_detail}.
 
         \subsection{User Live Location}
 
@@ -1343,55 +1318,112 @@
         
     \pagebreak
     \section{Future Work}
-        \begin{enumerate}
-            \item \textbf{Adding More Stations:} The app is currently limited to the Ramallah Qalqilya area. Expanding the dataset to include more stations in the West Bank and adding features such as station suggestions based on the user's location is a feature that we plan to implement in the future.
-            \item \textbf{Chat:} Implementing a chat feature that allows passengers and drivers to communicate with each other before and during the trip in order to make it easier to coordinate between them is a feature that we plan to implement in the future, as time didn't allow for it in this project.
-            \item \textbf{Payment:} Implementing a payment feature that allows passengers to pay for their trips through the app with different payment methods such as reflect, jawalPay, visa and card is a feature that we plan to implement in the future when the app is ready for production and has a large user base.
-            \item \textbf{Roads Status Telegram Channel Integration:} Integrating a Telegram channel (احوال الطرق) that provides in time updates on road conditions, closures, and other important information that can help drivers plan their trips more effectively is a feature that we plan to implement in the future.
-            \item \textbf{Setting and saving trip routes for drivers:} Implementing a feature that allows drivers to save their trip routes and settings for future trips, so they can be able to create same trips in the future without having to enter the same information again is a feature that we plan to implement in the future.
-            \item \textbf{Sharing trip link:} Implementing a feature that allows users to share their trip link using different social media platforms, so they can invite their friends to join their trip is a feature that we plan to implement in the future.
-            \item \textbf{Adding more login options:} Implementing more login options such as Google, Facebook, and Apple login is a features and adding a biometric authenticate method such as fingerprint is a feature that we planed to implement but didn't have time for, so we plan to implement it in the future.
-            \item \textbf{Adding more languages:} Implementing more languages such as Arabic, and French is a feature that we plan to implement in the future.
-            \item \textbf{Adding social and Groups features:} An idea that accord to us was to add simple social features, such as creating groups and weekly scheduled trips, so users can join groups and trips that are scheduled to happen weekly or daily, where the idea accord to us when we thought about company workers, and we thought it would be a great addition to the program, as the thought process was to make the app more social and allow companies to join in, as adding this feature would allow us to add a new type of accounts such as "company account", and make it possible for this user to create a group of its employees who live nearby each others, then they can schedule a trip that happens daily or weekly, and the app will automatically notify the users in the group about the trip, the driver can be someone an employee who has a car, and he is getting payments from the company or the other employees, much more scenarios can be thought of, and we think this feature would be a great addition to the app.
-            \item \textbf{Adding a carplay/ android auto feature:} Implementing a feature that allows the app to be used on carplay and android auto, so the driver can use the app on his car screen, and get notifications and updates about the trip, and the passengers can see the trip details on the car screen as this feature would allow him to not use the phone while driving and make it easier for him to see trip status and updates.
-        \end{enumerate}
-            % \begin{enumerate}
-        %     \item adding more stations
-        %     \item chat
-        %     \item payment
-        %     \item Roads status Telegram channel integration
-        %     \item Sharing trip link
-        %     \item Learned trip time prediction
-        %     \item Settings page for font
-        %     \item More languages
-        % \end{enumerate}
-        %TODO: add future work
+            \subsubsection{Adding More Stations} 
+            The app is currently limited to the station sample covering stations on the route from Ramallah to Qalqilya. We are planning to expand the dataset to include more stations in Palestine. We already have a feature for the drivers to suggest stations. This feature should help speed up the process of adding more stations during the beta testing phase and the app's initial launch.
+            % Moreover, in addition to collecting station internally we are also going to ad feature such as station suggestions based on the user's location is a feature that we plan to implement in the future.
 
-        % \afterpage{ % used with clear page to add a page break before references. Figures and tables become centered without this
-        % }
+            \subsubsection{Organized Customer Support System}
+            Our app is community based; all people can use and start making trips without our involvement. However, we want to our users to feel safe using our app. We also don't want them to avoid our app for bad experience they might have with other users. Therefore, we are planning to build a better customer support system to deal with user complaints and to make it easier for customers to reach us. This will include designated support line, email, and a ticketing system. This feature is vital for the growth of our app and for the introduction of features such as digital payment, in-app chat, and other features down the line.
+            
+            \subsubsection{In-App Payment for Trip}
+            Digital payment through the app is one of the features that we planned to implement. It gives users more choice as it allows passengers to pay for their trips through the app with different local and familiar payment methods such as PalPay, JawwalPay, and traditional credit and debit card payments. We couldn't implement this feature in time due to our low understanding of the financial requirements to implement such feature, unavailability of commonly used services in our area, and the limited time we have to resolve any constraints that might arise after implementing this feature. We plan to add digital payment in the near future by the time the app is ready for public use.
+
+            \subsubsection{Roads Status Telegram Channel Integration}
+            The whole idea of the app is to create a ridesharing solution that works in Palestine. We are committed to this cause and that's why we look for ways to make the app more relevant locally. One of these ideas is adding integration with Telegram channel "أحوال الطرق" that provides in time updates on road conditions, checkpoints, and other important information that can help drivers plan and finish their trips more effectively. We are planning to add Telegram message forwarding from this channel to a server we could use to send notifications and status updates to the app whenever the app user is undergoing a trip to affected area.
+
+            \subsubsection{Predefined and Saved Trip Routes for Drivers}
+            We are planning on adding a feature that allows drivers to select from predefined routes that are commonly taken when making a trip between two stations. Moreover, they can save trip routes to use them again for trips they make frequently. This will make the process of creating a trip even faster without the need to enter the same information again. 
+           
+            \subsubsection{More Language Support}
+            Adding support for more languages such as English, is a feature we feel that we must add as it will make the app accessible to foreign visitors and tourists who like to hitchhike and share rides with locals.
+
+            \subsubsection{In-App Chat}
+            Implementing a chat feature that allows passengers and drivers to communicate with one another before and during the trip in order to make it easier to coordinate between them is a feature that we thought of from the get go even though we never promised to implement it due to the time constraints and other factors such as the relatively low importance of this feature and its functionality in driving scenarios and the app already provides users with drivers' contact info and makes it easy to initiate a call from the app. However, we feel it would be a great addition to the app and we plan to implement down the road. 
+
+            \subsubsection{More Login Options}
+            We want to give choice to the people and help make our app more accessible. That's why we are planning to introduce more login options from other providers such as Google, Facebook, and Apple. This will make the enrolment process faster for our users. Most importantly, we are planning to add mobile number sign up and authentication method. 
+
+            \subsubsection{Sharable Trip Link}
+            We are planning on implementing a feature that allows users to share their trip with other users in case they want to invite their friends to join their trip or if the driver wants to post their planned trip online. It will be in the form of a link that when opened on iOS or Android it will direct users to the app and open the trip detail screen. This feature will need some form a web implementation of the app Trip Detail Screen in case users open the link on a desktop or a device that doesn't have the app installed.
+            % \subsubsection{Adding social and Groups features}
+            % An idea that accord to us was to add simple social features, such as creating groups and weekly scheduled trips, so users can join groups and trips that are scheduled to happen weekly or daily, where the idea accord to us when we thought about company workers, and we thought it would be a great addition to the program, as the thought process was to make the app more social and allow companies to join in, as adding this feature would allow us to add a new type of accounts such as "company account", and make it possible for this user to create a group of its employees who live nearby each others, then they can schedule a trip that happens daily or weekly, and the app will automatically notify the users in the group about the trip, the driver can be someone an employee who has a car, and he is getting payments from the company or the other employees, much more scenarios can be thought of, and we think this feature would be a great addition to the app.
+            \subsubsection{Carplay and Android Auto Support}
+            We are also looking to find our app a new home outside iOS and Android devices. Since the app will be used a lot while driving, we are planning on porting the app to car platforms such as Carplay and Android Auto. This way drivers can keep track of the trip, get notifications, and locate passengers right from their car screen. This will make the app more accessible and safer to use while driving. Whether we go through with this feature or not will depend on how the mobile app is received by the public and the size of our user base.
 
     % \pagebreak
 
     % \clearpage % page break doesn't add space before the references page so this needed
     \printbibliography
-    \clearpage
+    % \clearpage
     \appendix
-    \section{Appendix}
-        \subsection{Used libraries and packages}
+        \counterwithin{figure}{chapter} 
+        \chapter{Used Libraries and Packages} \label{appendix:libraries}
+            The following list includes Flutter libraries and packages used in creating the App. All these packages support both Android and iOS platforms and are downloaded from  \href{https://pub.dev}{\textit{\url{pub.dev}}} the home repository of Dart and Flutter plugins. Additionally, all the packages are up to date and compatible with the latest stable version of Flutter 3.22.2 and Dart 3.4.3 as of the time of writing this report, 26th of June 2024. 
             \begin{enumerate}
-                \item \textbf{Flutter:} A UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase version 3.22.0.
-                \item \textbf{Firebase and its dependecies:} A platform developed by Google for creating mobile and web applications.
-                \item \textbf{Google Maps API with google_maps_flutter:} A set of APIs developed by Google that allow you to embed Google Maps into web pages or retrieve data from Google Maps.
-                \item \textbf{cupertino_icons:} Cupertino icons as Flutter Icons.
-                \item \textbf{riverpod, riverpod_annotation, flutter_riverpod:} A simple way to manage state in Flutter.
-                \item \textbf{freezed,freezed_annotation}: A code generator for immutable classes that allows you to write normal data classes without worrying about the serialization.
-                \item \textbf{flutter_platform_widgets:} A Flutter plugin that provides specific widgets for each platform.
-                \item \textbf{email_validator:} An advanced email validation library.
+                \item \textbf{firebase\_core:} Firebase bindings for Flutter.
+                \item \textbf{firebase\_auth:} Plugin to enable Firebase Authentication for Flutter. Creates user session and enables sing-in, sign-up, and sign-out, as well as password reset.
+                \item \textbf{cloud\_firestore} Plugin that enables Flutter to read and write to Firebase Firestore database.
+                \item \textbf{firebase\_storage:} A plugin to use the Firebase Cloud Storage API in Flutter.
+                \item \textbf{firebase\_messaging} A Firebase Cloud Messaging (FCM) plugin to deliver messages and enable push notifications in Flutter.
+                \item \textbf{google\_maps\_flutter:} A plugin made by Google to integrate Google Maps in Flutter. It communicates with Google Maps API. 
+                \item \textbf{riverpod, riverpod\_annotation, flutter\_riverpod:} State management library for Flutter.
+                \item \textbf{riverpod\_generator} Code generation for Riverpod.
+                \item \textbf{freezed,freezed\_annotation, json\_annotation, json\_serializable}: Code generation for immutable classes which allows for creating model classes with autogenerated serialization and deserialization methods.
+                \item \textbf{build\_runner} Flutter package to generate code. Used to generate Freezed, Json serialization, and Riverpod code. 
+                \item \textbf{flutter\_platform\_widgets:} A Flutter wrapper library to make creating widgets designed for Android and iOS easier.
+                \item \textbf{hl\_image\_picker} A plugin to pick images from the gallery app or take a photo using the camera in in iOS and Android.
+                \item \textbf{email\_validator:} An advanced email validation library.
+                \item \textbf{flutter\_pw\_validator} A package used to set rules for password creation and validate them.
                 \item \textbf{geolocator} A Flutter geolocation plugin that provides easy access to 'platform-specific' location services.
-                \item \textbf{tuple} A library that provides a Tuple class.
-                \item \textbf{shared_preferences} A Flutter plugin for reading and writing simple key-value pairs into phone storage that works on both iOS and Android.
-                \item \textbf{flutter_local_notifications} A Flutter plugin for displaying local notifications and styling them.
+                \item \textbf{permission\_handler} A plugin to request permissions such location and camera and check their status in Flutter for iOS and Android.
+                \item \textbf{shared\_preferences} A cross platform Flutter plugin for reading and writing simple key-value pairs and persist them in device storage.
+                \item \textbf{cached\_network\_image} A library that fetches photos from the internet and caches them in device storage.
+                \item \textbf{flutter\_local\_notifications} A Flutter plugin for displaying local iOS, Android, Linux, and macOS notifications and styling them.
+                \item \textbf{timelines} A library to create timeline widgets. It is used in places like the \textit{Trip Detail Screen} to show the trip timeline.
                 \item \textbf{workmanager} A Flutter plugin for running background tasks on both Android and iOS.
+                \item \textbf{google\_fonts} Flutter package to use Google Fonts in Flutter. Provides the Arabic font \textit{Cairo} used in the app.
+                \item \textbf{flutter\_decorated\_text} A package to enable partial text styling in Flutter.
+                \item \textbf{dropdown\_button2} A Flutter package to create simple dropdown menus. 
+                \item \textbf{connectivity\_plus} A plugin to check if the device is connected to the internet through WiFi, mobile data, or ethernet.
+                \item \textbf{cupertino\_icons:} Set of iOS icons to use in Flutter.
+                \item \textbf{flutter\_launcher\_icons} Flutter package to create and customize the app icon for both Android and iOS.
+                \item \textbf{tuple} A library that enables tuples in Dart.
+                \item \textbf{url\_launcher} Plugin to direct urls like phone and email to the device's default url launchers, such as the phone app or email client app.
+                \item \textbf{flutter\_native\_splash} Creates a splash screen that appears when launching the app on iOS and Android.
+            \end{enumerate}
+
+        \chapter{State Management Overview} \label{appendix:state_management}
+            Most of the screens in the app rely on a controller to mange their state. The controller communicates with the service fetches the data for the screen widget. The screen widget watching the controller using Riverpod Provider wrapper updates whenever the controller data changes to reflect new state. 
+    
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\textwidth]{Images/state_management.png}
+                \caption{Application State Management Overview}
+                \label{fig:state_management}
+            \end{figure}
+
+        \chapter{The Flow of Starting the App} \label{appendix:post_launch}
+            
+             \begin{figure}[H]
+                \centering
+                \rotatebox{90}{
+                    \includegraphics[width=1.2\textwidth]{Images/start_app_flow.png}}
+                    \caption{App Start Flow}
+                \label{fig:app_start}
+            \end{figure} 
+    
+        \chapter{Trip Detail Screen Flow} \label{appendix:trip_detail}
+        The trip detail screen can be static that doesn't update unless the user does, or dynamic that updates in real-time to reflect trip status and thus available actions, driver location, and the station reached. The status of the trip clicked determines which detail screen is going to be routed in view; a trip that is cancelled or ended or is far from starting will have a static detail screen, while a trip that is ongoing or locked because it's full or about to start will be watching for any updates in the trip status and in the case of an ongoing trip, the driver's location.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{Images/trip_detail_screen_variations.png}
+            \caption{Trip Detail Screen Router}
+            \label{fig:trip_detail_screen_variations}
+        \end{figure}
+
+        % \FloatBarrier
+
 \end{document} % This is the end of the document
 
 
