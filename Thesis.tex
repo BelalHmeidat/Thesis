@@ -16,7 +16,6 @@
 \usepackage{setspace} %package used to set the spacing between the lines.
 \usepackage{tabularx} %package used to create tables that can fill the entire width of page
 \usepackage{subcaption} %package used to create a figure of subfigures
-\usepackage[hidelinks]{hyperref} %package used to hide links of the table of content
 \usepackage{rotating} % package used to rotate figures 
 \usepackage{adjustbox} % package used to adjust the size of the table
 \usepackage{threeparttablex} % used to contain the long table and add suitable table notes
@@ -29,6 +28,9 @@
 \usepackage{seqsplit} % used to split long words in the table of contents
 \usepackage{picinpar} % used to place figures inside paragraphs
 \usepackage{titlesec} % used to customize chapter titles
+\usepackage[hidelinks]{hyperref} %package used to hide links of the table of content
+\usepackage{bookmark}
+
 
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
@@ -1372,7 +1374,7 @@
                     \caption{Libraries and plugins used in the app \label{tab:libraries_and_plugins}}\\
                     
                     \endfoot
-                    % \caption*{Libraries and plugins used in the app (continued)}\\
+                    \caption*{Libraries and plugins used in the app (continued)}\\
                     % \bottomrule
                     % \insertTableNotes 
                     \endlastfoot
