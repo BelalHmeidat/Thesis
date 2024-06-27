@@ -28,7 +28,7 @@
 \usepackage{tocloft} % used to add spaces before table of contents
 \usepackage{seqsplit} % used to split long words in the table of contents
 \usepackage{picinpar} % used to place figures inside paragraphs
-\usepackage{titlesec}
+\usepackage{titlesec} % used to customize chapter titles
 
 
 \setstretch{1.5} % setting the spacing between the lines to 1.5
@@ -70,12 +70,12 @@
 \setlength{\cftbeforelottitleskip}{0pt plus 1pt} % sets the space before the list of tables to match sections
     \begin{titlepage}
         \begin{center}
-            \includegraphics{Birzeit_Logo.png}
+            \includegraphics[width=0.5\textwidth]{Images/Birzeit_Logo.jpeg}
 
             \Large{Faculty of Engineering and Technology}
             \vspace{0.8cm}
 
-            Department of Computer Science 
+            Department of Computer Science
             \vspace{0.8cm}
 
             COMP 4300 - Graduation Project
@@ -223,7 +223,7 @@
                 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=1\textwidth]{Firebase_Logo.png}
+                    \includegraphics[width=1\textwidth]{Firebase_Logo.jpeg}
                     \caption{Firebase Logo \cite{firebase_logo}}
                     \label{fig:Firebase Logo}
                 \end{figure}
@@ -232,7 +232,7 @@
                 Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, Mac OS, Windows, Google Fuchsia, and the web from a single code base. \cite{flutter_wiki}
                 \begin{figure}[h] % h means place figure here
                     \centering
-                    \includegraphics[width=0.8\textwidth]{Google-flutter-logo.png}
+                    \includegraphics[width=0.8\textwidth]{Google-flutter-logo.jpeg}
                     \caption{Flutter Logo \cite{flutter_logo}}
                     \label{fig: Flutter Logo}
                 \end{figure}
@@ -243,7 +243,7 @@
                 Java Spring Framework is a popular, open-source framework used for creating standalone, production-grade applications that run on Java Virtual Machine. \cite{spring_wiki}
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=1\textwidth]{Spring Boot Logo.png}
+                    \includegraphics[width=1\textwidth]{Spring Boot Logo.jpeg}
                     \caption{Spring Logo \cite{spring_logo}}
                     \label{fig:Spring Logo}
                 \end{figure}
@@ -265,7 +265,7 @@
 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.6\textwidth]{google_maps_logo.png}
+                    \includegraphics[width=0.6\textwidth]{google_maps_logo.jpeg}
                     \caption{Google Maps Logo \cite{google_maps_logo}}
                     \label{fig:google_maps_logo}
                 \end{figure}
@@ -284,29 +284,29 @@
                 \begin{figure}
                     \centering
                     \begin{subfigure}{0.3\textwidth}
-                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_search.PNG}
+                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_search.jpeg}
                         \caption{Search Page}
                         \label{fig:blabla_search}
                     \end{subfigure}
                     \begin{subfigure}{0.3\textwidth}
-                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_search_result.png}
+                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_search_result.jpeg}
                         \caption{Trip Search Results Screen}
                         \label{fig:blabla_results}
                     \end{subfigure}
                     \begin{subfigure}{0.3\textwidth}
-                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_trip_detail.png}  
+                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_trip_detail.jpeg}  
                         \caption{Trip Detail Screen}
                         \label{fig:blabla_detail}
                     \end{subfigure}
                     \newline % adding a vertical space between figures 
                     \newline
                     \begin{subfigure}{0.3\textwidth}
-                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_userprofile.png}
+                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_userprofile.jpeg}
                         \caption{User Profile Screen}
                         \label{fig:blabla_profile}
                     \end{subfigure}
                     \begin{subfigure}{0.3\textwidth}
-                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_settings.PNG}
+                        \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/Blablacar_settings.jpeg}
                         \caption{Settings Screen}
                         \label{fig:blabla_settings}
                     \end{subfigure}
@@ -337,7 +337,7 @@
                 International ride-hailing service and one of the most popular carpooling apps in the world. It sits as the second most downloaded ride-sharing and taxi app. \cite{indrive_wiki} In addition to being a taxi alternative, inDrive is used for many services such as courier delivery, freight transport, and professional services such as home repairs and tutoring. inDrive appeals to its user base by allowing them to negotiate a price with different drivers and thus helping them find the price they're looking for. The app itself allows users to select a service and select locations on the map. It also shows nearby drivers on the map. It also gives users access to message or start a call with the driver from within the app.\cite{indrive_itunes} Despite being very popular, inDrive is not available in Palestine. The business operates differently from BlaBlaCar and our app as it falls in line with the workflow of other famous carpooling apps such as Uber which is primarily a carpooling app that drivers rely on for bringing in income rather than merely sharing a ride. It also offers more general use cases such as professional maintenance services.
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.9\linewidth]{Images/inDrive_Overview.png}
+                    \includegraphics[width=0.9\linewidth]{Images/inDrive_Overview.jpeg}
                     \caption{Screens showcasing inDrive app \cite{indrive_itunes}}
                     \label{indrvie_galary}
                 \end{figure}
@@ -480,7 +480,7 @@
                 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=0.7\textwidth, keepaspectratio]{Images/Route_Text_Case.png}
+                    \includegraphics[width=0.7\textwidth, keepaspectratio]{Images/Route_Text_Case.jpeg}
                     \caption{Test Case Route\protect \footnotemark[1]}
                     \label{fig:testcase_route}
                 \end{figure}
@@ -504,7 +504,7 @@
             The implementation work plan clearly outlines the different stages needed to be completed to finish the project. Figure \ref{fig:work_plan} shows the work plan. The work plan starts with setting up the Firebase database with the collected sample routes, then moves to work on the trip scheduling logic and UI, then the trip booking logic and UI, then integrating the map and location services, then adding user profiles, user rules, trip filters, feedback, and rating features, then a polishing and fine-tuning phase. Going by the times we designated for each stage, we expect to finish all stages in 15 weeks from 01/03/2024 to 15/06/2024. 
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.png}
+                \includegraphics[width=0.9\textwidth]{Images/implemntation_timeline.jpeg}
                 \caption{Implementation Work Plan}
                 \label{fig:work_plan}
             \end{figure}
@@ -756,7 +756,7 @@
 
             \begin{figure}[H]
                 \centering
-                \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{Images/CarPal_Usecase.png}}
+                \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{Images/CarPal_Usecase.jpeg}}
                 \caption{Use Case Diagram}
                 \label{fig:usecase}
             \end{figure}
@@ -767,14 +767,14 @@
         \begin{figure}[H]
             \centering
             \rotatebox{90}{
-            \includegraphics[width=1.1\textwidth]{Images/login.png}}
+            \includegraphics[width=1.1\textwidth]{Images/login.jpeg}}
             \caption{Login Workflow}
             \label{fig:seq_dig_login}
         \end{figure} 
     
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=0.9\linewidth]{Images/Passenger Accepted.png}
+            \includegraphics[width=0.9\linewidth]{Images/Passenger Accepted.jpeg}
             \caption{Showing Passenger's Accepted Trips Action}
             \label{fig:seq_dig_pass_accepted}
         \end{sidewaysfigure}
@@ -785,7 +785,7 @@
     % \subsubsection{Reserve Seat sequence Diagram}
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/Passenger Payment.png}
+            \includegraphics[width=\linewidth]{Images/Passenger Payment.jpeg}
             \caption{Passenger Payment Workflow}
             \label{fig:seq_dig_pass_payment}
         \end{sidewaysfigure}
@@ -796,7 +796,7 @@
     % \subsubsection{show scheduled trips sequence Diagram}
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/Driver Scheduled.png}
+            \includegraphics[width=\linewidth]{Images/Driver Scheduled.jpeg}
             \caption{Showing Driver's Scheduled Trips Action}
             \label{fig:seq_dig_driver_scheduled}
         \end{sidewaysfigure}
@@ -806,7 +806,7 @@
     % \subsubsection{Driver Accepts trip Request sequence Diagram}
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/Driver Request.png}
+            \includegraphics[width=\linewidth]{Images/Driver Request.jpeg}
             \caption{Passenger Request Workflow}
             \label{fig:seq_dig_driver_request}
         \end{sidewaysfigure}
@@ -816,7 +816,7 @@
     % \subsubsection{UML Class Diagram}
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/UML Class.png}
+            \includegraphics[width=\linewidth]{Images/UML Class.jpeg}
             \caption{UML Class Diagram}
             \label{fig:class_diagram}
         \end{sidewaysfigure}
@@ -826,7 +826,7 @@
     % \subsubsection{State Diagrams}
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/State Diagram passenger.png}
+            \includegraphics[width=\linewidth]{Images/State Diagram passenger.jpeg}
             \caption{State Diagram for Passenger}
             \label{fig:state_passenger}
         \end{sidewaysfigure}
@@ -835,7 +835,7 @@
 
        \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/State Diagram Driver.png}
+            \includegraphics[width=\linewidth]{Images/State Diagram Driver.jpeg}
             \caption{State Diagram for Driver}
             \label{fig:state_driver}
         \end{sidewaysfigure}
@@ -844,7 +844,7 @@
 
         \begin{sidewaysfigure}[!htb]
             \centering
-            \includegraphics[width=\linewidth]{Images/deployment_diagram.png}
+            \includegraphics[width=\linewidth]{Images/deployment_diagram.jpeg}
             \caption{Deployment Diagram}
             \label{fig:dep_diagram}
         \end{sidewaysfigure}
@@ -870,7 +870,7 @@
 
         \begin{sidewaysfigure}[!htb]
                     \centering
-                    \includegraphics[width=0.9\textwidth]{Images/app_arch.png}
+                    \includegraphics[width=0.9\textwidth]{Images/app_arch.jpeg}
                     \caption{Application Architecture}
                     \label{fig:app_architecture}
         \end{sidewaysfigure}
@@ -883,17 +883,17 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.7\textwidth}
-                    \includegraphics[width=\linewidth]{Images/firebase_dashboard.png}
+                    \includegraphics[width=\linewidth]{Images/firebase_dashboard.jpeg}
                     \caption{Firebase Dashboard}
                     \label{fig:firebase_dashboard}
                 \end{subfigure}
                 \begin{subfigure}{0.7\textwidth}
-                    \includegraphics[width=\linewidth]{Images/firebase_auth.png}
+                    \includegraphics[width=\linewidth]{Images/firebase_auth.jpeg}
                     \caption{Firebase Authentication}
                     \label{fig:firebase_auth}
                 \end{subfigure}
                 \begin{subfigure}{0.7\textwidth}
-                    \includegraphics[width=\linewidth]{Images/firestore.png}
+                    \includegraphics[width=\linewidth]{Images/firestore.jpeg}
                     \caption{Firebase Firestore Database}
                     \label{fig:firebase_database}
                 \end{subfigure}
@@ -909,32 +909,32 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/first_screen.png}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/first_screen.jpeg}
                     \caption{App Start Screen}
                     \label{fig:real_first_screen}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_login.png}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_login.jpeg}
                     \caption{Login Screen - iOS}
                     \label{fig:real_login}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_1.png}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_1.jpeg}
                     \caption{Sign Up Screen - Android}
                     \label{fig:real_sign_up_1}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_2.png}  
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_2.jpeg}  
                     \caption{Sign Up Screen with Password Validation - Android}
                     \label{fig:real_sign_up_2}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_3.png}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/user_sign_up_3.jpeg}
                     \caption{Cont. Sign Up Screen - Android}
                     \label{fig:real_sign_up_3}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/password_reset.png}
+                    \includegraphics[width=0.8\linewidth, height=0.9\textheight, keepaspectratio]{Images/password_reset.jpeg}
                     \caption{Password Reset - Android}
                     \label{fig:password_reset}
                 \end{subfigure}
@@ -946,7 +946,7 @@
         \subsection{Trips List Screen}
             \begin{wrapfigure}{r}{0.25\textwidth}
                 \centering
-                \includegraphics[width=\linewidth]{Images/trip_list_screen.png}
+                \includegraphics[width=\linewidth]{Images/trip_list_screen.jpeg}
                 \caption{Trip List Screen - iOS}
                 \label{fig:trip_list_screen}
             \end{wrapfigure}
@@ -958,22 +958,22 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_creation_1.png}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_1.jpeg}
                     \caption{Station Selection Sheet - iOS}
                     \label{fig:trip_cration_1}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_creation_2.png}
+                    \includegraphics[width=\linewidth]{Images/trip_creation_2.jpeg}
                     \caption{Trip Date and Time Picker - iOS}
                     \label{fig:trip_cration_2}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_creation_3.png}  
+                    \includegraphics[width=\linewidth]{Images/trip_creation_3.jpeg}  
                     \caption{Trip Route Station Selection - iOS}
                     \label{fig:trip_cration_3}
                 \end{subfigure}
                 \begin{subfigure}{0.3\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_creation_4.png}  
+                    \includegraphics[width=\linewidth]{Images/trip_creation_4.jpeg}  
                     \caption{Trip Creation Confirmation - iOS}
                     \label{fig:trip_cration_4}
                 \end{subfigure}
@@ -987,27 +987,27 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_1.jpg}
+                    \includegraphics[width=\linewidth]{Images/trip_search_1.jpeg}
                     \caption{Station Sheet - Android}
                     \label{fig:trip_search_1}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_2.jpg}
+                    \includegraphics[width=\linewidth]{Images/trip_search_2.jpeg}
                     \caption{Trip Search Screen - Android}
                     \label{fig:trip_search_2}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_3.png}
+                    \includegraphics[width=\linewidth]{Images/trip_search_3.jpeg}
                     \caption{Search Date Picker - Android}
                     \label{fig:trip_search_3}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_search_4.jpg}
+                    \includegraphics[width=\linewidth]{Images/trip_search_4.jpeg}
                     \caption{Trip Search Result - Android}
                     \label{fig:trip_search_4}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/trip_Detail_screen.png}
+                    \includegraphics[width=\linewidth]{Images/trip_Detail_screen.jpeg}
                     \caption{Trip Details Screen- Android}
                     \label{fig:trip_details_1}
                 \end{subfigure}
@@ -1023,7 +1023,7 @@
 
             \begin{wrapfigure}{r}{0.45\textwidth}
                 \centering
-                \includegraphics[width=0.65\linewidth]{Images/live_location.png}
+                \includegraphics[width=0.65\linewidth]{Images/live_location.jpeg}
                 \caption{User Live Location Demo - iOS}
                 \label{fig:live_location_demo}
             \end{wrapfigure}
@@ -1035,22 +1035,22 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/profile_screen_1.png}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_1.jpeg}
                     \caption{Profile Screen - iOS}
                     \label{fig:profile_screen_1}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/profile_screen_2.png}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_2.jpeg}
                     \caption{Profile Screen Phone No. URL - iOS}
                     \label{fig:profile_screen_2}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/profile_screen_3.jpg}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_3.jpeg}
                     \caption{Profile Screen Edit - Android}
                     \label{fig:profile_screen_3}
                 \end{subfigure}
                 \begin{subfigure}{0.31\textwidth}
-                    \includegraphics[width=\linewidth]{Images/profile_screen_4.jpg}
+                    \includegraphics[width=\linewidth]{Images/profile_screen_4.jpeg}
                     \caption{Profile Screen Edit Confirm - Android}
                     \label{fig:profile_screen_4}
                 \end{subfigure}
@@ -1064,12 +1064,12 @@
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}{0.4\textwidth}
-                    \includegraphics[width=\linewidth]{Images/pfp_select_1.png}
+                    \includegraphics[width=\linewidth]{Images/pfp_select_1.jpeg}
                     \caption{Profile Picture Picker - iOS}
                     \label{fig:pfp_select_1}
                 \end{subfigure}
                 \begin{subfigure}{0.4\textwidth}
-                    \includegraphics[width=\linewidth]{Images/pfp_select_2.png}
+                    \includegraphics[width=\linewidth]{Images/pfp_select_2.jpeg}
                     \caption{Cont. Profile Picture Picker - iOS}
                     \label{fig:pfp_select_2}
                 \end{subfigure}
@@ -1267,35 +1267,35 @@
 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=\linewidth]{Images/survey_gender.png}
+                    \includegraphics[width=\linewidth]{Images/survey_gender.jpeg}
                     \caption{Gender distribution of surveyed people}
                     \label{fig:survey_gender}
                 \end{figure}
 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=\linewidth]{Images/survey_fields.png}
+                    \includegraphics[width=\linewidth]{Images/survey_fields.jpeg}
                     \caption{Majors distribution of surveyed people}
                     \label{fig:survey_fields}
                 \end{figure}
 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=\linewidth]{Images/survey_2.png}
+                    \includegraphics[width=\linewidth]{Images/survey_2.jpeg}
                     \caption{Survey Answers - Part I}
                     \label{fig:survey_1}
                 \end{figure}
 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=\linewidth]{Images/survey_1.png}
+                    \includegraphics[width=\linewidth]{Images/survey_1.jpeg}
                     \caption{Survey Answers - Part II}
                     \label{fig:survey_2}
                 \end{figure}
 
                 \begin{figure}[H]
                     \centering
-                    \includegraphics[width=\linewidth]{Images/will_you_use.png}
+                    \includegraphics[width=\linewidth]{Images/will_you_use.jpeg}
                     \caption{Whether surveyed people would use the app or not}
                     \label{fig:will_you_use}
                 \end{figure}
@@ -1318,36 +1318,36 @@
         
     \pagebreak
     \section{Future Work}
-            \subsubsection{Adding More Stations} 
+            \subsection{Adding More Stations} 
             The app is currently limited to the station sample covering stations on the route from Ramallah to Qalqilya. We are planning to expand the dataset to include more stations in Palestine. We already have a feature for the drivers to suggest stations. This feature should help speed up the process of adding more stations during the beta testing phase and the app's initial launch.
             % Moreover, in addition to collecting station internally we are also going to ad feature such as station suggestions based on the user's location is a feature that we plan to implement in the future.
 
-            \subsubsection{Organized Customer Support System}
+            \subsection{Organized Customer Support System}
             Our app is community based; all people can use and start making trips without our involvement. However, we want to our users to feel safe using our app. We also don't want them to avoid our app for bad experience they might have with other users. Therefore, we are planning to build a better customer support system to deal with user complaints and to make it easier for customers to reach us. This will include designated support line, email, and a ticketing system. This feature is vital for the growth of our app and for the introduction of features such as digital payment, in-app chat, and other features down the line.
             
-            \subsubsection{In-App Payment for Trip}
+            \subsection{In-App Payment for Trip}
             Digital payment through the app is one of the features that we planned to implement. It gives users more choice as it allows passengers to pay for their trips through the app with different local and familiar payment methods such as PalPay, JawwalPay, and traditional credit and debit card payments. We couldn't implement this feature in time due to our low understanding of the financial requirements to implement such feature, unavailability of commonly used services in our area, and the limited time we have to resolve any constraints that might arise after implementing this feature. We plan to add digital payment in the near future by the time the app is ready for public use.
-
-            \subsubsection{Roads Status Telegram Channel Integration}
+            \pagebreak
+            \subsection{Roads Status Telegram Channel Integration}
             The whole idea of the app is to create a ridesharing solution that works in Palestine. We are committed to this cause and that's why we look for ways to make the app more relevant locally. One of these ideas is adding integration with Telegram channel "أحوال الطرق" that provides in time updates on road conditions, checkpoints, and other important information that can help drivers plan and finish their trips more effectively. We are planning to add Telegram message forwarding from this channel to a server we could use to send notifications and status updates to the app whenever the app user is undergoing a trip to affected area.
 
-            \subsubsection{Predefined and Saved Trip Routes for Drivers}
+            \subsection{Predefined and Saved Trip Routes for Drivers}
             We are planning on adding a feature that allows drivers to select from predefined routes that are commonly taken when making a trip between two stations. Moreover, they can save trip routes to use them again for trips they make frequently. This will make the process of creating a trip even faster without the need to enter the same information again. 
            
-            \subsubsection{More Language Support}
+            \subsection{More Language Support}
             Adding support for more languages such as English, is a feature we feel that we must add as it will make the app accessible to foreign visitors and tourists who like to hitchhike and share rides with locals.
 
-            \subsubsection{In-App Chat}
+            \subsection{In-App Chat}
             Implementing a chat feature that allows passengers and drivers to communicate with one another before and during the trip in order to make it easier to coordinate between them is a feature that we thought of from the get go even though we never promised to implement it due to the time constraints and other factors such as the relatively low importance of this feature and its functionality in driving scenarios and the app already provides users with drivers' contact info and makes it easy to initiate a call from the app. However, we feel it would be a great addition to the app and we plan to implement down the road. 
-
-            \subsubsection{More Login Options}
+            \pagebreak
+            \subsection{More Login Options}
             We want to give choice to the people and help make our app more accessible. That's why we are planning to introduce more login options from other providers such as Google, Facebook, and Apple. This will make the enrolment process faster for our users. Most importantly, we are planning to add mobile number sign up and authentication method. 
 
-            \subsubsection{Sharable Trip Link}
+            \subsection{Sharable Trip Link}
             We are planning on implementing a feature that allows users to share their trip with other users in case they want to invite their friends to join their trip or if the driver wants to post their planned trip online. It will be in the form of a link that when opened on iOS or Android it will direct users to the app and open the trip detail screen. This feature will need some form a web implementation of the app Trip Detail Screen in case users open the link on a desktop or a device that doesn't have the app installed.
             % \subsubsection{Adding social and Groups features}
             % An idea that accord to us was to add simple social features, such as creating groups and weekly scheduled trips, so users can join groups and trips that are scheduled to happen weekly or daily, where the idea accord to us when we thought about company workers, and we thought it would be a great addition to the program, as the thought process was to make the app more social and allow companies to join in, as adding this feature would allow us to add a new type of accounts such as "company account", and make it possible for this user to create a group of its employees who live nearby each others, then they can schedule a trip that happens daily or weekly, and the app will automatically notify the users in the group about the trip, the driver can be someone an employee who has a car, and he is getting payments from the company or the other employees, much more scenarios can be thought of, and we think this feature would be a great addition to the app.
-            \subsubsection{Carplay and Android Auto Support}
+            \subsection{Carplay and Android Auto Support}
             We are also looking to find our app a new home outside iOS and Android devices. Since the app will be used a lot while driving, we are planning on porting the app to car platforms such as Carplay and Android Auto. This way drivers can keep track of the trip, get notifications, and locate passengers right from their car screen. This will make the app more accessible and safer to use while driving. Whether we go through with this feature or not will depend on how the mobile app is received by the public and the size of our user base.
 
     % \pagebreak
@@ -1357,57 +1357,103 @@
     % \clearpage
     \appendix
         \counterwithin{figure}{chapter} 
+        \counterwithin{table}{chapter} 
+        
         \chapter{Used Libraries and Packages} \label{appendix:libraries}
             The following list includes Flutter libraries and packages used in creating the App. All these packages support both Android and iOS platforms and are downloaded from  \href{https://pub.dev}{\textit{\url{pub.dev}}} the home repository of Dart and Flutter plugins. Additionally, all the packages are up to date and compatible with the latest stable version of Flutter 3.22.2 and Dart 3.4.3 as of the time of writing this report, 26th of June 2024. 
-            \begin{enumerate}
-                \item \textbf{firebase\_core:} Firebase bindings for Flutter.
-                \item \textbf{firebase\_auth:} Plugin to enable Firebase Authentication for Flutter. Creates user session and enables sing-in, sign-up, and sign-out, as well as password reset.
-                \item \textbf{cloud\_firestore} Plugin that enables Flutter to read and write to Firebase Firestore database.
-                \item \textbf{firebase\_storage:} A plugin to use the Firebase Cloud Storage API in Flutter.
-                \item \textbf{firebase\_messaging} A Firebase Cloud Messaging (FCM) plugin to deliver messages and enable push notifications in Flutter.
-                \item \textbf{google\_maps\_flutter:} A plugin made by Google to integrate Google Maps in Flutter. It communicates with Google Maps API. 
-                \item \textbf{riverpod, riverpod\_annotation, flutter\_riverpod:} State management library for Flutter.
-                \item \textbf{riverpod\_generator} Code generation for Riverpod.
-                \item \textbf{freezed,freezed\_annotation, json\_annotation, json\_serializable}: Code generation for immutable classes which allows for creating model classes with autogenerated serialization and deserialization methods.
-                \item \textbf{build\_runner} Flutter package to generate code. Used to generate Freezed, Json serialization, and Riverpod code. 
-                \item \textbf{flutter\_platform\_widgets:} A Flutter wrapper library to make creating widgets designed for Android and iOS easier.
-                \item \textbf{hl\_image\_picker} A plugin to pick images from the gallery app or take a photo using the camera in in iOS and Android.
-                \item \textbf{email\_validator:} An advanced email validation library.
-                \item \textbf{flutter\_pw\_validator} A package used to set rules for password creation and validate them.
-                \item \textbf{geolocator} A Flutter geolocation plugin that provides easy access to 'platform-specific' location services.
-                \item \textbf{permission\_handler} A plugin to request permissions such location and camera and check their status in Flutter for iOS and Android.
-                \item \textbf{shared\_preferences} A cross platform Flutter plugin for reading and writing simple key-value pairs and persist them in device storage.
-                \item \textbf{cached\_network\_image} A library that fetches photos from the internet and caches them in device storage.
-                \item \textbf{flutter\_local\_notifications} A Flutter plugin for displaying local iOS, Android, Linux, and macOS notifications and styling them.
-                \item \textbf{timelines} A library to create timeline widgets. It is used in places like the \textit{Trip Detail Screen} to show the trip timeline.
-                \item \textbf{workmanager} A Flutter plugin for running background tasks on both Android and iOS.
-                \item \textbf{google\_fonts} Flutter package to use Google Fonts in Flutter. Provides the Arabic font \textit{Cairo} used in the app.
-                \item \textbf{flutter\_decorated\_text} A package to enable partial text styling in Flutter.
-                \item \textbf{dropdown\_button2} A Flutter package to create simple dropdown menus. 
-                \item \textbf{connectivity\_plus} A plugin to check if the device is connected to the internet through WiFi, mobile data, or ethernet.
-                \item \textbf{cupertino\_icons:} Set of iOS icons to use in Flutter.
-                \item \textbf{flutter\_launcher\_icons} Flutter package to create and customize the app icon for both Android and iOS.
-                \item \textbf{tuple} A library that enables tuples in Dart.
-                \item \textbf{url\_launcher} Plugin to direct urls like phone and email to the device's default url launchers, such as the phone app or email client app.
-                \item \textbf{flutter\_native\_splash} Creates a splash screen that appears when launching the app on iOS and Android.
-            \end{enumerate}
-
+            \begin{spacing}{1}
+                \begin{longtable}{|R{5cm}|R{10cm}|}
+                    \rowcolor{gray} \textbf{Library/ Plugin} & \textbf{Description}\\
+                    \endfirsthead
+                    
+                    % \toprule
+                    \rowcolor{gray} \textbf{Library/ Plugin} & \textbf{Description}\\                    % \midrule
+                    \endhead
+                    \caption{Libraries and plugins used in the app \label{tab:libraries_and_plugins}}\\
+                    
+                    \endfoot
+                    % \caption*{Libraries and plugins used in the app (continued)}\\
+                    % \bottomrule
+                    % \insertTableNotes 
+                    \endlastfoot
+                    \hline
+                    \textbf{firebase\_core} & Firebase bindings for Flutter. \\
+                    \hline
+                    \textbf{firebase\_auth} & Plugin to enable Firebase Authentication for Flutter. Creates user session and enables sign-in, sign-up, and sign-out, as well as password reset. \\
+                    \hline
+                    \textbf{cloud\_firestore} & Plugin that enables Flutter to read and write to Firebase Firestore database. \\
+                    \hline
+                    \textbf{firebase\_storage} & A plugin to use the Firebase Cloud Storage API in Flutter. \\
+                    \hline
+                    \textbf{firebase\_messaging} & A Firebase Cloud Messaging (FCM) plugin to deliver messages and enable push notifications in Flutter. \\
+                    \hline
+                    \textbf{google\_maps\_flutter} & A plugin made by Google to integrate Google Maps in Flutter. It communicates with Google Maps API. \\
+                    \hline
+                    \textbf{riverpod, riverpod\_annotation, flutter\_riverpod} & State management library for Flutter. \\
+                    \hline
+                    \textbf{riverpod\_generator} & Code generation for Riverpod. \\
+                    \hline
+                    \textbf{freezed, freezed\_annotation, json\_annotation, json\_serializable} & Code generation for immutable classes which allows for creating model classes with autogenerated serialization and deserialization methods. \\
+                    \hline
+                    % \textbf{build\_runner} & Flutter package to generate code. Used to generate Freezed, Json serialization, and Riverpod code. \\
+                    % \hline
+                    \textbf{flutter\_platform\_widgets} & A Flutter wrapper library to make creating widgets designed for Android and iOS easier. \\
+                    \hline
+                    \textbf{hl\_image\_picker} & A plugin to pick images from the gallery app or take a photo using the camera in iOS and Android. \\
+                    \hline
+                    \textbf{email\_validator} & An advanced email validation library. \\
+                    \hline
+                    \textbf{flutter\_pw\_validator} & A package used to set rules for password creation and validate them. \\
+                    \hline
+                    \textbf{geolocator} & A Flutter geolocation plugin that provides easy access to 'platform-specific' location services. \\
+                    \hline
+                    \textbf{permission\_handler} & A plugin to request permissions such as location and camera and check their status in Flutter for iOS and Android. \\
+                    \hline
+                    \textbf{shared\_preferences} & A cross-platform Flutter plugin for reading and writing simple key-value pairs and persisting them in device storage. \\
+                    \hline
+                    \textbf{cached\_network\_image} & A library that fetches photos from the internet and caches them in device storage. \\
+                    \hline
+                    \textbf{flutter\_local\_notifications} & A Flutter plugin for displaying local iOS, Android, Linux, and macOS notifications and styling them. \\
+                    \hline
+                    \textbf{timelines} & A library to create timeline widgets. It is used in places like the \textit{Trip Detail Screen} to show the trip timeline. \\
+                    \hline
+                    \textbf{workmanager} & A Flutter plugin for running background tasks on both Android and iOS. \\
+                    \hline
+                    \textbf{google\_fonts} & Flutter package to use Google Fonts in Flutter. Provides the Arabic font \textit{Cairo} used in the app. \\
+                    \hline
+                    \textbf{flutter\_decorated\_text} & A package to enable partial text styling in Flutter. \\
+                    \hline
+                    \textbf{dropdown\_button2} & A Flutter package to create simple dropdown menus. \\
+                    \hline
+                    \textbf{connectivity\_plus} & A plugin to check if the device is connected to the internet through WiFi, mobile data, or ethernet. \\
+                    \hline
+                    \textbf{cupertino\_icons} & Set of iOS icons to use in Flutter. \\
+                    \hline
+                    \textbf{flutter\_launcher\_icons} & Flutter package to create and customize the app icon for both Android and iOS. \\
+                    \hline
+                    \textbf{tuple} & A library that enables tuples in Dart. \\
+                    \hline
+                    \textbf{url\_launcher} & Plugin to direct URLs like phone and email to the device's default URL launchers, such as the phone app or email client app. \\
+                    \hline
+                    \textbf{flutter\_native\_splash} & Creates a splash screen that appears when launching the app on iOS and Android. \\
+                    \hline
+                \end{longtable}
+            \end{spacing}
         \chapter{State Management Overview} \label{appendix:state_management}
             Most of the screens in the app rely on a controller to mange their state. The controller communicates with the service fetches the data for the screen widget. The screen widget watching the controller using Riverpod Provider wrapper updates whenever the controller data changes to reflect new state. 
     
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.9\textwidth]{Images/state_management.png}
+                \includegraphics[width=0.9\textwidth]{Images/state_management.jpeg}
                 \caption{Application State Management Overview}
                 \label{fig:state_management}
             \end{figure}
-
+    
         \chapter{The Flow of Starting the App} \label{appendix:post_launch}
-            
              \begin{figure}[H]
                 \centering
                 \rotatebox{90}{
-                    \includegraphics[width=1.2\textwidth]{Images/start_app_flow.png}}
+                    \includegraphics[width=1.2\textwidth]{Images/start_app_flow.jpeg}}
                     \caption{App Start Flow}
                 \label{fig:app_start}
             \end{figure} 
@@ -1417,12 +1463,10 @@
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1\textwidth]{Images/trip_detail_screen_variations.png}
+            \includegraphics[width=1\textwidth]{Images/trip_detail_screen_variations.jpeg}
             \caption{Trip Detail Screen Router}
             \label{fig:trip_detail_screen_variations}
         \end{figure}
-
-        % \FloatBarrier
 
 \end{document} % This is the end of the document
 
